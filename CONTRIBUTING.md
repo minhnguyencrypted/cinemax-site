@@ -5,28 +5,34 @@ Some conventions and rules you should follow when contributing to the project.
 Commit messages contains 2 parts: **Title** and **Body**
 
 ### Title
-Title should be like this: `<type> : <Subject>`, where:
+Title should be like this: `<type> <Subject>`, where:
 
 `<type>` can be: 
 
-* `ADD` : for adding new feature
-* `FIX` : for fixing bug
-* `CHANGE` : for changing some details
-* `IMPROVE` : for improving current features, algorithms, contents, etc.
+* `Add` : for adding new feature
+* `Fix` : for fixing bug
+* `Change` : for changing some details
+* `Improve` : for improving current features, algorithms, contents, etc.
+* Other types can be accepted, as long as they describe a sensible type of the commit
 
-`<Subject>` should describe what the commit does and should be less than 50 characters, not need to end with `.`
+`<Subject>` should be the target of the commit (to be added, fixed, changed, etc.) and should be less than 50 characters, no need to end with `.`.
 
 **Example**:
           
-    ADD : User submit button
+    Add Submit button
  
 ### Body
 
-Body is not strictly required, it's only needed when extra details and explanations are needed  
+Body is not strictly required, it's only needed when extra details and explanations are needed.  
+There's must be one blank line between **Title** and **Body**, each line of text shouldn't be longer than 72 characters.    
+
 Bullet points should be used when doing this, starting with  `-`.
+
 
 **Example**:
     
+    Add Submit button
+
     - Submit button has increased size for better user experience
     - Large font size for readability
     - Modern design for better appearance
