@@ -1,6 +1,9 @@
 # Contributing to Cinemax Site
 Some conventions and rules you should follow when contributing to the project.
 
+When you start contributing to the project, you should create your own branch and commit your changes to it. Once you're ready, feel free to make a pull request. First and foremost, here's what you should follow.
+
+
 ## Commit messages
 Commit messages contains 2 parts: **Title** and **Body**
 
@@ -36,3 +39,9 @@ Bullet points should be used when doing this, starting with  `-`.
     - Submit button has increased size for better user experience
     - Large font size for readability
     - Modern design for better appearance
+
+## Branches and Pull Requests
+Your branch name should be appropriate regarding what you are doing or which are your working on.  
+Something like `cutekitty42`, `hackerman2021`, etc. is not allowed.
+
+Pull requests are all welcomed. However, remember to describe your pull request and make sure your works are done well.
