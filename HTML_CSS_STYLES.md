@@ -88,3 +88,21 @@ Here's some advice on naming HTML/CSS attributes such as `id`, `name`, etc. :
 
       **Example**: `customerId` or `customer_id`, not `CustomerId` or `customerID`
 
+# Other conventions
+
+## Specifying `lang` attribute in `<html>`
+Always add `lang` attribute in `<html>`  
+**Example**: `<html lang="en-US">`
+
+You are also advised to add a hyphen-separated `lang` attribute value containing a **Language Subtag** and an optional **Regional Subtag**. **Script Subtag** is not really needed so far. Here's the detailed guides how to write `lang` attribute values:
+* Language Subtag: 2 or 3-character code in lowercase, such as: `en`, `vi`, `fr`, etc.
+* Regional Subtag: 2 or 3-character code in UPPER-CASE, such as: `US`, `VN`, `FR`, etc.
+* Script Subtag: 4-character code with initial character capitalised, however, if you only work with typical Latin alphabet like English or Vietnamese, no need to use.
+
+## File names
+File names should be case-sensitive and contain no Blank spaces ` `.  
+File names made up of multiple words should have Underscore `_` for splitting words.
+
+**Example**: `index.html`, `user_input_form.html`, etc.
+
+File extensions should also be written in lower-case, corresponding to its formats: `.html` and `.htm` for HTML and `.css` for CSS
