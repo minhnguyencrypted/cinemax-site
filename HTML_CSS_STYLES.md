@@ -8,19 +8,13 @@ Here's what you should consider when writing HTML/CSS:
 
 # General Rules
 * All lines should not be longer than 80 characters, lines longer than this must be broken to a newline
-* All tags, attribute, names (except some initial characters) must be all written in lower-case  
-(exception:
-	`<!DOCTYPE html>`)
-* Indentations are 4 characters
-* Using double quote `"` on every attribute values, even when the value doesn't include blank
-space. For example: `id="name"`
-* In CSS style attribute, all pairs of property and value must end with a semicolon `;`, this is optional for the last pair, if you want to make HTML more like a programming language, just do it.
+* Indentations are equivalent to 4 space characters. For example: `id="name"`
 
-# Tags
+# Tags & Attributes
 
-## Tag case-sensitivity
-Even though HTML itself is case-insensitive in term of tags, but we strongly encourage you to write
-your tags in lowercase, no capitalisation on any characters, including the first one.  
+## Lower-case tags
+Even though HTML itself is case-insensitive in term of tags, attributes, properties, etc., we strongly encourage you to write
+your **tags**, **attributes**, **properties**, etc. in lower-case, no capitalisation on any characters, including the initial one.  
 **Example**
 
 ```
@@ -32,11 +26,27 @@ your tags in lowercase, no capitalisation on any characters, including the first
 </html>
 ```
 
-You should not use something like: `<Html>` or `<HTML>` or `<hTmL>`
+You should not mixing upper-case and lower-case characters like this: `<Html>` or `<HTML>` or `<hTmL>`.
 
-## Tag closing
-Short answer: Always  
-Long answer: You should always close HTML tags
+## Quoting attributes and avoiding extra spaces
+You should always quote your attributes with Double quote `"`, even when it's not separated by space character.  
+
+**Example**: `id="name"`, `title="Go to website"`, `value="home_address"`
+
+Spaces should not be placed to separate Equal sign `=` from other characters.
+
+**Example**
+
+    method="post"   <-- Right way
+    method = "post" <-- Wrong way
+
+
+Spaces should not be placed **after** opening parentheses and **before** closing parentheses.
+
+**Example**
+
+    value="Foo"    <-- Right way
+    value=" Foo "  <-- Wrong way
 
 ## Breaking tags' attributes
 Sometimes, an element contains a big number of attributes, results in over-length and unreadability for other contributors.  
@@ -55,6 +65,10 @@ The element above should be broken into newlines by attributes, with 8-character
 ```
 Breaking lines by which attribute still depends on your personal choice, just make sure it's highly readable and follows the 8-character indentation. 
 
+## Tag closing
+Short answer: Always  
+Long answer: You should always close HTML tags
+
 # Naming conventions
 Here's some advice on naming HTML/CSS attributes such as `id`, `name`, etc. : 
 
@@ -65,10 +79,12 @@ Here's some advice on naming HTML/CSS attributes such as `id`, `name`, etc. :
 
 ## Name writing styles:
 * For **Single-character** and **Single-word** names: no capitalisation at all.
-* For **Multi-word** names: 
-    * Each word can be either **not separate** or **separate** by Underscore `_`, the former is more advised  
-    **Example**: `maxNumCount` or `max_Num_Count`
+* For **Multi-word** names:  
+    * Each word can be either **not separate** or **separate** by Underscore `_`, the former is more advised 
+ 
+      **Example**: `maxNumCount` or `max_num_count`
     * The very first letter of the name is not capitalised, while since the second word, only the initial character of these words  
-(even acronyms), are capitalised  
-    **Example**: `customerId`, not `CustomerId` or `customerID`
+(even acronyms), are capitalised. While writing with Underscore `_`, every characters can be lower-case.  
+
+      **Example**: `customerId` or `customer_id`, not `CustomerId` or `customerID`
 
