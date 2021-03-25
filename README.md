@@ -1,6 +1,6 @@
-# The Cinemax website
-The official website of Cinemax.  
-Cinemax is a medium-sized cinema located in lovely country town, revamped with 3D projection and Advanced Lighting and Sound technologies.
+# The Mall website
+The Group no. 25's Mall website.  
+The World-biggest Online Mall for shoppers and sellers all around the world.
 
 Note: this is not an actual business, this is a part of RMIT Web Programming course group project.
 
@@ -8,7 +8,7 @@ Note: this is not an actual business, this is a part of RMIT Web Programming cou
 On your computer, go to your desired location then execute this command:
 
 ```
-git clone https://github.com/minhnguyencrypted/cinemax-site
+git clone https://github.com/minhnguyencrypted/mall-site
 ```
 If you cannot execute the command above, click on the green **Code** button above and choose **Download ZIP**.
 
@@ -19,6 +19,9 @@ Copy all files and directories of the project to your Web Server's **Document ro
 
 With the Web Server running, on your web browser, go to `localhost` or `127.0.0.1` to see the site.
 
+For HTML files, you can directly view them using your web browser, however, some PHP integrations won't work and  
+may cause errors.
+
 ## Contributing to our project
 You are very welcomed to contribute to our project. See `CONTRIBUTING.md` file for our guidelines to contributions.  
 Make sure you follow the code style guidelines described in `*_STYLES.md` files. 
@@ -28,7 +31,7 @@ detail as you know.
 You may refer to the location of the code that causes the issue, if you found
 it.
 
-Thank you in advance for your contributions.
+Looking forwards for your contributions.
 
 ## Copyright and License
 Copyright (c) 2021 Group no. 25:
