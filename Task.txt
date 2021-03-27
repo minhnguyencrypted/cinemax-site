@@ -1,10 +1,10 @@
 Navigation bar:
 - Trang web chính
-- Trang about us
-- Trang Privacy policy (ToS)
+- Trang about us (Nhật)
+- Trang Privacy policy (ToS) (Shin)
 - Trang fee
-- Trang forum
-- Trang web forms (contact)
+- Trang forum (Shin)
+- Trang web forms (contact)  (Nhật)
 - Trang My account
 - Trang đặt hàng
 
@@ -12,10 +12,11 @@ Trang thông tin sản phẩm
 Trang thông tin các cửa hàng
 
 
-Chức năng forgot password
-Chức năng đăng kí account
+Chức năng forgot password (Hiển)
+Chức năng đăng kí account (Hiển)
+
 Chức năng search cửa hàng, sản phẩm
-Design Footer, Header cho các trang web
+Design Footer (Shin), Header (Minh) cho các trang web
 
 Ít nhất 2 cửa hàng và 5 danh mục sản phẩm
 Ít 4 sản phẩm cho 1 danh mục
