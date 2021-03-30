@@ -1,0 +1,20 @@
+.logo {
+    width: 100px;
+}
+
+.nav-list {
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+
+    float: right;
+    background-color: #ddd;
+    padding: 8px;
+}
+
+.nav-list-item {
+    display: inline;
+    padding: 8px;
+    font-size: 20px;
+    text-decoration: none;
+}
