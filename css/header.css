@@ -1,20 +1,17 @@
-.logo {
-    width: 100px;
+.nav {
+    padding: 5px;
+    text-align: center;
+    /* Testing color */
+    background-color: cornflowerblue;
 }
 
 .nav-list {
-    list-style-type: none;
-    margin: 0;
-    overflow: hidden;
+    list-style: none;
+    font-size: 20px;
 
-    float: right;
-    background-color: #ddd;
-    padding: 8px;
 }
 
 .nav-list-item {
     display: inline;
-    padding: 8px;
-    font-size: 20px;
-    text-decoration: none;
+    padding: 10px;
 }
