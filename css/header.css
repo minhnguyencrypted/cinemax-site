@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&family=Roboto+Condensed&display=swap');
 .nav {
     padding: 5px;
+    margin-block: 20px;
     text-align: center;
     /* Testing color */
-    background-color: cornflowerblue;
+    background-color: #20C9DF
 }
 
 .nav-list {
@@ -14,4 +16,21 @@
 .nav-list-item {
     display: inline;
     padding: 10px;
+    font-family: 'Roboto Condensed', sans-serif;
+    cursor: pointer;
+    color: #ddd
+}
+
+.nav-list-item a {
+    text-decoration: none;
+}
+
+.nav-list-item a:hover {
+    /* Testing color */
+    background-color: #DF3620;
+}
+
+.nav-list-item a:active {
+    /* Testing color */
+    color: white;
 }
