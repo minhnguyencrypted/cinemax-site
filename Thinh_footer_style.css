@@ -7,7 +7,7 @@
     left: 0;
     padding: 10px 10px 20px 10px;
     background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(208,208,230,1) 0%, rgba(0,212,255,1) 100%);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(238,126,168,1) 0%, rgba(120,232,143,1) 100%);
 }
 
 a{
