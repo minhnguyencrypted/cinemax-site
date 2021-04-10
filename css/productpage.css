@@ -16,6 +16,11 @@ body {
 
 }
 
+.product-img {
+    position: relative;
+    top: 150px;
+}
+
 .pTitle {
     position: relative;
     top: 20px;
