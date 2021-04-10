@@ -1,0 +1,46 @@
+body {
+    text-align: center;
+}
+
+.pInfo-frame {
+    margin: auto;
+    border: 3px solid black;
+    width: 60%;
+    height: 650px;
+}
+
+.product-info {
+    float: right;
+    text-align: left;
+    width: 65%;
+
+}
+
+.pTitle {
+    position: relative;
+    top: 20px;
+    font-size: 40px;
+}
+
+.add-button {
+    display: inline-block;
+    border: 3px solid black;
+    width: 180px;
+    height: 50px;
+    text-align: center;
+}
+
+.buy-button {
+    display: inline-block;
+    border: 3px solid black;
+    width: 180px;
+    height: 50px;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.button-name {
+    font-size: 22px;
+    position: relative;
+    bottom: 9px;
+}
