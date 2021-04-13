@@ -2,6 +2,11 @@ body {
     text-align: center;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
 .pInfo-frame {
     position: relative;
     margin: auto;
