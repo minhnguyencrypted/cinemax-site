@@ -8,9 +8,13 @@ body {
 }
 
 .faq-header{
-  font-size: 42px;
-  border-bottom: 1px dotted #ccc;
-  padding: 24px;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  background: #24B7DB;
+  color: black;
+  margin: auto;
+  padding: 20px;
 }
 
 .faq-content {
@@ -23,7 +27,7 @@ body {
 }
 
 .panel-title {
-  font-size: 24px;
+  font-size: 1.5rem;
   width: 100%;
   position: relative;
   margin: 0;
@@ -33,7 +37,7 @@ body {
 }
 
 .panel-content {
-  font-size: 20px;
+  font-size: 1rem;
   padding: 0px 14px;
   margin: 0 40px;
   height: 0;
