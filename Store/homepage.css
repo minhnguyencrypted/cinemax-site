@@ -1,0 +1,41 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+.body {
+	text-align: center;
+}
+.wrapper {
+	width: 100%;
+	margin: 30px auto;
+}
+.home_store_header {
+	height: 100px;
+	background: #262626;
+	width: 100%;
+	z-index: 10;
+	position: fixed;
+}
+
+.home_store_header_fl_item{
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px){
+    .home_store_header .wrapper nav {
+	    float: rt;
+        width: 100%;
+    }
+}
+.home_store_header .wrapper nav a {
+	text-decoration: none;
+	letter-spacing: 0.1rem;
+	font-size: 1.5rem;
+	margin: 20px;
+	color: #fff;
+}
+.home_store_header .wrapper nav a:hover{
+    color: lightblue;
+}
+

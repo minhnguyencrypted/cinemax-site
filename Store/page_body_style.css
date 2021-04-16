@@ -70,7 +70,7 @@ body {
 }
 
 #New_stores .navigation .bar:hover{
-    background: blue;
+    background: lightblue;
 }
 
 input[name="f"]{
