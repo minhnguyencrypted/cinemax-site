@@ -1,3 +1,9 @@
+/* MAIN */
+
+*{
+    margin: 0;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -45,8 +51,10 @@ h1 {
 img {
     margin-left: 50px
 }
+/* MAIN END */
 
 
+/* FOOTER*/
 #footer .footer1 {
     float: left;
     position: relative;
@@ -55,6 +63,7 @@ img {
     bottom: 0;
     left: 0;
     background: #262626;
+    margin-top: 20px;
 }
 
 #footer .footer1 .footer_content a{
@@ -93,7 +102,10 @@ img {
     justify-content: center;
 }
 
+/* FOOTER END */
 
+
+/* HEADER END */
 #header .wrapper {
 	width: 100%;
 	margin: 30px auto;
@@ -131,3 +143,4 @@ img {
     color: lightblue;
 }
 
+/* HEADER END */
