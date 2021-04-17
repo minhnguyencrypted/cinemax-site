@@ -9,6 +9,23 @@
 	width: 100%;
 	margin: 30px auto;
 }
+
+
+#header .home_store_header .wrapper .logo picture a img {
+    max-width: 100px;
+    float: left;
+    position: relative;
+    background-color: white;
+    padding: 10px;
+    margin: 10px;
+    left: 12%;
+    top: 5%;
+    position: absolute;
+    
+}  
+
+
+
 #header .home_store_header {
 	height: 100px;
 	background: #262626;
