@@ -1,11 +1,4 @@
-/* BODY STYLE HERE */
-
-
-body {
-    background-color: white;
-}
-
-#New_stores .h1_title{
+#Featured_Stores .h1_title{
     font-style: italic;
     font-size: 2rem;
     display: flex;
@@ -15,7 +8,7 @@ body {
 
 }
 
-#New_stores .fl_item{
+#Featured_Stores .fl_item{
     width: 1000px;
     padding: 20px;
     margin: auto;
@@ -23,14 +16,15 @@ body {
 }
 
 
-#New_stores .New_Stores_Slider{
+#Featured_Stores .Featured_Stores_Slider{
     width: 700px;
     height: 400px;
     overflow: hidden;
     box-shadow: 1px 2px 10px 5px black;
+
 }
 
-#New_stores .middle_imgs{
+#Featured_Stores .middle_imgs{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -40,23 +34,25 @@ body {
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px){
-     #New_stores .New_Stores_Slider .slides .slide picture{
+    #Featured_Stores .Featured_Stores_Slider .slides .slide picture{
         text-align: center;
     }
 }
-#New_stores .New_Stores_Slider .slide .store_name{
+#Featured_Stores .Featured_Stores_Slider .slide .store_name{
     font-size: 2.5rem;
     margin: auto;
     padding: 5px auto;
+ 
 
 }
 
-#New_stores .New_Stores_Slider .slide .store_name_fl_item{
+#Featured_Stores .Featured_Stores_Slider .slide .store_name_fl_item{
     display: flex;
     justify-content: center;
+
 }
 
-#New_stores .navigation{
+#Featured_Stores .navigation{
     position: absolute;
     bottom: 20px;
     left: 50%;
@@ -64,7 +60,7 @@ body {
     display: flex;
 }
 
-#New_stores .navigation .bar{
+#Featured_Stores .navigation .bar{
     width: 50px;
     height: 20px;
     border: 1px solid black;
@@ -72,9 +68,10 @@ body {
     margin: 6px;
     cursor: pointer;
     transition: 0.3s;
+
 }
 
-#New_stores .navigation .bar:hover{
+#Featured_Stores .navigation .bar:hover{
     background: lightblue;
 }
 
@@ -83,19 +80,19 @@ input[name="f"]{
     visibility: hidden;
 }
 
-#New_stores .New_Stores_Slider .slides{
+#Featured_Stores .Featured_Stores_Slider .slides{
     width: 500%;
     height: 100%;
     display: flex;
 
 }
 
-#New_stores .New_Stores_Slider .slide{
+#Featured_Stores .Featured_Stores_Slider .slide{
     width: 20%;
     transition: 0.6s;
 }
 
-#New_stores .New_Stores_Slider .slide .img{
+#Featured_Stores .Featured_Stores_Slider .slide .img{
     max-width: 100%;
     height: auto;
 }

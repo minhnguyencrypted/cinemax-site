@@ -1,3 +1,5 @@
+/* HEADER MAIN */
+
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&family=Roboto+Condensed&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap');
 .nav {
@@ -44,3 +46,6 @@
     width: 100%;
     background-size: cover;
 }
+
+
+/* HEADER MAIN END */
