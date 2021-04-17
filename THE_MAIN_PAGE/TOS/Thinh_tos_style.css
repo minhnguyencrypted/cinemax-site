@@ -16,3 +16,111 @@ body {
   margin: auto;
   padding: 20px;
 }
+
+/* HEADER MAIN */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap');
+.nav {
+    padding: 5px;
+    margin-block: 20px;
+    text-align: center;
+    /* Testing color */
+    background-color: #20C9DF
+}
+
+.nav-list {
+    list-style: none;
+    font-size: 20px;
+
+}
+
+.nav-list-item {
+    display: inline;
+    padding: 10px;
+    font-family: 'Roboto Condensed', sans-serif;
+    cursor: pointer;
+    color: #ddd
+}
+
+.nav-list-item a {
+    text-decoration: none;
+}
+
+.nav-list-item a:hover {
+    /* Testing color */
+    background-color: #DF3620;
+}
+
+.nav-list-item a:active {
+    /* Testing color */
+    color: white;
+}
+.logo {
+    font-size:larger;
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    background-image: url(https://blog.visme.co/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-03.jpg);
+    width: 100%;
+    background-size: cover;
+}
+
+
+/* HEADER MAIN END */
+
+/* FOOTER */
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+#footer .footer1 {
+  width: 100%;
+  position: relative;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #262626;
+}
+
+#footer .footer1 .footer_content a{
+  text-decoration: none;
+  color:#fff ;
+  font-size: 1.5rem;
+}
+
+#footer .footer1 .footer_content{
+  width: 100%;
+  margin: 0;
+  padding: 0 20px;
+}
+
+#footer .footer1 .footer_content {
+  display: flex;
+  justify-content: center;
+
+}
+#footer .footer1 .footer_content li {
+  list-style: none;
+  padding: 20px;
+}
+
+#footer .footer1 .footer_content a:hover{
+  color: lightblue;
+}
+
+#footer .footer1 .copyright{
+  font-size: 1rem;
+  color: lightcoral;
+}
+
+#footer .footer1 .copyright{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+
+/* FOOTER END */
