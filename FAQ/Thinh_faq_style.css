@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+body {
+  color: #333;
+  background: #fcfcfc;
+  font-family: 'Raleway', sans-serif;
+  overflow-x: hidden;
+}
+
+.faq-header{
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  background: #24B7DB;
+  color: black;
+  margin: auto;
+  padding: 20px;
+}
+
+.faq-content {
+  margin: 0 auto;
+}
+
+.faq-question {
+  padding: 20px 0;
+  border-bottom: 1px dotted #ccc;
+}
+
+.panel-title {
+  font-size: 1.5rem;
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 10px 10px 0 48px;
+  display: block;
+  cursor: pointer;
+}
+
+.panel-content {
+  font-size: 1rem;
+  padding: 0px 14px;
+  margin: 0 40px;
+  height: 0;
+  overflow: hidden;
+  z-index: -1;
+  position: relative;
+  opacity: 0;
+  -webkit-transition: .4s ease;
+  -moz-transition: .4s ease;
+  -o-transition: .4s ease;
+  transition: .4s ease;
+}
+
+.panel:checked ~ .panel-content{
+  height: auto;
+  opacity: 1;
+  padding: 14px;
+}
+
+.plus {
+  position: absolute;
+  margin-left: 20px;
+  margin-top: 4px;
+  z-index: 5;
+  font-size: 42px;
+  line-height: 100%;
+  -webkit-user-select: none;    
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  -webkit-transition: .2s ease;
+  -moz-transition: .2s ease;
+  -o-transition: .2s ease;
+  transition: .2s ease;
+}
+
+.panel:checked ~ .plus {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.panel {
+  display: none;
+}
+
+#footer .footer1 {
+  position: relative;
+  width: 100%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #262626;
+}
+
+#footer .footer1 .footer_content a{
+  text-decoration: none;
+  color:#fff ;
+  font-size: 1.5rem;
+}
+
+#footer .footer1 .footer_content{
+  width: 100%;
+  margin: 0;
+  padding: 0 20px;
+}
+
+#footer .footer1 .footer_content {
+  display: flex;
+  justify-content: center;
+
+}
+#footer .footer1 .footer_content li {
+  list-style: none;
+  padding: 20px;
+}
+
+#footer .footer1 .footer_content a:hover{
+  color: lightblue;
+}
+
+#footer .footer1 .copyright{
+  font-size: 1rem;
+  color: lightcoral;
+}
+
+#footer .footer1 .copyright{
+  display: flex;
+  justify-content: center;
+}
+
+
+#header .wrapper {
+width: 100%;
+margin: 30px auto;
+}
+
+
+#header .home_store_header {
+  height: 100px;
+  background: #262626;
+  width: 100%;
+  z-index: 10;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+#header .home_store_header_fl_item{
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px){
+  #header .home_store_header .wrapper nav {
+    float: right;
+    width: 100%;
+  }
+}
+#header .home_store_header .wrapper nav a {
+  text-decoration: none;
+  letter-spacing: 0.1rem;
+  font-size: 1.5rem;
+  margin: 20px;
+  color: #fff;
+}
+#header .home_store_header .wrapper nav a:hover{
+  color: lightblue;
+}

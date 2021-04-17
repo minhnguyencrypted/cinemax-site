@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Contact us</title>
+    </head>
+    <link rel="stylesheet" href="contact.css" type="text/css">
+    <body>
+        <header>
+            <div class="logo">
+                <h1>Mall-site</h1>
+            </div>
+            <!-- Navigation bar -->
+            <div class="nav">
+                <ul class="nav-list">
+                    <li class="nav-list-item"><a href="#">Home</a></li>
+                    <li class="nav-list-item"><a href="#">About Us</a></li>
+                    <li class="nav-list-item"><a href="#">Fees</a></li>
+                    <li class="nav-list-item"><a href="#">My Account</a></li>
+                    <li class="nav-list-item"><a href="#">Browse</a></li>
+                    <li class="nav-list-item"><a href="#">FAQs</a></li>
+                    <li class="nav-list-item"><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </header>
+        <main>
+            <h1>Contact us</h1>
+            <form method="post" action="contactthankyou.html">
+                <div class="contact-purpose">
+                    <label for="contact_purpose" id="contact_purpose">Choose your contact purpose:</label>
+                    <select name="purpose_of_contact" id="Contact">
+                        <option value=' ' selected>Please select</option>
+                        <option value="Business">Business</option>
+                        <option value="Personal">Personal</option>
+                    </select>
+                </div> <br>
+                <div class="contact-name">
+                    <label for="name" id="contact_name">Enter your name:</label>
+                    <input type="text" placeholder="Name" required>
+                </div> <br>
+                <div class="contact-email">
+                    <label for="email" id="contact_email">Enter your email:</label>
+                    <input type="email" placeholder="Email" required>
+                </div> <br>
+                <div class="contact-phone">
+                    <label for="phone_number" id="contact_number">Enter your phone number:</label>
+                    <input type="number" placeholder="Phone" required>
+                </div> <br>
+                <div class="contact-method">
+                    <label for="contact_method" id="contact_method">Prefered contact method:</label>
+                    <input type="radio" name="radio_contact" value="phone">
+                    <label for="contact_phone" id="contact_radio_phone">Phone</label>
+                    <input type="radio" name="radio_contact" value="Email">
+                    <label for="contact_email" id="contact_radio_email">Email</label>
+                </div> <br>
+                <div class="contact-days">
+                    <label for="days" id="contact_days">Contact days:</label>
+                    <label for="monday" id="contact_monday">Monday</label>
+                    <input type="checkbox" name="checkbox_time[]" value="Monday">
+                    <label for="tuesday" id="contact_tuesday">Tuesday</label>
+                    <input type="checkbox" name="checkbox_time[]" value="Tuesday">
+                    <label for="wednesday" id="contact_wednesday">Wednesday</label>
+                    <input type="checkbox" name="checkbox_time[]" value="Wednesday">
+                    <label for="thursday" id="contact_thursday">Thursday</label>
+                    <input type="checkbox" name="checkbox_time[]" value="Thursday">
+                    <label for="friday" id="contact_friday">Friday</label>
+                    <input type="checkbox" name="checkbox_time[]" value="Friday">
+                    <label for="saturday" id="contact_saturday">Saturday</label>
+                    <input type="checkbox" name="checkbox_time[]" value="Saturday">
+                    <label for="sunday" id="contact_sunday">Sunday</label>
+                    <input type="checkbox" name="checkbox_time[]" value="Sunday">
+                </div> <br>
+                <div class="contact-message">
+                    <label for="message" id="contact_message">Message you want to send us:</label><br>
+                    <textarea cols="50" rows="10" maxlength="500" placeholder="write something (Max 500 chars)"></textarea>
+                </div> <br>
+                <div class="function-button">
+                    <button class="form-button-reset" type="reset">Clear</button>
+                    <button class="form-button-submit" type="submit">Submit</button> 
+                </div>
+            </form>
+        </main>
+        <footer>
+            <div class="footer">
+                <ul>
+                    <div class="footer_content">
+                        <div class="footer_content_policies">
+                            <li>
+                                <p><a href="Thinh_policies.htmnl">Policies</a>
+                                </p>
+                            </li>
+                            <br><br>
+                        </div>
+                        <div class="footer_content_faq">
+                            <li>
+                                <p><a href="Thinh_faq.html">FAQ</a>
+                                </p>
+                            </li> 
+                            <br></br>
+                    </div>
+                </ul>
+                <div class="copyright">
+                    <small>Copyright &copy; 2021, Group Assignment</small>
+                </div>
+            </div>
+        </footer>
+            
+    </body>
+</html>
