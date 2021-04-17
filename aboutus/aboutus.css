@@ -1,0 +1,146 @@
+/* MAIN */
+
+*{
+    margin: 0;
+}
+
+main {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    margin-bottom: 30px;
+    text-align: center;
+    color: black;
+    font-size: 40px;
+}
+
+.Thinh-info {
+    width: 40%;
+    float:left;
+    margin-left: 130px;
+}
+
+.Minh-info {
+    width: 40%;
+    height: 500px;
+    float: right;
+}
+
+.Nhat-info {
+    float: left;
+    width: 40%;
+    margin-left: 150px;
+    margin-top: 50px;
+}
+
+#nhat-info #thinh-info #minh-info {
+    margin-left: 20px;
+}
+
+.Hien-info {
+    float: right;
+    width:40%;
+    margin-top: 100px;
+}
+
+.list {
+    border: 4px solid #263AD9;
+}
+
+img {
+    margin-left: 50px
+}
+/* MAIN END */
+
+
+/* FOOTER*/
+#footer .footer1 {
+    float: left;
+    position: relative;
+    width: 100%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #262626;
+    margin-top: 20px;
+}
+
+#footer .footer1 .footer_content a{
+    text-decoration: none;
+    color:#fff ;
+    font-size: 1.5rem;
+}
+
+#footer .footer1 .footer_content{
+    width: 100%;
+    margin: 0;
+    padding: 0 20px;
+}
+
+#footer .footer1 .footer_content {
+    display: flex;
+    justify-content: center;
+
+}
+#footer .footer1 .footer_content li {
+    list-style: none;
+    padding: 20px;
+}
+
+#footer .footer1 .footer_content a:hover{
+    color: lightblue;
+}
+
+#footer .footer1 .copyright{
+    font-size: 1rem;
+    color: lightcoral;
+}
+
+#footer .footer1 .copyright{
+    display: flex;
+    justify-content: center;
+}
+
+/* FOOTER END */
+
+
+/* HEADER END */
+#header .wrapper {
+	width: 100%;
+	margin: 30px auto;
+}
+
+
+#header .home_store_header {
+	height: 100px;
+	background: #262626;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+    margin-bottom: 100px;
+}
+
+#header .home_store_header_fl_item{
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px){
+    #header .home_store_header .wrapper nav {
+	    float: right;
+        width: 100%;
+    }
+}
+#header .home_store_header .wrapper nav a {
+	text-decoration: none;
+	letter-spacing: 0.1rem;
+	font-size: 1.5rem;
+	margin: 20px;
+	color: #fff;
+}
+#header .home_store_header .wrapper nav a:hover{
+    color: lightblue;
+}
+
+/* HEADER END */
