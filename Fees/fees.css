@@ -1,0 +1,150 @@
+body {
+    background-color: #CAE4F8
+}
+
+.premium-member-container {
+    width: 20%;
+    float:left;
+    border: 5px solid #EAD415;
+    background-color: white;
+    text-align: center;
+    margin-left: 30px;
+    padding: 10px;
+}
+
+.list-features {
+    text-align: left;
+}
+
+main h1 {
+    text-align: center;
+    width: 20%;
+    margin-bottom: 50px;
+    margin-left: 500px;
+    border: 3px solid #5F65A0
+}
+
+.price-premium-monthly {
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.vip-member-container {
+    width: 20%;
+    float:left;
+    border: 5px solid #26BDD9;
+    background-color: white;
+    text-align: center;
+    margin-left: 25px;
+    padding: 10px;
+}
+
+.VIP {
+    color: #D3D827;
+    font-size: x-large;
+}
+
+.premium-owner-container {
+    width: 20%;
+    padding: 10px;
+    text-align: center;
+    background-color: white;
+    float: right;
+    border: 5px solid #EAD415;
+    margin-right: 30px;
+}
+
+.vip-owner-container {
+    width: 20%;
+    padding: 10px;
+    text-align: center;
+    float: right;
+    background-color: white;
+    border: 5px solid #26BDD9;
+    margin-right: 20px;
+    padding: 10px;
+}
+
+.nav {
+    padding: 5px;
+    margin-block: 20px;
+    text-align: center;
+    /* Testing color */
+    background-color: #20C9DF
+}
+
+.nav-list {
+    list-style: none;
+    font-size: 20px;
+
+}
+
+.nav-list-item {
+    display: inline;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    color: #ddd
+}
+
+.nav-list-item a {
+    text-decoration: none;
+}
+
+.nav-list-item a:hover {
+    /* Testing color */
+    background-color: #DF3620;
+}
+
+.nav-list-item a:active {
+    /* Testing color */
+    color: white;
+}
+.logo {
+    font-size:larger;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-image: url(https://blog.visme.co/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-03.jpg);
+    width: 100%;
+    background-size: cover;
+}
+
+
+.footer {
+    margin-top: 70px;
+    width: 100%;
+    float:left;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: 10px 10px 20px 10px;
+    background: #24B7DB;
+}
+
+
+
+a {
+    text-decoration: none;
+    color:#000000 ;
+}
+
+.footer_content{
+    width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer_content {
+    display: flex;
+    justify-content: center;
+}
+
+.footer_content li {
+    list-style: none;
+    padding: 20px;
+}
+
+main {
+    width: 100%;
+}
