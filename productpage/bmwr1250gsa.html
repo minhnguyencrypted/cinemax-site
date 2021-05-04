@@ -28,7 +28,7 @@
             </div>
             <p class="pPrice">Price: VND 699,000,000</p>
             <div class="buy-button"><p class="button-name">Buy Now</p></div>
-            <div class="add-button"><p class="button-name">Add</p></div>
+            <div class="add-button" onclick="buttonAddProduct()"><p class="button-name">Add</p></div>
         </div>
         <div>
             <img src="product_img/foobar.png" alt="Foobar product picture" class="product-img">
@@ -52,4 +52,17 @@
         </div>
     </div>
 </body>
+
+<script src="js/CartItems.js"></script>
+<script src="js/webStorage.js"></script>
+<script>
+    //As all items are stored in "items" array, a member of CartItems class (refer to js/CartItems.js)
+    //Assign productIndex corresponding to such array's element
+    let productIndex = 0;
+    //onclick Function
+    function buttonAddProduct() {
+        let addedItemName = addItemToCart(productIndex);
+        alert("Added " + addedItemName + " to cart.");
+    }
+</script>
 </html>

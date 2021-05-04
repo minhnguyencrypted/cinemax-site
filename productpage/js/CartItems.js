@@ -1,39 +1,34 @@
-//Class
+//CartItems Class
+class CartItems {
+    //Attributes
+    itemList;
 
-let CartItems = {
-    items : [
-        {
-            "name" : "BMW R 1250 GSA",
-            "price" : 699000000,
-            "count" : 0
-        },
+    //Constructor
+    constructor(itemList) {
+        this.itemList = itemList;
+    }
 
-        {
-            "name" : "Royal Enfield Himalayan",
-            "price" : 139000000,
-            "count" : 0
-        },
+    //Methods
+    setItemCount(itemIndex, countValue) {
+        this.itemList[itemIndex].count = countValue;
+    }
 
-        {
-            "name" : "Triumph Tiger 850 Sport",
-            "price" : 359900000,
-            "count" : 0
+    getTotalPrice() {
+        let totalPrice = 0;
+        for (let item of this.itemList) {
+            totalPrice += item.price * item.count;
         }
-    ],
+        return totalPrice;
+    }
 
-    increaseItemCount : function(itemIndex) {
-        return ++this.items[itemIndex].count;
-    },
+    getCartItemName(itemIndex) {
+        return this.itemList[itemIndex].name;
+    }
 
-    getTotalPrice : function() {
-        let total = 0;
-        for (let item of this.items) {
-            total += item.price * item.count;
+    //Debug methods
+    logItems() {
+        for (let item of this.itemList) {
+            console.log("name: " + item.name + " price: " + item.price + " count: " + item.count);
         }
-        return total;
-    },
-
-    getCartItemName : function(itemIndex) {
-        return this.items[itemIndex].name;
     }
 }
