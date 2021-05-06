@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
+
+
 body {
   color: #333;
   background: #fcfcfc;
@@ -15,6 +17,10 @@ body {
   color: black;
   margin: auto;
   padding: 20px;
+}
+
+.content {
+  margin: 0 5%;
 }
 
 /* HEADER MAIN */
