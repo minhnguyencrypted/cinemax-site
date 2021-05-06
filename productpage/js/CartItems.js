@@ -2,17 +2,21 @@
 class CartItems {
     //Attributes
     itemList;
+    itemCount;
 
     //Constructor
-    constructor(itemList) {
+    constructor(itemList, itemCount) {
         this.itemList = itemList;
+        this.itemCount =  itemCount;
     }
 
     //Methods
+    //Setters
     setItemCount(itemIndex, countValue) {
         this.itemList[itemIndex].count = countValue;
     }
 
+    //Getters
     getTotalPrice() {
         let totalPrice = 0;
         for (let item of this.itemList) {
@@ -23,6 +27,10 @@ class CartItems {
 
     getCartItemName(itemIndex) {
         return this.itemList[itemIndex].name;
+    }
+
+    getItemCount() {
+        return this.itemCount;
     }
 
     //Debug methods
