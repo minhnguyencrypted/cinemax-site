@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="css/header.css">
 	<script src="js/itemsDom.js"></script>
 	<script src="js/webStorage.js"></script>
+	<script src="js/cartTotalDom.js"></script>
 </head>
 
 <body>
@@ -56,19 +57,32 @@
 				}
 			</script>
 		</div>
-		<div class="cart_total">
-			<p>
-				<span>Total Price</span>
-				<span>$ 200</span>
-			</p>
-			<p>
-				<span>Number of Items</span>
-				<span>2</span>
-			</p>
-			<p>
-				<span>You Save</span>
-				<span>$ 100</span>
-			</p>
+		<div class="cart_total" id="cartTotal">
+			<script>
+				let cartTotalDiv = document.getElementById("cartTotal");
+				//Retrieve Total Price and number of items
+				let totalPrice = localStorage.getItem("totalPrice") ?
+						localStorage.getItem("totalPrice") : 0;
+				let totalItemCount = localStorage.getItem("totalItemCount") ?
+						localStorage.getItem("totalItemCount") : 0;
+				//Append Total Price
+				cartTotalDiv.appendChild(cartTotalPriceDomObjConstructor(reformatPrice(totalPrice)));
+				cartTotalDiv.appendChild(cartNumberOfItemsDomObjConstructor(totalItemCount));
+			</script>
+			<!--
+				<p>
+					<span>Total Price</span>
+					<span>$ 200</span>
+				</p>
+				<p>
+					<span>Number of Items</span>
+					<span>2</span>
+				</p>
+				<p>
+					<span>You Save</span>
+					<span>$ 100</span>
+				</p>
+			-->
 			<a href="#">Proceed to Checkout</a>
 		</div>
 	</div>

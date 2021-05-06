@@ -14,7 +14,7 @@ function itemInfoDomObjectConstructor(name, price, count) {
     const itemInfoPrice = document.createElement("h4");
     itemInfoPrice.className = "item_price";
     //Give item price value and append child node
-    const itemInfoPriceValue = document.createTextNode(price);
+    const itemInfoPriceValue = document.createTextNode(reformatPrice(price));
     itemInfoPrice.appendChild(itemInfoPriceValue);
 
     //Create item count (class: item_quantity) element
@@ -95,4 +95,14 @@ function itemDomObjectConstructor(itemObj) {
 
     //Return
     return item;
+}
+
+function reformatPrice(number) {
+    if (number < 1000) return "VND " + number.toString();
+    let digitsGroups = number.toString().match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g);
+    let splitNumberStr = digitsGroups[0];
+    for (let i = 1; i < digitsGroups.length; i++) {
+        splitNumberStr += "," + digitsGroups[i];
+    }
+    return "VND " + splitNumberStr;
 }
