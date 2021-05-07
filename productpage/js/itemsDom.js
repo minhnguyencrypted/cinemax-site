@@ -97,6 +97,53 @@ function itemDomObjectConstructor(itemObj) {
     return item;
 }
 
+function discountCodeFieldDomObjConstructor() {
+    /*
+        SAMPLE ELEMENT:
+        <div>
+            <label>
+                Discount code: <input type="text" id="discountCode">
+            </label>
+            <button type="button" onClick="checkDiscountCode()">Submit</button>
+            <br><br>
+            <p id="discountCodeCheckResult"></p>
+        </div>
+     */
+    const discountCodeField = document.createElement("div");
+    //Create input field label
+    const inputFieldLabel = document.createElement("label");
+    inputFieldLabel.appendChild(document.createTextNode("Discount code: "));
+    //Create input field
+    const inputField = document.createElement("input");
+    inputField.id = "discountCode";
+    inputField.type = "text";
+    inputField.style.marginRight = "10px";
+    //Append input field to its label element
+    inputFieldLabel.appendChild(inputField);
+
+    //Create submit button
+    const inputFieldButton = document.createElement("button");
+    inputFieldButton.id = "submitButton";
+    inputFieldButton.type = "button";
+    inputFieldButton.appendChild(document.createTextNode("Submit"));
+
+    //Create discount code checking result section
+    const discountCodeCheckResult = document.createElement("p");
+    discountCodeCheckResult.id = "discountCodeCheckResult";
+
+    //Append input field label to its parent
+    discountCodeField.appendChild(inputFieldLabel);
+    //Append Submit button
+    discountCodeField.appendChild(inputFieldButton);
+    //Append discount code checking result section
+    discountCodeField.appendChild(document.createElement("br"));
+    discountCodeField.appendChild(document.createElement("br"));
+    discountCodeField.appendChild(discountCodeCheckResult);
+
+    //Return
+    return discountCodeField;
+}
+
 function reformatPrice(number) {
     if (number < 1000) return "VND " + number.toString();
     let digitsGroups = number.toString().match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g);

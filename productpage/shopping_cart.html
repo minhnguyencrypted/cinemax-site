@@ -34,8 +34,28 @@
 					</div>
 			</header>
 	
-<div class="container">
+<div class="container" id="container">
 	<h1>Shopping Cart</h1>
+	<!--
+	<div id="discountCodeField">
+		<label>
+			Discount code: <input type="text" id="discountCode">
+		</label>
+		<button type="button" onclick="checkDiscountCode()">Submit</button>
+		<br><br>
+		<p id="discountCodeCheckResult"></p>
+	</div>
+	-->
+	<script>
+		//If your cart is not empty and logged in, display the discount field
+		let cartItemsCount = JSON.parse(localStorage.getItem("totalItemCount"));
+		let isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
+		if (cartItemsCount && isLoggedIn) {
+			const discountCodeInputFieldParent = document.getElementById("container");
+			discountCodeInputFieldParent.appendChild(discountCodeFieldDomObjConstructor());
+		}
+	</script>
+	<br>
 	<div class="cart">
 		<div class="items" id="itemList">
 			<script>
@@ -45,9 +65,11 @@
 				if (!retrievedItemsList || itemCount == 0) {	//No items found in cart
 					document.write("<p>Your cart is empty.</p>");
 					console.log("No items found in Cart");
-				} else{ 			//Found items, print 'em
+				} else { 			//Found items, print 'em
 					console.log("Print items");
 					let itemsListDiv = document.getElementById("itemList");
+
+					//Displaying items in cart
 					for (let item of retrievedItemsList.itemList) {
 						if (item.count > 0) {
 							let itemDomObj = itemDomObjectConstructor(item);
@@ -67,6 +89,7 @@
 						localStorage.getItem("totalItemCount") : 0;
 				//Append Total Price
 				cartTotalDiv.appendChild(cartTotalPriceDomObjConstructor(reformatPrice(totalPrice)));
+
 				cartTotalDiv.appendChild(cartNumberOfItemsDomObjConstructor(totalItemCount));
 			</script>
 			<!--
@@ -120,4 +143,29 @@
 <!--//footer-->
 </body>
 <script src="js/CartItems.js"></script>
+<script>
+	document.getElementById("submitButton").addEventListener("click",checkDiscountCode);
+	//Process discount code
+	function checkDiscountCode() {
+		let discountCodeStr = document.getElementById("discountCode").value;
+		/*
+		//Getting total price
+		let totalPriceValue = document.getElementById("totalPrice").innerText;
+		console.log(totalPriceValue);
+
+		 */
+		//Checking discount code and print display result to HTML
+		let discountCodeCheckResult = document.getElementById("discountCodeCheckResult");
+		switch (discountCodeStr) {
+			case "COSC2430-HD":
+				discountCodeCheckResult.textContent = "Valid for 20% Discount";
+				break;
+			case "COSC2430-DI":
+				discountCodeCheckResult.textContent = "Valid for 10% Discount";
+				break;
+			default:
+				discountCodeCheckResult.textContent = "Invalid Discount code";
+		}
+	}
+</script>
 </html>
