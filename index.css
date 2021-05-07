@@ -279,6 +279,9 @@ input[name="ff"]{
     transition: 0.6s;
 }
 
+#Featured_Stores .Featured_Stores_Slider .slide input{
+    display: none;
+}
 #Featured_Stores .Featured_Stores_Slider .slide .img{
     position: absolute;
     max-width: 100%;
@@ -301,6 +304,72 @@ input[name="ff"]{
 #ff4:checked ~ .s1{
     margin-left: -60%;
 }
+
+
+/* CSS FOR AUTOMATIC SLIDER */
+#New_Stores .slides .navigation-auto{
+    position: absolute;
+    display: flex;
+    width: 800px;
+    justify-content: center;
+    margin-top: 460px;
+}
+#Featured_Stores .slides .navigation-auto{
+    position: absolute;
+    display: flex;
+    width: 800px;
+    justify-content: center;
+    margin-top: 460px;
+}
+
+#New_Stores .slides .navigation-auto div{
+    border: 2px solid red;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 1s;
+}
+#Featured_Stores .slides .navigation-auto div{
+    border: 2px solid red;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 1s;
+}
+
+#New_Stores .slides .navigation-auto div:not(:last-child){
+    margin-right: 40px;
+}
+
+#Featured_Stores .slides .navigation-auto div:not(:last-child){
+    margin-right: 40px;
+}
+
+#f1:checked ~ .navigation-auto .auto-button{
+    background: red;
+}
+#f2:checked ~ .navigation-auto .auto-button{
+    background: red;
+}
+#f3:checked ~ .navigation-auto .auto-button{
+    background: red;
+}
+#f4:checked ~ .navigation-auto .auto-button{
+    background: red;
+}
+
+#ff1:checked ~ .navigation-auto .auto-button1{
+    background: red;
+}
+#ff2:checked ~ .navigation-auto .auto-button1{
+    background: red;
+}
+#ff3:checked ~ .navigation-auto .auto-button1{
+    background: red;
+}
+#ff4:checked ~ .navigation-auto .auto-button1{
+    background: red;
+}
+
+
 
 /* FEATURED STORE END */
 
@@ -360,3 +429,4 @@ input[name="ff"]{
 
 
 /* FOOTER END */
+
