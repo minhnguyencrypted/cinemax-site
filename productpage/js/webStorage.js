@@ -41,13 +41,13 @@ function addItemToCart(itemIndex) {
     let cartItemsObj = new CartItems(tryItemList ? tryItemList.itemList : defaultItems, cartItemCount);
     //Increase chosen item count and total item count by one
     cartItemsObj.itemList[itemIndex].count++;
-    cartItemsObj.itemCount++;
+    cartItemsObj.itemsCount++;
     //Write the object to localStorage
     localStorage.setItem("cartItems",JSON.stringify(cartItemsObj));
     cartItemsObj.logItems();    //Console logging
     //Write the total price and item count values to localStorage
     localStorage.setItem("totalPrice",cartItemsObj.getTotalPrice());
-    localStorage.setItem("totalItemCount",cartItemsObj.getItemCount());
+    localStorage.setItem("totalItemCount",cartItemsObj.getItemsCount());
     //Return added Item
     return cartItemsObj.getCartItemName(itemIndex);
 }

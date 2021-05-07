@@ -89,7 +89,6 @@
 						localStorage.getItem("totalItemCount") : 0;
 				//Append Total Price
 				cartTotalDiv.appendChild(cartTotalPriceDomObjConstructor(reformatPrice(totalPrice)));
-
 				cartTotalDiv.appendChild(cartNumberOfItemsDomObjConstructor(totalItemCount));
 			</script>
 			<!--
@@ -144,27 +143,31 @@
 </body>
 <script src="js/CartItems.js"></script>
 <script>
-	document.getElementById("submitButton").addEventListener("click",checkDiscountCode);
+	let submitButtonElement = document.getElementById("submitButton");
+	//Preventing calling method from a null object
+	if (submitButtonElement) {
+		submitButtonElement.addEventListener("click",checkDiscountCode);
+	}
 	//Process discount code
 	function checkDiscountCode() {
 		let discountCodeStr = document.getElementById("discountCode").value;
-		/*
 		//Getting total price
-		let totalPriceValue = document.getElementById("totalPrice").innerText;
+		const totalPriceValue = localStorage.getItem("totalPrice");
 		console.log(totalPriceValue);
-
-		 */
 		//Checking discount code and print display result to HTML
 		let discountCodeCheckResult = document.getElementById("discountCodeCheckResult");
 		switch (discountCodeStr) {
 			case "COSC2430-HD":
 				discountCodeCheckResult.textContent = "Valid for 20% Discount";
+				setDiscountedPrice(reformatPrice(totalPriceValue * 80 / 100));
 				break;
 			case "COSC2430-DI":
 				discountCodeCheckResult.textContent = "Valid for 10% Discount";
+				setDiscountedPrice(reformatPrice(totalPriceValue * 90 / 100));
 				break;
 			default:
 				discountCodeCheckResult.textContent = "Invalid Discount code";
+				unsetDiscountedPrice();
 		}
 	}
 </script>

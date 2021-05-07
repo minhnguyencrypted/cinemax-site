@@ -19,6 +19,7 @@ function cartTotalPriceDomObjConstructor(priceStr) {
     cartTotalPriceTitleElement.appendChild(document.createTextNode("Total Price"));
     //Create Price span and text
     const cartTotalPriceValueElement = document.createElement("span");
+    cartTotalPriceValueElement.id = "cartTotalPriceValue";
     cartTotalPriceValueElement.appendChild(document.createTextNode(priceStr));
 
     //Append Title and Price to parent <p> element
@@ -45,26 +46,52 @@ function cartNumberOfItemsDomObjConstructor(count) {
 
     //Return object
     return cartNumberOfItemsElement;
-
 }
 
-function cartCheckoutButtonDomObjConstructor() {
-    //Create <a> element
-    const cartCheckoutButtonElement = document.createElement("a");
-    cartCheckoutButtonElement.href = "#";
-    //Append Text
-    cartCheckoutButtonElement.appendChild(document.createTextNode("Proceed to Checkout"));
+function setDiscountedPrice(priceStr) {
+    //Get current total price element
+    let currentTotalPriceValueElement = document.getElementById("cartTotalPriceValue");
+    //Cross out current price
+    currentTotalPriceValueElement.style.textDecoration = "line-through";
 
-    //Return
-    return cartCheckoutButtonElement;
-}
+    //Check if discounted price element already exists
+    let currentDiscountedPriceElement = document.getElementById("discountedPriceValue");
+    if (currentDiscountedPriceElement) {
+        currentDiscountedPriceElement.innerText = priceStr;
+    } else {
+        //Create new discounted price element
+        const discountedTotalPriceElement = document.createElement("p");
+        discountedTotalPriceElement.id = "discountedPrice";
+        //Create span elements
+        const discountedTotalPriceTextElement = document.createElement("span");
+        discountedTotalPriceTextElement.appendChild(document.createTextNode("New Price"));
+        const discountedTotalPriceValueElement = document.createElement("span");
+        discountedTotalPriceValueElement.appendChild(document.createTextNode(priceStr));
+        discountedTotalPriceValueElement.id = "discountedPriceValue";
+        //Append span elements to <p> element
+        discountedTotalPriceElement.appendChild(discountedTotalPriceTextElement);
+        discountedTotalPriceElement.appendChild(discountedTotalPriceValueElement);
 
-function reformatPrice(number) {
-    if (number < 1000) return "VND " + number.toString();
-    let digitsGroups = number.toString().match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g);
-    let splitNumberStr = digitsGroups[0];
-    for (let i = 1; i < digitsGroups.length; i++) {
-        splitNumberStr += "," + digitsGroups[i];
+        const currentTotalPriceValueElementParent = currentTotalPriceValueElement.parentNode;
+        //Append new element after current total price element
+        currentTotalPriceValueElementParent.parentNode.insertBefore(
+            discountedTotalPriceElement,
+            currentTotalPriceValueElementParent.nextSibling);
     }
-    return "VND " + splitNumberStr;
+
+}
+
+function unsetDiscountedPrice() {
+    //Get current total price element
+    let currentTotalPriceValueElement = document.getElementById("cartTotalPriceValue");
+    //Uncross out current price
+    currentTotalPriceValueElement.style.removeProperty("text-decoration");
+
+    //Remove discounted price element
+    let discountedPriceElement = document.getElementById("discountedPrice");
+    if (discountedPriceElement) {
+        discountedPriceElement.parentNode.removeChild(discountedPriceElement);
+    }
+
+
 }

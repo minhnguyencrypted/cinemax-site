@@ -2,12 +2,12 @@
 class CartItems {
     //Attributes
     itemList;
-    itemCount;
+    itemsCount;
 
     //Constructor
     constructor(itemList, itemCount) {
         this.itemList = itemList;
-        this.itemCount =  itemCount;
+        this.itemsCount =  itemCount;
     }
 
     //Methods
@@ -29,8 +29,8 @@ class CartItems {
         return this.itemList[itemIndex].name;
     }
 
-    getItemCount() {
-        return this.itemCount;
+    getItemsCount() {
+        return this.itemsCount;
     }
 
     //Debug methods
