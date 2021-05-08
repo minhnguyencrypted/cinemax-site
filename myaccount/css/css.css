@@ -208,3 +208,46 @@ label {
 
 
 /* FOOTER END */
+
+#cookie .cookie-container {
+  position: fixed;
+  bottom: -100%;
+  left: 24px;
+  right: 24px;
+  background: #2f3640;
+  color: #f5f6fa;
+  padding: 20px 32px;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 -2px 16px rgba(47, 54, 64, 0.39);
+  font-size: 1.2rem;
+  max-width: 900px;
+  margin: 0 auto;
+
+  transition: 400ms;
+}
+
+#cookie .cookie-container p{
+  font-size: 1.3rem;
+}
+
+#cookie .cookie-container.active {
+  bottom: 0;
+}
+
+#cookie .cookie-container a {
+  color: #f5f6fa;
+  margin-left: 50px;
+}
+
+#cookie .cookie-button {
+  background: #e84118;
+  border: 0;
+  color: #f5f6fa;
+  padding: 12px 48px;
+  font-size: 1rem;
+  margin-top: 20px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+
+}
