@@ -1,4 +1,4 @@
-localStorage.setItem('login_status', 'true');
+localStorage.setItem('login_status', 'false');
 
 // variables and constant
 var login_status = JSON.parse(localStorage.getItem('login_status').toLocaleLowerCase());

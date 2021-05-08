@@ -1,6 +1,7 @@
 # The Mall website
 The Group no. 25's Mall website.  
-The World-biggest Online Mall for shoppers and sellers all around the world.
+The World-biggest Online Mall for shoppers and sellers all around the world.  
+Vist our website here: [Foo Mall](https://minhnguyencrypted.github.io/mall-site/) 
 
 Note: this is not an actual business, this is a part of RMIT Web Programming course group project.
 
@@ -40,4 +41,5 @@ Copyright (c) 2021 Group no. 25:
 * Minh Nhat Nguyen
 * Thinh Hung Huynh
 
-Licensed under MIT license, see [LICENSE](LICENSE) for more details.
+Licensed under MIT license, see [LICENSE](LICENSE) for more details.\
+For individual team members' contribution, see [MEMBERS_CONTRIBUTIONS](MEMBERS_CONTRIBUTIONS.md).

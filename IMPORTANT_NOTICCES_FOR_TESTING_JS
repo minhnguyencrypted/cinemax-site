@@ -1,0 +1,10 @@
+For the New 4 testing which is related to the login page and my_account page
+you will need to follow these steps:
+1. Click 'My Account' on the nav bar at index page
+2. Page will be directed to the login page
+3. Fill in the login form and click submit
+4. Return to index page.
+5. Open the file /js/hien_nguyen.js and change the 'login_status' attribute (the first line in the file)
+to true.
+6. Click 'My Account' on the index page again
+7. Now you can see the my account page with the email that match the one that you typed in the login page

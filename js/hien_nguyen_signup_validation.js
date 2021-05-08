@@ -14,12 +14,7 @@ var signup_shopper = document.querySelector('#signup_form #shopper');
 
 var signup_store_owner_section = document.querySelector('.store_owner_section');
 
-//contact-form variables
-var contact_form = document.querySelector('#contact_form');
-var contact_email = document.querySelector('#contact_form #email');
-var contact_purpose = document.querySelector('#contact_form #purpose');
-var contact_phone_number = document.querySelector('#contact_form #p_number');
-var contact_radio = document.querySelector('.contact_radio');
+
 
 
 
@@ -29,10 +24,10 @@ signup_form.addEventListener('submit', (e) => {
   checkInputsSignupForm()
 });
 
-contact_form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  checkInputsContactForm();
-});
+// contact_form.addEventListener('submit', (e) => {
+//   e.preventDefault();
+//   checkInputsContactForm();
+// });
 
 signup_shopper.addEventListener('click', () => {
   signup_store_owner_section.style.visibility = 'hidden';
