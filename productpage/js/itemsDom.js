@@ -75,6 +75,8 @@ function itemDomObjectConstructor(itemObj) {
     //Create div (class: item) element
     const item = document.createElement("div");
     item.className = "item";
+    item.id = itemObj.id;
+
     //Create img element
     const itemImg = document.createElement("img");
     itemImg.src = itemObj.imgSrc;

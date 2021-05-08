@@ -58,6 +58,7 @@
 	<br>
 	<div class="cart">
 		<div class="items" id="itemList">
+			<!-- Display items list -->
 			<script>
 				//Retrieve data from localStorage
 				let retrievedItemsList = retrieveItemsList();
@@ -144,9 +145,12 @@
 <script src="js/CartItems.js"></script>
 <script>
 	let submitButtonElement = document.getElementById("submitButton");
+	let discountPercentage = 0;
 	//Preventing calling method from a null object
 	if (submitButtonElement) {
-		submitButtonElement.addEventListener("click",checkDiscountCode);
+		submitButtonElement.addEventListener("click",function() {
+			discountPercentage = checkDiscountCode();
+		});
 	}
 	//Process discount code
 	function checkDiscountCode() {
@@ -156,19 +160,46 @@
 		console.log(totalPriceValue);
 		//Checking discount code and print display result to HTML
 		let discountCodeCheckResult = document.getElementById("discountCodeCheckResult");
+		let discountPercentage = 0;
 		switch (discountCodeStr) {
 			case "COSC2430-HD":
 				discountCodeCheckResult.textContent = "Valid for 20% Discount";
-				setDiscountedPrice(reformatPrice(totalPriceValue * 80 / 100));
+				discountPercentage = 20;
+				setDiscountedPrice(totalPriceValue * (100 - discountPercentage) / 100);
 				break;
 			case "COSC2430-DI":
 				discountCodeCheckResult.textContent = "Valid for 10% Discount";
-				setDiscountedPrice(reformatPrice(totalPriceValue * 90 / 100));
+				discountPercentage = 10;
+				setDiscountedPrice(totalPriceValue * (100 - discountPercentage) / 100);
 				break;
 			default:
 				discountCodeCheckResult.textContent = "Invalid Discount code";
 				unsetDiscountedPrice();
 		}
+		return discountPercentage;
 	}
+
+	//Add event listener to remove buttons
+	let removeButtons = document.getElementsByClassName("item_remove");
+	if (removeButtons) {
+		console.log("rmbutton count: " + removeButtons.length);
+		for (let rmButton of removeButtons) {
+			rmButton.addEventListener("click",function() {
+				removeItemFromScreen(this);
+				updateCartTotal(discountPercentage);
+		});
+		}
+	}
+	//Remove item displaying
+	function removeItemFromScreen(rmItem) {
+		//Get item to remove
+		let itemToRemoveDomObj = rmItem.parentNode.parentNode;
+		let itemToRemoveId = itemToRemoveDomObj.id;
+		//Remove item
+		itemToRemoveDomObj.parentNode.removeChild(itemToRemoveDomObj);
+		//Dealing with web storage stuff
+		removeItemFromCart(itemToRemoveId);
+	}
+
 </script>
 </html>

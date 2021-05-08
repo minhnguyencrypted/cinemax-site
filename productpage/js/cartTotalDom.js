@@ -39,6 +39,7 @@ function cartNumberOfItemsDomObjConstructor(count) {
     //Create Price span and text
     const cartNumberOfItemsValueElement = document.createElement("span");
     cartNumberOfItemsValueElement.appendChild(document.createTextNode(count));
+    cartNumberOfItemsValueElement.id = "numberOfItems";
 
     //Append Title and Price to parent <p> element
     cartNumberOfItemsElement.appendChild(cartNumberOfItemsTitleElement);
@@ -48,7 +49,7 @@ function cartNumberOfItemsDomObjConstructor(count) {
     return cartNumberOfItemsElement;
 }
 
-function setDiscountedPrice(priceStr) {
+function setDiscountedPrice(discountedPriceStr) {
     //Get current total price element
     let currentTotalPriceValueElement = document.getElementById("cartTotalPriceValue");
     //Cross out current price
@@ -57,7 +58,7 @@ function setDiscountedPrice(priceStr) {
     //Check if discounted price element already exists
     let currentDiscountedPriceElement = document.getElementById("discountedPriceValue");
     if (currentDiscountedPriceElement) {
-        currentDiscountedPriceElement.innerText = priceStr;
+        currentDiscountedPriceElement.innerText = discountedPriceStr;
     } else {
         //Create new discounted price element
         const discountedTotalPriceElement = document.createElement("p");
@@ -66,7 +67,7 @@ function setDiscountedPrice(priceStr) {
         const discountedTotalPriceTextElement = document.createElement("span");
         discountedTotalPriceTextElement.appendChild(document.createTextNode("New Price"));
         const discountedTotalPriceValueElement = document.createElement("span");
-        discountedTotalPriceValueElement.appendChild(document.createTextNode(priceStr));
+        discountedTotalPriceValueElement.appendChild(document.createTextNode(discountedPriceStr));
         discountedTotalPriceValueElement.id = "discountedPriceValue";
         //Append span elements to <p> element
         discountedTotalPriceElement.appendChild(discountedTotalPriceTextElement);
@@ -78,7 +79,6 @@ function setDiscountedPrice(priceStr) {
             discountedTotalPriceElement,
             currentTotalPriceValueElementParent.nextSibling);
     }
-
 }
 
 function unsetDiscountedPrice() {
@@ -92,6 +92,22 @@ function unsetDiscountedPrice() {
     if (discountedPriceElement) {
         discountedPriceElement.parentNode.removeChild(discountedPriceElement);
     }
+}
 
+function updateCartTotal(discountPercentage) {
+    let newTotalPriceStr = JSON.parse((localStorage.getItem("totalPrice")));
+    let newDiscountedPriceStr = reformatPrice(newTotalPriceStr * (100 -discountPercentage) / 100);
+    newTotalPriceStr = reformatPrice(newTotalPriceStr);
+
+    //Get total price element and update it
+    let currentTotalPrice = document.getElementById("cartTotalPriceValue");
+    currentTotalPrice.innerText = newTotalPriceStr;
+    //In case discount is applied, update discounted price as well
+    let currentDiscountTotalPrice = document.getElementById("discountedPrice");
+    if (currentDiscountTotalPrice) {
+        currentDiscountTotalPrice.innerText = newDiscountedPriceStr;
+    }
+    //Update total item count
+    document.getElementById("numberOfItems").innerText = JSON.parse(localStorage.getItem("totalItemCount"));
 
 }
