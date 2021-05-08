@@ -7,11 +7,10 @@
   <title>Signup Page</title>
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
-  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/css.css">
+
+  <link rel="stylesheet" href="css.css">
   <link rel="stylesheet" href="css/Thinh_footer_style.css">
   <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="Thinh_Cookies_Style/cookies_banner_style.css">
 
 </head>
 
@@ -27,15 +26,13 @@
             <!-- Navigation bar -->
             <div class="nav">
                 <ul class="nav-list">
-                  <li class="nav-list-item"><a href="../index.html">Home</a></li>
-                  <li class="nav-list-item"><a href="../THE_MAIN_PAGE/aboutus/aboutus.html">About Us</a></li>
-                  <li class="nav-list-item"><a href="../Fees/fees.html">Fees</a></li>
-                  <li class="nav-list-item"><a href="#" id="my_account_button">My Account</a></li>
-                  <li class="nav-list-item"><a href="#">Browse</a></li>
-                  <li class="nav-list-item"><a href="../THE_MAIN_PAGE/FAQ/Thinh_faq.html">FAQs</a></li>
-                  <li class="nav-list-item"><a href="../THE_MAIN_PAGE/contact/contact.html">Contact</a></li>
-                  <li class="nav-list-item"><a href="../myaccount/login.html">Login</a></li>
-                  <li class="nav-list-item"><a href="../myaccount/signup.html">Sign-up</a></li>
+                    <li class="nav-list-item"><a href="#">Home</a></li>
+                    <li class="nav-list-item"><a href="#">About Us</a></li>
+                    <li class="nav-list-item"><a href="#">Fees</a></li>
+                    <li class="nav-list-item"><a href="#">My Account</a></li>
+                    <li class="nav-list-item"><a href="#">Browse</a></li>
+                    <li class="nav-list-item"><a href="#">FAQs</a></li>
+                    <li class="nav-list-item"><a href="#">Contact</a></li>
                 </ul>
             </div>
         </header>
@@ -44,54 +41,40 @@
     <h2 class='header'>Sign up your new account</h2>
     <div class="container">
       <p><strong>Main information :</strong></p>
-      <form action="#" class='form' id="signup_form">
-        <div class="row form-control">
+      <form action="action_page.php">
+        <div class="row">
           <div class="col-25">
             <label for="fname">Email :</label>
           </div>
           <div class="col-75">
             <input type="text" id="email" name="email" placeholder="Your email..">
-            <small>Error Mesage</small>
-            <i class="fa fa-check-circle"></i>
-            <i class="fa fa-exclamation-circle"></i>
           </div>
-          
-          
         </div>
-        <div class="row form-control">
+        <div class="row">
           <div class="col-25">
             <label for="lname">Phone Number :</label>
           </div>
           <div class="col-75">
             <input type="text" id="p_number" name="phone_number" placeholder="Your phone number..">
-            <small>Error Mesage</small>
-            <i class="fa fa-check-circle"></i>
-            <i class="fa fa-exclamation-circle"></i>
           </div>
         </div>
-        <div class="row form-control">
+        <div class="row">
           <div class="col-25">
             <label for="lname">Password :</label>
           </div>
           <div class="col-75">
             <input type="text" id="pw" name="password" placeholder="Your password..">
-            <small>Error Mesage</small>
-            <i class="fa fa-check-circle"></i>
-            <i class="fa fa-exclamation-circle"></i>
           </div>
         </div>
-        <div class="row form-control">
+        <div class="row">
           <div class="col-25">
             <label for="lname">Retype Password :</label>
           </div>
           <div class="col-75">
             <input type="text" id="re_pw" name="retype_password" placeholder="Please retype your password..">
-            <small>Error Mesage</small>
-            <i class="fa fa-check-circle"></i>
-            <i class="fa fa-exclamation-circle"></i>
           </div>
         </div>
-        <div class="row form-control">
+        <div class="row">
           <div class="col-25">
             <label for="lname">Profile picture :</label>
           </div>
@@ -99,62 +82,47 @@
             <input type="file" id="p_picture" name="profile_picture" >
           </div>
         </div>
-        <div class="row form-control">
+        <div class="row">
           <div class="col-25">
             <label for="lname">First Name :</label>
           </div>
           <div class="col-75">
             <input type="text" id="fname" name="first_name" placeholder="Your first name..">
-            <small>Error Mesage</small>
-            <i class="fa fa-check-circle"></i>
-            <i class="fa fa-exclamation-circle"></i>
           </div>
         </div>
-        <div class="row form-control">
+        <div class="row">
           <div class="col-25">
             <label for="lname">Last Name :</label>
           </div>
           <div class="col-75">
             <input type="text" id="lname" name="last_name" placeholder="Your last name..">
-            <small>Error Mesage</small>
-            <i class="fa fa-check-circle"></i>
-            <i class="fa fa-exclamation-circle"></i>
           </div>
         </div>
-        <div class="row form-control">
+        <div class="row">
           <div class="col-25">
             <label for="country">Address :</label>
           </div>
           <div class="col-75">
-            <input type="text" id="address" name="address" placeholder="Your address..">
-            <small>Error Mesage</small>
-            <i class="fa fa-check-circle"></i>
-            <i class="fa fa-exclamation-circle"></i>
+            <input type="text" id="address" name="address" placeholder="Your address">
           </div>
         </div>
-        <div class="row form-control">
+        <div class="row">
           <div class="col-25">
             <label for="country">City :</label>
           </div>
           <div class="col-75">
             <input type="text" id="city" name="city" placeholder="Your city..">
-            <small>Error Mesage</small>
-            <i class="fa fa-check-circle"></i>
-            <i class="fa fa-exclamation-circle"></i>
           </div>
         </div>
-        <div class="row form-control">
+        <div class="row">
           <div class="col-25">
             <label for="country">Zipcode (4 to 6 digits) :</label>
           </div>
           <div class="col-75">
             <input type="text" id="zipcode" name="zipcode" placeholder="Your zipcode..">
-            <small>Error Mesage</small>
-            <i class="fa fa-check-circle"></i>
-            <i class="fa fa-exclamation-circle"></i>
           </div>
         </div>
-        <div class="row form-control">
+        <div class="row">
           <div class="col-25">
             <label for="country">Country</label>
           </div>
@@ -407,13 +375,9 @@
               <option value="Zambia">Zambia</option>
               <option value="Zimbabwe">Zimbabwe</option>
            </select>
-           <small>Error Mesage</small>
-            <i class="fa fa-check-circle"></i>
-            <i class="fa fa-exclamation-circle"></i>
           </div>
         </div>
-
-        <div class="row form-control">
+        <div class="row">
           <div class="col-25">
             <label for="country">Type of User :</label>
           </div>
@@ -425,69 +389,50 @@
             <div>
               <input type="radio" id="shopper" name="user_type" value="female">
               <label for="female">Shopper</label><br>
-            </div>  
-            <small>Error Mesage</small>
-            <i class="fa fa-check-circle"></i>
-            <i class="fa fa-exclamation-circle"></i>   
-          </div>         
-        </div>
-
-        <hr class='hr'>
-
-             
-          <div class="store_owner_section">
-            <p><strong>Fill this part if you are registering as a store owner :</strong></p> 
-            <div class="row form-control">
-              <div class="col-25">
-                <label for="counstry">Business Name :</label>
-              </div>
-              <div class="col-75">
-                <input type="text" id="b_name" name="business_name" placeholder="Your zipcode..">
-                <small>Error Mesage</small>
-                <i class="fa fa-check-circle"></i>
-                <i class="fa fa-exclamation-circle"></i>
-              </div>
+            </div>     
+          </div>
+          <hr class='hr'>
+          <p><strong>Fill this part if you are registering as a store owner :</strong></p>    
+          <div class="row">
+            <div class="col-25">
+              <label for="country">Business Name :</label>
             </div>
-            <div class="row form-control">
-              <div class="col-25">
-                <label for="country">Store Name :</label>
-              </div>
-              <div class="col-75">
-                <input type="text" id="s_name" name="store_name" placeholder="Your zipcode..">
-                <small>Error Mesage</small>
-                <i class="fa fa-check-circle"></i>
-                <i class="fa fa-exclamation-circle"></i>
-              </div>
+            <div class="col-75">
+              <input type="text" id="b_name" name="business_name" placeholder="Your zipcode..">
             </div>
-            <div class="row form-control">
-              <div class="col-25">
-                <label for="country">Store Category :</label>
-              </div>
-              <div class="col-75">
-                <select id='store_category' name='store_category'>
-                  <option value="department_store">Department Store</option>
-                  <option value="grocery_store">Grocery Store</option>
-                  <option value="restaurant">Restaurant</option>
-                  <option value="colthing_store">Clothing Store</option>
-                  <option value="accessory_store">Accessory Store</option>
-                  <option value="pharmacy">Pharmacy</option>
-                  <option value="technology_store">Technology Store</option>
-                  <option value="pet_store">Pet Store</option>
-                  <option value="toy_store">Toy Store</option>
-                  <option value="specialty_store">Specialty Store</option>
-                  <option value="thrift_store">Thrift Store</option>
-                  <option value="service">Service</option>
-                  <option value="kiosk">Kiosk</option>
-                </select>
-                <small>Error Mesage</small>
-                <i class="fa fa-check-circle"></i>
-                <i class="fa fa-exclamation-circle"></i>
-              </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="country">Store Name :</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="s_name" name="store_name" placeholder="Your zipcode..">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="country">Store Category :</label>
+            </div>
+            <div class="col-75">
+              <select id='store_category' name='store_category'>
+                <option value="department_store">Department Store</option>
+                <option value="grocery_store">Grocery Store</option>
+                <option value="restaurant">Restaurant</option>
+                <option value="colthing_store">Clothing Store</option>
+                <option value="accessory_store">Accessory Store</option>
+                <option value="pharmacy">Pharmacy</option>
+                <option value="technology_store">Technology Store</option>
+                <option value="pet_store">Pet Store</option>
+                <option value="toy_store">Toy Store</option>
+                <option value="specialty_store">Specialty Store</option>
+                <option value="thrift_store">Thrift Store</option>
+                <option value="service">Service</option>
+                <option value="kiosk">Kiosk</option>
+              </select>
             </div>
           </div>
           
-          
-        <div class="row form-control">
+          <div class="row">
             <input type="submit" class='submit_button' value="Submit">
           </div> 
         </div>
@@ -495,22 +440,6 @@
       </form>
     </div>
   </div>
-<!--THINH'S COOKIES BANNER-->
-
-<div id="cookie">
-  <div class="cookie-container">
-      <p>My website uses cookies necessary for its basic functioning. By continuing browsing, you consent to my use of cookies and other technologies.</p>
-      
-
-      <button class="cookie-button">
-          Okay
-      </button>
-
-      <a href="https://gdpr-info.eu/">Learn more</a>
-  </div>
-</div>
-
-<!--//THINH'S COOKIES BANNER-->
   <div class="footer">
     <ul>
     <div class="footer_content">
@@ -542,7 +471,6 @@
 </div>
 
 <!--//footer-->
-<script type="text/javascript" src="../js/hien_nguyen_validation.js"></script>
-<script src="Thinh_JS_Files/cookies_banner.js" defer></script>
+
 </body>
 </html>
