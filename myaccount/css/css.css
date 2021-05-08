@@ -82,6 +82,9 @@ input[type=text], select, textarea{
   margin-right: 5px;
 }
 
+.contact_form_checkbox {
+  margin-right: 10px;
+}
 
 /* Style the label to display next to the inputs */
 label {

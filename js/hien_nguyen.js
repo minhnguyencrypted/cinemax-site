@@ -1,4 +1,4 @@
-localStorage.setItem('login_status', 'false')
+localStorage.setItem('login_status', 'true');
 
 // variables and constant
 var login_status = JSON.parse(localStorage.getItem('login_status').toLocaleLowerCase());
@@ -10,7 +10,11 @@ var login_form = document.querySelector('#login_form');
 
 // Add event listener
 my_account_button.addEventListener('click', myAccountRedirect);
-login_form.addEventListener('submit', login_protocol)
+login_form.addEventListener('submit', login_protocol);
+login_form.addEventListener('submit', () => {
+  window.location('my_account.html');
+});
+
 
 
 // define functions 
@@ -27,7 +31,7 @@ function login_protocol() {
   var login_form_data = Array.from(document.querySelectorAll('#login_form input')).reduce((acc, input) => ({ ...acc, [input.id]: input.value}), {});
   localStorage.setItem('email', login_form_data.email);
   localStorage.setItem('password', login_form_data.password);
-  // localStorage.setItem('login_status', 'true');
+  localStorage.setItem('login_status', 'true');
 }
 
 
