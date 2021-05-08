@@ -49,7 +49,7 @@
 	<script>
 		//If your cart is not empty and logged in, display the discount field
 		let cartItemsCount = JSON.parse(localStorage.getItem("totalItemCount"));
-		let isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
+		let isLoggedIn = JSON.parse(localStorage.getItem("login_status"));
 		if (cartItemsCount && isLoggedIn) {
 			const discountCodeInputFieldParent = document.getElementById("container");
 			discountCodeInputFieldParent.appendChild(discountCodeFieldDomObjConstructor());
@@ -63,7 +63,7 @@
 				//Retrieve data from localStorage
 				let retrievedItemsList = retrieveItemsList();
 				let itemCount = JSON.parse(localStorage.getItem("totalItemCount"));
-				if (!retrievedItemsList || itemCount == 0) {	//No items found in cart
+				if (!retrievedItemsList || itemCount === 0) {	//No items found in cart
 					document.write("<p>Your cart is empty.</p>");
 					console.log("No items found in Cart");
 				} else { 			//Found items, print 'em

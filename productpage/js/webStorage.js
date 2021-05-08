@@ -1,3 +1,7 @@
+/*
+    JS Scripts for setting and getting data from localStorage
+ */
+
 const defaultItems = [
     {
         "name" : "BMW R 1250 GSA",

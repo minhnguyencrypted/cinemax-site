@@ -1,5 +1,6 @@
 /*
     JS Script for manipulating Cart total price section
+
     SAMPLE HTML:
     <p>
         <span>Total Price</span>

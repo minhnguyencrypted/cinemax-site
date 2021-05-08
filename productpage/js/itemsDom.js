@@ -1,3 +1,7 @@
+/*
+    JS script for manipulating items list HTML section:
+ */
+
 function itemInfoDomObjectConstructor(name, price, count) {
     //Create div (class: item_info) element
     const itemInfo = document.createElement("div");
