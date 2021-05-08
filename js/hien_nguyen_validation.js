@@ -29,10 +29,10 @@ signup_form.addEventListener('submit', (e) => {
   checkInputsSignupForm()
 });
 
-// contact_form.addEventListener('submit', (e) => {
-//   e.preventDefault();
-//   checkInputsContactForm();
-// });
+contact_form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  checkInputsContactForm();
+});
 
 signup_shopper.addEventListener('click', () => {
   signup_store_owner_section.style.visibility = 'hidden';
@@ -46,22 +46,22 @@ signup_store_owner.addEventListener('click', () => {
 
 
 function checkInputsContactForm() {
-  // // get values back from inputs
-  // var emailValue = contact_email.value.trim();
-  // var phoneNumberValue = contact_phone_number.value.trim();
+  // get values back from inputs
+  var emailValue = contact_email.value.trim();
+  var phoneNumberValue = contact_phone_number.value.trim();
 
-  // //check email
-  // if(emailValue === '') {
-  //   //show error
-  //   //add error class
-  //   setErrorFor(contact_email, 'Email cannot be empty');
-  // } 
-  // else if (isEmail(emailValue) === false){
-  //   setErrorFor(contact_email, 'The email entered is not valid');
-  // }
-  // else {
-  //   setSuccessFor(contact_email);
-  // }
+  //check email
+  if(emailValue === '') {
+    //show error
+    //add error class
+    setErrorFor(contact_email, 'Email cannot be empty');
+  } 
+  else if (isEmail(emailValue) === false){
+    setErrorFor(contact_email, 'The email entered is not valid');
+  }
+  else {
+    setSuccessFor(contact_email);
+  }
 }
 
 
