@@ -2,7 +2,6 @@
 <html lang="en-US">
 <head>
     <link rel="stylesheet" href="Thinh_tos_style.css">
-    <link rel="stylesheet" href="Thinh_Cookies_Style/cookies_banner_style.css">
 </head>
 
 
@@ -228,7 +227,7 @@
     </ol>
 
     <br></br>
-    <p> I HAVE READ THIS AGREEMENT AND AGREE TO ALL OF THE PROVISIONS CONTAINED ABOVE AND ANY REVISION THE SAME HEREAFTER. BY CLICKING THE "REGISTER NOW" BUTTON OR ANY SIMILAR ACTION BELOW, I UNDERSTAND THAT I AM CREATING A DIGITAL SIGNATURE, WHICH I INTEND TO HAVE THE SAME FORCE AND EFFECT AS IF I HAD SIGNED MY NAME MANUALLY.</p>
+    <p><b> I HAVE READ THIS AGREEMENT AND AGREE TO ALL OF THE PROVISIONS CONTAINED ABOVE AND ANY REVISION THE SAME HEREAFTER. BY CLICKING THE "REGISTER NOW" BUTTON OR ANY SIMILAR ACTION BELOW, I UNDERSTAND THAT I AM CREATING A DIGITAL SIGNATURE, WHICH I INTEND TO HAVE THE SAME FORCE AND EFFECT AS IF I HAD SIGNED MY NAME MANUALLY.</b></p>
 
     </div>
     
@@ -287,7 +286,25 @@
 </body>
 
 
-<script src="Thinh_JS_Files/cookies_banner.js" defer></script>
+<script>
+const cookieBanner = document.querySelector(".cookie-container");
+const acceptButton = document.querySelector(".cookie-button");
+
+
+acceptButton.addEventListener("click", () => {
+  cookieBanner.classList.remove("active");
+  localStorage.setItem("cookieBannerDisplayed", "true");
+});
+
+setTimeout(() => {
+  if (!localStorage.getItem("cookieBannerDisplayed")) {
+    cookieBanner.classList.add("active");
+  }
+}, 2000);
+
+
+
+</script>
 
 </html>      
 

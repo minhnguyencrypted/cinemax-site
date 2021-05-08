@@ -2,7 +2,6 @@
 <html lang="en-US">
 <head>
     <link rel="stylesheet" href="Thinh_faq_style.css">
-    <link rel="stylesheet" href="Thinh_Cookies_Style/cookies_banner_style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -170,7 +169,25 @@
 </footer>
 </body>
 
-<script src="Thinh_JS_Files/cookies_banner.js" defer></script>
+<script>
+const cookieBanner = document.querySelector(".cookie-container");
+const acceptButton = document.querySelector(".cookie-button");
+
+
+acceptButton.addEventListener("click", () => {
+  cookieBanner.classList.remove("active");
+  localStorage.setItem("cookieBannerDisplayed", "true");
+});
+
+setTimeout(() => {
+  if (!localStorage.getItem("cookieBannerDisplayed")) {
+    cookieBanner.classList.add("active");
+  }
+}, 2000);
+
+
+
+</script>
 
 </html>      
 
