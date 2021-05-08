@@ -86,6 +86,10 @@ input[type=text], select, textarea{
   margin-right: 10px;
 }
 
+.store_owner_section {
+  visibility: hidden;
+}
+
 /* Style the label to display next to the inputs */
 label {
   padding: 12px 12px 12px 0;
