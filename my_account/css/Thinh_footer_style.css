@@ -1,0 +1,32 @@
+/* FOOTER */
+.footer {
+
+    position: relative;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 10px 10px 20px 10px;
+    background: #24B7DB;
+    margin-top: 500px;
+}
+
+a{
+    text-decoration: none;
+    color:#000000 ;
+}
+
+.footer_content{
+    width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer_content {
+    display: flex;
+    justify-content: center;
+
+}
+.footer_content li {
+    list-style: none;
+    padding: 20px;
+}

@@ -20,10 +20,10 @@ login_form.addEventListener('submit', () => {
 // define functions 
 function myAccountRedirect() {
   if (login_status == false) {
-    my_account_button.href = 'myaccount/login.html';
+    my_account_button.href = 'my_account/login.html';
   }
   else {
-    my_account_button.href = 'myaccount/my_account.html';
+    my_account_button.href = 'my_account/my_account.html';
   }
 }
 

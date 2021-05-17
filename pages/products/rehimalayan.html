@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="css/shopping_cart.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/header.css">
+    <meta charset="UTF-8">
+    <!-- Change the web page title -->
+    <title>Royal Enfield Himalayan</title>
+    <link href="css/productpage.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <header id="header_main">
+        <title>Foo Mall</title>
+
+        <!-- Set page logo here -->
+        <div class="logo">
+            <h1>Mall-site</h1>
+        </div>
+        <!-- Navigation bar -->
+        <div class="nav">
+            <ul class="nav-list">
+                <li class="nav-list-item"><a href="#">Home</a></li>
+                <li class="nav-list-item"><a href="#">About Us</a></li>
+                <li class="nav-list-item"><a href="#">Fees</a></li>
+                <li class="nav-list-item"><a href="#">My Account</a></li>
+                <li class="nav-list-item"><a href="#">Browse</a></li>
+                <li class="nav-list-item"><a href="#">FAQs</a></li>
+                <li class="nav-list-item"><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="pInfo-frame">
+        <div class="product-info">
+            <h2 class="pTitle">Royal Enfield Himalayan</h2>
+            <div class="product-description">
+                <p>
+                    The 411cc Adventure Motorcycle for multi-purpose riding experience <br>
+                    distributed by Royal Enfield Vietnam
+                </p>
+                <ul>
+                    <li>Engine: 4-stroke, SOHC, 411cc single cylinder</li>
+                    <li>Max torque: 32Nm @ 4000-4500RPM</li>
+                    <li>Max Power: 23.98HP @ 6500RPM</li>
+                    <li>Fuel capacity: 15 litres</li>
+                    <li>Kerb weight: 199KG</li>
+                </ul>
+            </div>
+            <p class="pPrice">Price: VND 139,000,000</p>
+            <div class="buy-button"><p class="button-name">Buy Now</p></div>
+            <div class="add-button" onclick="buttonAddProduct()"><p class="button-name">Add</p></div>
+        </div>
+        <div>
+            <img src="../../pictures/product_img/foo.png" alt="Foo product picture" class="product-img">
+        </div>
+        <div class="recommended-products">
+            <h3 class="recommended-title">Recommended products</h3>
+            <div class="recommended-items">
+                <a href="trtiger850sport.html">
+                    <div class="item">
+                        <img src="../../pictures/product_img/bar.png" alt="Bar" style="object-fit: scale-down; height: 200px; width: auto;">
+                        <p class="item-name">Triumph Tiger 850 Sport</p>
+                    </div>
+                </a>
+                <a href="bmwr1250gsa.html">
+                    <div class="item">
+                        <img src="../../pictures/product_img/foobar.png" alt="Foobar" style="object-fit: scale-down; height: 200px; width: auto;">
+                        <p class="item-name">BMW R 1250 GS Adventure</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <ul>
+            <div class="footer_content">
+
+                <div class="footer_content_policies">
+                    <li>
+                        <p><a href="Thinh_policies.htmnl">Policies</a>
+                        </p>
+                    </li>
+
+                    <br><br>
+                </div>
+
+                <div class="footer_content_faq">
+                    <li>
+                        <p><a href="Thinh_faq.html">FAQ</a>
+                        </p>
+                    </li>
+                    <br></br>
+                </div>
+            </div>
+
+        </ul>
+        <div class="copyright">
+            <small>Copyright &copy; 2021, Nhat Dang Nguyen, Hien Cong Gia Nguyen, Minh Nhat Nguyen and Thinh Hung Huynh</small>
+        </div>
+    </div>
+</body>
+
+<script src="js/CartItems.js"></script>
+<script src="js/webStorage.js"></script>
+<script>
+    //As all items are stored in "items" array, a member of CartItems class (refer to js/CartItems.js)
+    //Assign productIndex corresponding to such array's element
+    let productIndex = 1;
+    //onclick Function
+    function buttonAddProduct() {
+        if (!JSON.parse(localStorage.getItem("login_status"))) {      //If user is not logged in
+            alert("You're not logged in yet.");
+        } else {        //If user is logged in, perform adding item to cart
+            let addedItemName = addItemToCart(productIndex);
+            alert("Added " + addedItemName + " to cart.");
+        }
+    }
+</script>
+<script>
+const cookieBanner = document.querySelector(".cookie-container");
+const acceptButton = document.querySelector(".cookie-button");
+
+
+acceptButton.addEventListener("click", () => {
+  cookieBanner.classList.remove("active");
+  localStorage.setItem("cookieBannerDisplayed", "true");
+});
+
+setTimeout(() => {
+  if (!localStorage.getItem("cookieBannerDisplayed")) {
+    cookieBanner.classList.add("active");
+  }
+}, 2000);
+
+
+
+</script>
+</html>

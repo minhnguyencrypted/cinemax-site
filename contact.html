@@ -1,0 +1,195 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Signup Page</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="my_account/css/css.css">
+  <link rel="stylesheet" href="my_account/css/Thinh_footer_style.css">
+  <link rel="stylesheet" href="my_account/css/header.css">
+
+</head>
+
+<body>
+          <!-- Set Index page title here -->
+          <header id="header_main">
+            <title>Foo Mall</title>
+
+            <!-- Set page logo here -->
+            <div class="logo">
+                <h1>Mall-site</h1>
+            </div>
+            <!-- Navigation bar -->
+            <div class="nav">
+                <ul class="nav-list">
+                    <li class="nav-list-item"><a href="../index.html">Home</a></li>
+                    <li class="nav-list-item"><a href="../THE_MAIN_PAGE/aboutus/aboutus.html">About Us</a></li>
+                    <li class="nav-list-item"><a href="../Fees/fees.html">Fees</a></li>
+                    <li class="nav-list-item"><a href="#" id="my_account_button">My Account</a></li>
+                    <li class="nav-list-item"><a href="#">Browse</a></li>
+                    <li class="nav-list-item"><a href="../THE_MAIN_PAGE/FAQ/Thinh_faq.html">FAQs</a></li>
+                    <li class="nav-list-item"><a href="../THE_MAIN_PAGE/contact/contact.html">Contact</a></li>
+                    <li class="nav-list-item"><a href="../myaccount/login.html">Login</a></li>
+                    <li class="nav-list-item"><a href="../myaccount/signup.html">Sign-up</a></li>
+                </ul>
+            </div>
+        </header>
+    
+  <div class='content'>
+    <h2 class='header'>Contact Us</h2>
+    <div class="container">
+      <form action="#" class='form' id="contact_form">
+        <div class="row form-control">
+            <div class="col-25">
+              <label for="purpose">Contact purpose :</label>
+            </div>
+            <div class="col-75">
+                <select name="purpose" id="purpose">
+                    <option value=' ' selected>Please select</option>
+                    <option value="Business">Business</option>
+                    <option value="Personal">Personal</option>
+                </select>
+
+              <small>Error Mesage</small>
+              <i class="fa fa-check-circle"></i>
+              <i class="fa fa-exclamation-circle"></i>
+            </div>
+        </div> 
+
+        <div class="row form-control">
+          <div class="col-25">
+            <label for="email">Email :</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="email" name="email" placeholder="Your email..">
+            <small>Error Mesage</small>
+            <i class="fa fa-check-circle"></i>
+            <i class="fa fa-exclamation-circle"></i>
+          </div>
+        </div> 
+        <div class="row form-control">
+          <div class="col-25">
+            <label for="name">Name :</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="name" name="name" type="text" placeholder="Your name...">
+            <small>Error Mesage</small>
+            <i class="fa fa-check-circle"></i>
+            <i class="fa fa-exclamation-circle"></i>
+          </div>
+          
+        </div>
+        <div class="row form-control">
+            <div class="col-25">
+              <label for="lname">Phone Number :</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="p_number" name="phone_number" placeholder="Your phone number..">
+              <small>Error Mesage</small>
+              <i class="fa fa-check-circle"></i>
+              <i class="fa fa-exclamation-circle"></i>
+            </div>
+        </div>
+        <div class="row form-control">
+            <div class="col-25">
+              <label for="country">Prefered Contact Method :</label>
+            </div>
+            <div class="col-75 radio_group">
+              <div class='radio'>
+                <input type="radio" id="store_owner" name="user_type" value="phone" class="contact_radio">
+                <label for="male">Phone</label><br>
+              </div>
+              <div>
+                <input type="radio" id="shopper" name="user_type" value="email"class="contact_radio">
+                <label for="female">Email</label><br>
+              </div>  
+              <small>Error Mesage</small>
+              <i class="fa fa-check-circle"></i>
+              <i class="fa fa-exclamation-circle"></i>   
+            </div>         
+        </div>
+
+        <div class="row form-control">
+            <div class="col-25">
+              <label for="day">Contact days :</label>
+            </div>
+            <div class="col-75">
+              <label for="monday" id="contact_monday">Monday</label>
+              <input type="checkbox" name="checkbox_time[]" value="Monday" class="contact_form_checkbox">
+              <label for="tuesday" id="contact_tuesday">Tuesday</label>
+              <input type="checkbox" name="checkbox_time[]" value="Tuesday" class="contact_form_checkbox">
+              <label for="wednesday" id="contact_wednesday">Wednesday</label>
+              <input type="checkbox" name="checkbox_time[]" value="Wednesday" class="contact_form_checkbox">
+              <label for="thursday" id="contact_thursday">Thursday</label>
+              <input type="checkbox" name="checkbox_time[]" value="Thursday" class="contact_form_checkbox">
+              <label for="friday" id="contact_friday">Friday</label>
+              <input type="checkbox" name="checkbox_time[]" value="Friday" class="contact_form_checkbox">
+              <label for="saturday" id="contact_saturday">Saturday</label>
+              <input type="checkbox" name="checkbox_time[]" value="Saturday" class="contact_form_checkbox">
+              <label for="sunday" id="contact_sunday">Sunday</label>
+              <input type="checkbox" name="checkbox_time[]" value="Sunday" class="contact_form_checkbox">
+
+              <small>Error Mesage</small>
+              <i class="fa fa-check-circle"></i>
+              <i class="fa fa-exclamation-circle"></i>
+            </div>
+        </div>
+        <div class="row form-control">
+            <div class="col-25">
+              <label for="message">Message :</label>
+            </div>
+            <div class="col-75">
+                <textarea cols="50" rows="10" maxlength="500" placeholder="write something (Max 500 chars)" name="message" id="message"></textarea>
+              <small>Error Mesage</small>
+              <i class="fa fa-check-circle"></i>
+              <i class="fa fa-exclamation-circle"></i>
+            </div>
+        </div>
+  
+        <div class="row form-control">
+            <input type="submit" class='submit_button' value="Submit">
+        </div> 
+      </form>
+    </div>
+  </div>
+
+
+  
+  <div class="footer">
+    <ul>
+    <div class="footer_content">
+
+        <div class="footer_content_policies">
+            <li>
+            <p><a href="Thinh_policies.htmnl">Policies</a>
+            </p>
+            </li>
+             
+            <br><br>
+        </div>
+
+        <div class="footer_content_faq">
+            <li>
+            <p><a href="Thinh_faq.html">FAQ</a>
+            </p>
+            </li> 
+            <br></br>
+    </div>
+    
+    </ul>
+    <div class="copyright">
+        <small>Copyright &copy; 2021, Nhat Dang Nguyen, Hien Cong Gia Nguyen, Minh Nhat Nguyen and Thinh Hung Huynh</small>
+
+    </div>
+
+   
+</div>
+
+<!--//footer-->
+<script type="text/javascript" src="js/hien_nguyen_contact_validation.js"></script>
+</body>
+</html>
