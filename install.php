@@ -33,9 +33,12 @@
     //Check whether there are any valid login credentials inside the shadow file
     $shadow_file_contents = $shadow_file->get_all_lines();
 
-    //If the shadow file is still empty (or no valid credentials) and the user previously submitted, write the login
-	//info the file.
-    if($shadow_file_contents === false && isset($_POST['submit'])) {
+    //Check if credentials are submitted and its username is valid
+	$is_credentials_valid = isset($_POST['submit']) && is_username_valid($_POST['username']);
+
+    //If the shadow file is still empty (or no valid credentials) and the user previously tried to submit,
+	//then if the username is valid, write the login info the file.
+    if($shadow_file_contents === false && $is_credentials_valid) {
         $username = $_POST['username'];
         $passwd_hash = password_hash($_POST['passwd'],PASSWORD_BCRYPT);
         $shadow_file->set_line($username,$passwd_hash);
@@ -58,15 +61,21 @@
         <p>Use your registered credential to log in as Administrator</p>
 	<?php
 		} else {
+        	//If user previously tried to submit an invalid username, prompt the message
+	        if (isset($_POST['submit']) && !$is_credentials_valid) {
+    ?>
+				<p>Your previously submitted username is invalid, try again below</p>
+    <?php
+	        }
 	?>
 		<h2>Create your administrator account</h2>
 		<form action="<?=$_SERVER['PHP_SELF']?>" method="POST">
 			<label>
-				Username: <input type="text" name="username">
+				Username: <input type="text" name="username" value="<?=$_POST['username']?>" required>
 			</label>
 			<br><br>
 			<label>
-				Password: <input type="password" name="passwd">
+				Password: <input type="password" name="passwd" value="<?=$_POST['passwd']?>" required>
 			</label>
 			<br><br>
 			<button type="submit" name="submit">Submit</button>
@@ -74,6 +83,16 @@
 		</form>
 	<?php
 		}
+
+        function is_username_valid($username) : bool {
+        	//If username starts with a letter
+	        $is_starts_with_letter = preg_match("/^[a-zA-Z]/",$username);
+	        //If username doesn't contain any non-word characters (not letters, numbers or underscore)
+	        $is_not_contains_non_word = !preg_match("/\W/",$username);
+
+			//Return the result
+	        return $is_starts_with_letter && $is_not_contains_non_word;
+        }
 	?>
 	</body>
 </html>
