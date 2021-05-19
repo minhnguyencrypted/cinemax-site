@@ -111,12 +111,8 @@
     let productIndex = 2;
     //onclick Function
     function buttonAddProduct() {
-        if (!JSON.parse(localStorage.getItem("login_status"))) {      //If user is not logged in
-            alert("You're not logged in yet.");
-        } else {        //If user is logged in, perform adding item to cart
-            let addedItemName = addItemToCart(productIndex);
-            alert("Added " + addedItemName + " to cart.");
-        }
+        let addedItemName = addItemToCart(productIndex);
+        alert("Added " + addedItemName + " to cart.");
     }
 </script>
 <script>

@@ -50,8 +50,7 @@
 	<script>
 		//If your cart is not empty and logged in, display the discount field
 		let cartItemsCount = JSON.parse(localStorage.getItem("totalItemCount"));
-		let isLoggedIn = JSON.parse(localStorage.getItem("login_status"));
-		if (cartItemsCount && isLoggedIn) {
+		if (cartItemsCount) {
 			const discountCodeInputFieldParent = document.getElementById("container");
 			discountCodeInputFieldParent.appendChild(discountCodeFieldDomObjConstructor());
 		}

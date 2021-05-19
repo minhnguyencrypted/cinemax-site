@@ -7,7 +7,7 @@ const defaultItems = [
         "name" : "BMW R 1250 GSA",
         "price" : 699000000,
         "count" : 0,
-        "imgSrc" : "product_img/foobar.png",
+        "imgSrc" : "pictures/product_img/foobar.png",
         "id" : 0
     },
 
@@ -15,7 +15,7 @@ const defaultItems = [
         "name" : "Royal Enfield Himalayan",
         "price" : 139000000,
         "count" : 0,
-        "imgSrc" : "product_img/foo.png",
+        "imgSrc" : "pictures/product_img/foo.png",
         "id" : 1
     },
 
@@ -23,7 +23,7 @@ const defaultItems = [
         "name" : "Triumph Tiger 850 Sport",
         "price" : 349900000,
         "count" : 0,
-        "imgSrc" : "product_img/bar.png",
+        "imgSrc" : "pictures/product_img/bar.png",
         "id" : 2
     }
 ]
