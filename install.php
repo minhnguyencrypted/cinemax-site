@@ -51,6 +51,29 @@
     <head>
 	    <title>Installation page</title>
 	    <meta charset="UTF-8">
+	    <style>
+		    body {
+			    text-align: center;
+		    }
+		    form {
+			    position: relative;
+			    margin-left: 35%;
+			    width: 30%;
+			    text-align: left;
+		    }
+		    form label {
+			    position: relative;
+			    margin-left: 10%;
+		    }
+		    form button {
+                position: relative;
+                margin-left: 30%;
+		    }
+            form p {
+                position: relative;
+                margin-left: 10%;
+            }
+	    </style>
     </head>
 
 	<body>
@@ -61,12 +84,6 @@
         <p>Use your registered credential to log in as Administrator</p>
 	<?php
 		} else {
-        	//If user previously tried to submit an invalid username, prompt the message
-	        if (isset($_POST['submit']) && !$is_credentials_valid) {
-    ?>
-				<p>Your previously submitted username is invalid, try again below</p>
-    <?php
-	        }
 	?>
 		<h2>Create your administrator account</h2>
 		<form action="<?=$_SERVER['PHP_SELF']?>" method="POST">
@@ -79,7 +96,14 @@
 			</label>
 			<br><br>
 			<button type="submit" name="submit">Submit</button>
-
+	<?php
+        //If user previously tried to submit an invalid username, prompt the message
+        if (isset($_POST['submit']) && !$is_credentials_valid) {
+	?>
+			<p>Your previously submitted username is invalid</p>
+	<?php
+        }
+	?>
 		</form>
 	<?php
 		}
