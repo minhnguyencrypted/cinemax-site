@@ -42,26 +42,26 @@
     *
     */
 
-    function select_line($line, $categories, $select_category, $select_value) : bool {
-        $parsed_object = parse_line($line,$categories);
-        if (!$parsed_object) {
+    function get_categories($file_path) {
+        //Prepare file for reading
+        $file_obj = fopen($file_path,READ_MODE);
+        if ($file_obj === false) {
             return false;
-        } else {
-            return $parsed_object[$select_category] === $select_value;
         }
-    }
 
+        //Return categories list
+        return parse_line(fgets_clean($file_obj));
+    }
     /*
-     * Test cases for line_selector(), ignore these lines
-        var_dump(line_selector("foo,bar,baz",["name","id","group"],"name","foo"));
-        var_dump(line_selector("qux,bar,baz",["name","id","group"],"name","foo"));
-        var_dump(line_selector("qux,foo,baz",["name","id","group"],"id","foo"));
-        var_dump(line_selector("qux,bar,foo",["name","id","group"],"foo","foo"));
-        var_dump(line_selector("qux,foo,baz",["name","id","group"],"foo",["foo","bar"]));
+     * get_categories() test cases, ignore these lines
+        var_dump(get_categories("tests/foobar.csv"));
+        var_dump(get_categories("tests/corge.csv"));
+        var_dump(get_categories("tests/grault.csv"));
+        var_dump(get_categories("tests/qux.csv"));
      *
      */
 
-    function read_file($file_path, $select_category = "", $select_value = "") {
+    function read_file($file_path, $filter_category = "", $filter_value = "") {
         //Prepare file for reading
         $file_obj = fopen($file_path,READ_MODE);
         if ($file_obj === false) {
@@ -73,12 +73,12 @@
 
         $objects_array = [];
         //Dealing with optional arguments
-        if ($select_category !== "" || $select_value !== "") {
+        if ($filter_category !== "" || $filter_value !== "") {
             //Arguments: ($file_path,<string>,<string>)
             while (!feof($file_obj)) {
                 $current_obj = parse_line(fgets_clean($file_obj), $categories);
-                if ($current_obj !== false && isset($current_obj[$select_category]) &&
-                    $current_obj[$select_category] === $select_value) {
+                if ($current_obj !== false && isset($current_obj[$filter_category]) &&
+                    $current_obj[$filter_category] === $filter_value) {
                     $objects_array[] = $current_obj;
                 }
             }
