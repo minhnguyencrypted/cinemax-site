@@ -14,37 +14,22 @@
 	Initially written like an eye-rape by Minh Nguyen.
 -->
 <?php
-    //Constants
-    define("SHADOW_FILE_PATH", $_SERVER['DOCUMENT_ROOT'] . "/../mall_site_data/shadow");
+	require_once ("php/API/authentication/ShadowFile.php");
+	$shadow = new authentication\ShadowFile("shadow");
 
-    //Require files
-    require_once("php/Classes/ShadowFile.php");
+	$shadow_file_status = $shadow->get_file_validity();
 
-    //Check if shadow file exists, if not, create a new one
-    if (!file_exists(SHADOW_FILE_PATH)) {
-    	//Create a new sibling directory "mall_site_data" of the DOCUMENT_ROOT
-    	mkdir($_SERVER['DOCUMENT_ROOT'] . "/../mall_site_data",0777,true);
-    	//Create a new empty shadow file
-        fclose(fopen(SHADOW_FILE_PATH,ShadowFile::WRITE));
-    }
+	if ($shadow_file_status === true) {
+		$shadow_file_contents = $shadow->get_all_credentials();
 
-    //Create shadow file object
-    $shadow_file = new ShadowFile(SHADOW_FILE_PATH);
-    //Check whether there are any valid login credentials inside the shadow file
-    $shadow_file_contents = $shadow_file->get_all_lines();
+		$is_credential_valid = isset($_POST['submit']) && is_username_valid($_POST['username']);
 
-    //Check if credentials are submitted and its username is valid
-	$is_credentials_valid = isset($_POST['submit']) && is_username_valid($_POST['username']);
+		if ($shadow_file_contents === [] && $is_credential_valid) {
+			$shadow->set_credential($_POST['username'], password_hash($_POST['passwd'],PASSWORD_BCRYPT));
+			$shadow_file_contents = $shadow->get_all_credentials();
+		}
 
-    //If the shadow file is still empty (or no valid credentials) and the user previously tried to submit,
-	//then if the username is valid, write the login info the file.
-    if($shadow_file_contents === false && $is_credentials_valid) {
-        $username = $_POST['username'];
-        $passwd_hash = password_hash($_POST['passwd'],PASSWORD_BCRYPT);
-        $shadow_file->set_line($username,$passwd_hash);
-    }
-    //Check the shadow file again in case of any errors during file writing process
-    $shadow_file_contents = $shadow_file->get_all_lines();
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,33 +48,38 @@
 		    }
 		    form label {
 			    position: relative;
-			    margin-left: 10%;
+			    margin-left: 20%;
 		    }
 		    form button {
                 position: relative;
-                margin-left: 30%;
+                margin-left: 40%;
 		    }
             form p {
                 position: relative;
-                margin-left: 10%;
+                margin-left: 15%;
             }
 	    </style>
     </head>
 
 	<body>
 	<?php
-        if ($shadow_file_contents !== false) {
+		if ($shadow_file_status === false) {
 	?>
-		<h2>Administrator account has been registered</h2>
-        <p>Use your registered credential to log in as Administrator</p>
+		<p>Fatal error: cannot retrieve administrator credentials</p>
 	<?php
 		} else {
+			if (!empty($shadow_file_contents)) {
+	?>
+		<h2>Administrator account has been registered</h2>
+		<p>Use your registered credential to log in as Administrator</p>
+	<?php
+			} else {
 	?>
 		<h2>Create your administrator account</h2>
 		<form action="<?=$_SERVER['PHP_SELF']?>" method="POST">
 			<label>
-				Username: <input type="text" name="username" value="<?=$_POST['username']?>" required>
-			</label>
+		  Username: <input type="text" name="username" value="<?=$_POST['username']?>" required>
+		  </label>
 			<br><br>
 			<label>
 				Password: <input type="password" name="passwd" value="<?=$_POST['passwd']?>" required>
@@ -97,15 +87,15 @@
 			<br><br>
 			<button type="submit" name="submit">Submit</button>
 	<?php
-        //If user previously tried to submit an invalid username, prompt the message
-        if (isset($_POST['submit']) && !$is_credentials_valid) {
+				if (isset($_POST['submit']) && !$is_credential_valid) {
 	?>
-			<p>Your previously submitted username is invalid</p>
+		<p>Your previously submitted username is invalid</p>
 	<?php
-        }
+                }
 	?>
 		</form>
 	<?php
+            }
 		}
 
         function is_username_valid($username) : bool {

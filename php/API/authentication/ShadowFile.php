@@ -92,6 +92,10 @@
             return false;
         }
 
+        public function get_file_validity() : bool {
+            return $this->is_file_valid;
+        }
+
         public function is_registered(string $username) : bool {
             $file = fopen($this->get_path(),self::READ_MODE);
             if ($file === false) {
