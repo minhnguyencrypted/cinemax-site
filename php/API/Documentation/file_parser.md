@@ -74,6 +74,16 @@ constant is used in function `explode()` for splitting CSV lines.
       returned. If the CSV file cannot be opened, return `false`.
     - Undefined behaviours/errors: No undefined behaviour/errors found yet.
     
+- `sort_by_category()`: Sort an array of objects by their category values (e.g. Sort by Price), in both orders.
+    - Arguments:
+        - `$object`: (array) The array needs sorting.
+        - `$sort_category`: (string) The category of object used for sorting.
+        - `$ascending`: (optional) (boolean) The sorting order boolean, `true` (by default) for ascending and `false` for
+          descending.
+    - Return values: Return a non-empty sorted array of given objects on succeed, otherwise, return `false`.
+    - Undefined behaviours/errors: Errors may occur when some objects do not have `$sort_category` key and value, 
+      function returns `false`.
+ 
 - `get_categories()`: Retrieve CSV file categories
     - Arguments:
         - `$file_path`: The path to the CSV file to be retrieved.

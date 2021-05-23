@@ -83,8 +83,7 @@
             }
             return false;
         } else {
-            return isset($object[$match_category]) ?
-                $object[$match_category] === $match_value : false;
+            return isset($object[$match_category]) && $object[$match_category] === $match_value;
         }
     }
 
@@ -247,3 +246,23 @@
         var_dump(read_file_match_list("tests/foo.csv",[],[]));
      *
      */
+
+    //Sorting functions
+    function sort_by_category(array $objects, string $sort_category, bool $ascending = true) {
+        if (empty($objects)) {
+            return false;
+        }
+
+        //Get category values from $objects
+        $sort_values = [];
+        foreach ($objects as $object) {
+            if (isset($object[$sort_category])) {
+                $sort_values[] = $object[$sort_category];
+            } else {
+                return false;
+            }
+        }
+
+        return array_multisort($sort_values,$ascending ? SORT_ASC : SORT_DESC,SORT_NATURAL,$objects) ? $objects : false;
+    }
+    /*Tested on separate file*/
