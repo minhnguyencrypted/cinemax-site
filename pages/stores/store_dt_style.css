@@ -10,6 +10,10 @@
 	margin: 30px auto;
 }
 
+.store_name {
+    text-align: center;
+}
+
 
 #header .home_store_header .wrapper .logo picture a img {
     max-width: 100px;
