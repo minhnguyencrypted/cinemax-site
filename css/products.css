@@ -50,13 +50,13 @@ a {
 
 .new-items-price {
     position: relative;
-    top: -10px;
+    margin-top: 10px;
+    
 }
 
 .new-items-button {
     position: relative;
-    top: -5px;
-
+    margin-top: 15px;
     margin: auto;
     height: 30px;
     width: 140px;
@@ -68,7 +68,10 @@ a {
 
 .button-name {
     position: relative;
-    bottom: 5px;
+    margin-top: 5px;
 }
 
+.items-details {
+    margin-top: 20%;
+}
 /* NEW PRODUCTS SECTION END */

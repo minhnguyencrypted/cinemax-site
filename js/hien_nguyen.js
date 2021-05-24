@@ -1,5 +1,7 @@
 localStorage.setItem('login_status', 'false');
 
+
+
 // variables and constant
 var login_status = JSON.parse(localStorage.getItem('login_status').toLocaleLowerCase());
 var my_account_button = document.querySelector('#my_account_button');
@@ -18,12 +20,13 @@ login_form.addEventListener('submit', () => {
 
 
 // define functions 
+
 function myAccountRedirect() {
   if (login_status == false) {
-    my_account_button.href = 'my_account/login.html';
+    my_account_button.href = 'myaccount/login.html';
   }
   else {
-    my_account_button.href = 'my_account/my_account.html';
+    my_account_button.href = 'myaccount/my_account.html';
   }
 }
 
