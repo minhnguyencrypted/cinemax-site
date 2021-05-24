@@ -16,24 +16,30 @@
 
 }
 
-.card {
-    /* Add shadows to create the "card" effect */
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    width: 30%;
-    margin-left: 3%;
-  }
-  
-  /* On mouse-over, add a deeper shadow */
-  .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
-  
-  /* Add some padding inside the card container */
-  .card-info {
-    padding: 2px 16px;
-    
+.h1_title {
+    background-color: #55D8E8;
+    width: 1000px;
+    padding: 20px;
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    font-style: italic;
+    font-size: 2rem;
+    color: black;
+    background-color: #55D8E8;
 }
+
+.card {
+    width: 10%;
+    height: 230px;
+    display: inline-block;
+    border: 3px solid black;
+    border-radius: 10px;
+    margin-right: 3%;
+    margin-bottom: 20px;
+    margin-top: 40px;
+  }
 
 .nav-list-item {
     display: inline;
