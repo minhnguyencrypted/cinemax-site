@@ -17,25 +17,35 @@
     $featured_products = [];
     foreach ($products as $product) {
         if (match_object_by_value($product,'TRUE','featured_in_mall')) {
-            $featured_products[] = $product;
+            if(count($featured_products) < 10) {
+                $featured_products[] = $product;
+            }
+            
         }
     }
     //get the featured stores
     
     $featured_stores = [];
     foreach ($stores as $store) {
-        if (match_object_by_value($store, 'TRUE', 'featured ') === true) {
-            $featured_stores[] = $store;
+        if (match_object_by_value($store, 'TRUE', 'featured') === true) {
+            if(count($featured_stores) < 10) {
+                $featured_stores[] = $store;
+            }
         }
     }
     
 
+    //get the sorted by time stores
+    $sorted_by_date_stores = sort_by_category($stores, 'created_time', false);
+
+    //get the sorted by time products
+    $sorted_by_date_products = sort_by_category($products, 'created_time', false);
+
+   
+
+
     
-
-
-
-
-
+    
 
 ?>
 
@@ -77,9 +87,9 @@
 
 <body>
 <div class="new-product-section">
-    <h2 class="section-title">
+    <h1 class="h1_title fl_item">
         Featured Products
-    </h2>
+    </h1>
 
     <?php
 
@@ -105,6 +115,9 @@
             <div class="items-details">
                 <p>Store: <?=$stores[$product['store_id']]['name']?></p>
             </div>
+            <div class="">
+                 Created Time: <?=$product['created_time']?>
+            </div>
         </div>
 
 
@@ -119,179 +132,102 @@
 <!--THINH's STORE SECTION-->
     <div id="New_stores">
 
-        <h1 class="h1_title fl_item">Featured Stores</h1>
         
+
+        
+
+
+    </div>
+
+    <div id="Featured_Stores">
+
+        <h1 class="h1_title fl_item">Featured Stores</h1>
+
         <?php
             foreach($featured_stores as $store) {
                 
         ?>
 
         <div class="card">
-            <img src="img_avatar.png" alt="Avatar" style="width:100%">
-            <div class="card-info">
-                <h4><b>
-                    <?=$store['name']?>
-                </b></h4>              
-            </div>
+        <img src="pictures/product_img/foo.png" alt="Avatar" style="width:100%">
+        <div class="container">
+            <h4><b><?=$store['name']?></b></h4>
+            <p>Created since: <?=$store['created_time']?></p>
+        </div>
         </div>
 
         <?php
             }
         ?>
 
-        
-
 
     </div>
 
-<div id="Featured_Stores">
+    <div id="Featured_Stores">
 
-    <h1 class="h1_title fl_item">New Stores</h1>
+        <h1 class="h1_title fl_item">New Store</h1>
 
-    <div class="Featured_Stores_Slider middle_imgs">
-
-        <div class="slides">
-            <input type="radio" id="ff1" name="ff" checked>
-                <input type="radio" id="ff2" name="ff" >
-                <input type="radio" id="ff3" name="ff" >
-                <input type="radio" id="ff4" name="ff" >
-            
-                <div class="slide s1">
-                    <div class="store_name store_name_fl_item">
-                        <a href="pages/stores/store_dt.html" style="color:red">IKEA</a>
-                    </div>
-                    <picture>
-                        <source srcset="pictures/store_img/ikea.jpg" media="(max-width: 400px" )>
-                        <source srcset="pictures/store_img/ikea.jpg">
-                        <a href="pages/stores/store_dt.html">
-                            <img src="pictures/store_img/ikea.jpg" alt="First store">
-                        </a>
-                    </picture>    
-                </div>
-
-
-                <div class="slide">
-                    <div class="store_name store_name_fl_item">
-                        <a href="pages/stores/store_dt.html" style="color:red">Adidas</a>
-                    </div>
-                    <picture>
-                        <source scrset="THE_MAIN_PAGE/Store/new_stores_images/image_7.png" media="(max-width: 400px")>
-                        <source scrset="THE_MAIN_PAGE/Store/new_stores_images/image_7.png">
-                        <a href="pages/stores/store_dt.html">
-                            <img src="pictures/store_img/adidas.png" alt="Second store">
-                        </a>
-                    </picture>  
-                </div>
+        <?php
+            for($i = 0; $i < 10; $i++) {
                 
+        ?>
 
-                <div class="slide">
-                    <div class="store_name store_name_fl_item">
-                        <a href="pages/stores/store_dt.html" style="color:red">Nike</a>
-                    </div>
-                    <picture>
-                        <source scrset="THE_MAIN_PAGE/Store/new_stores_images/image_8.png" media="(max-width: 400px")>
-                        <source scrset="THE_MAIN_PAGE/Store/new_stores_images/image_8.png">
-                        <a href="pages/stores/store_dt.html">
-                            <img src="pictures/store_img/nike.png" alt="Third store">
-                        </a>
-                    </picture>    
-                </div>
-
-
-                <div class="slide">
-                    <div class="store_name store_name_fl_item">
-                        <a href="pages/stores/store_dt.html" style="color:red">Puma</a>
-                    </div>
-                    <picture>
-                        <source scrset="THE_MAIN_PAGE/Store/new_stores_images/image_9.jpg" media="(max-width: 400px")>
-                        <source scrset="THE_MAIN_PAGE/Store/new_stores_images/image_9.jpg">
-                        <a href="pages/stores/store_dt.html">
-                            <img src="pictures/store_img/puma.jpg" alt="Fourth store">
-                        </a>
-                    </picture>
-                </div>
-
-                <div class="navigation-auto">
-                    <div class="auto-button1"></div>
-                    <div class="auto-button1"></div>
-                    <div class="auto-button1"></div>
-                    <div class="auto-button1"></div>
-                </div>
-
-            </div>
+        <div class="card">
+        <img src="pictures/product_img/foo.png" alt="Avatar" style="width:100%">
+        <div class="container">
+            <h4><b><?=$sorted_by_date_stores[$i]['name']?></b></h4>
+            <p><?=$sorted_by_date_stores[$i]['created_time']?></p>
+        </div>
         </div>
 
-        <div class="navigation">
-
-            <label for="ff1" class="bar"></label>
-            <label for="ff2" class="bar"></label>
-            <label for="ff3" class="bar"></label>
-            <label for="ff4" class="bar"></label>
-        
-        </div>
+        <?php
+            }
+        ?>
 
 
     </div>
+
+
 <div class="new-product-section">
-    <h2 class="section-title">
-        Featured Products
-    </h2>
+    <h1 class="h1_title fl_item">New Products</h1>
+    <?php
 
-    <div class="new-items">
-        <a href="pages/products/reclassic500.html">
-            <div>
-                <img src="pictures/product_img/foo.png" class="new-items-img" alt="Foo image">
-                <h2 class="new-items-title">
-                    Royal Enfield Classic 500
-                </h2>
-            </div>
-        </a>
-        <h3 class="new-items-price">VND 120,000,000</h3>
-        <a href="pages/products/reclassic500.html">
-            <div class="new-items-button">
-                <p class="button-name">View product</p>
-            </div>
-        </a>
-        <div class="items-details">
-            <p>Store: Royal Enfield Vietnam</p>
-        </div>
-    </div>
+    for($i = 0; $i < 10; $i++) {
 
-    <div class="new-items">
-        <a href="pages/products/trtiger900gtp.html">
-            <img src="pictures/product_img/bar.png" class="new-items-img" alt="Bar image">
-            <h2 class="new-items-title">
-                Triumph Tiger 900 GT Pro
-            </h2>
-        </a>
-        <h3 class="new-items-price">VND 469,000,000</h3>
-        <a href="pages/products/trtiger900gtp.html">
-            <div class="new-items-button">
-                <p class="button-name">View product</p>
-            </div>
-        </a>
-        <div class="items-details">
-            <p>Store: Triumph Motorcycles Vietnam</p>
-        </div>
-    </div>
+    ?>
 
-    <div class="new-items">
-        <a href="pages/products/yamahatracer900gt2021.html">
-            <img src="pictures/product_img/foobar.png" class="new-items-img" alt="Foobar image">
-            <h2 class="new-items-title">
-                Yamaha Tracer 900 GT (2021)
-            </h2>
-        </a>
-        <h3 class="new-items-price">VND 349,000,000</h3>
-        <a href="pages/products/yamahatracer900gt2021.html">
-            <div class="new-items-button">
-                <p class="button-name">View product</p>
+        <div class="new-items">
+            <a href="pages/products/rehimalayan.html">
+                <div>
+                    <img src="pictures/product_img/foo.png" class="new-items-img" alt="Foo image">
+                    <h2 class="new-items-title">
+                        <?=$sorted_by_date_products[$i]['name']?>
+                        
+                        
+                    </h2>
+                </div>
+            </a>
+            <h3 class="new-items-price">$ <?=$sorted_by_date_products[$i]['price']?></h3>
+            <a href="pages/products/rehimalayan.html">
+                <div class="new-items-button">
+                    <p class="button-name">View product</p>
+                </div>
+            </a>
+            <div class="items-details">
+                <p>Store: <?=$stores[$sorted_by_date_products[$i]['store_id'] - 1]['name']?></p>
             </div>
-        </a>
-        <div class="items-details">
-            <p>Store: Yamaha Vietnam Racing</p>
+            <div class="">
+                 Created Time: <?=$sorted_by_date_products[$i]['created_time']?>
+            </div>
         </div>
-    </div>
+
+
+    <?php
+
+    }
+    ?>
+
+    
 </div>
 <!--//THINH's STORE SECTION-->
 

@@ -1,3 +1,41 @@
+<?php
+    session_start();
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/php/API/data_loader/file_parser.php');
+
+    define('STORES_DATA_FILE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/data/stores.csv');
+    define('PRODUCTS_DATA_FILE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/data/products.csv');
+    define('CATEGORIES_DATA_FILE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/data/categories.csv');
+
+
+    $products = read_all_file(PRODUCTS_DATA_FILE_PATH);
+    $stores = read_all_file(STORES_DATA_FILE_PATH);
+    $categories = read_all_file(CATEGORIES_DATA_FILE_PATH);
+
+
+    //get the store id
+    $store_id = $_GET['id'] ?? '';
+    
+
+    $featured_products = [];
+    foreach($products as $product) {
+        if($product['store_id'] == $store_id && $product['featured_in_store'] == TRUE && count($featured_products) < 5) {
+            $featured_products[] = $product;
+        }
+    }
+
+    //get the sorted by time products
+    $sorted_by_date_products = sort_by_category($products, 'created_time', false);
+
+
+
+
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -35,6 +73,11 @@
 
     </header>
 
+    <h1 class='store_name'>
+        <?=$stores[$store_id - 1]['name']?>
+
+    </h1>
+
 
     <main id="main_section">
         <article>
@@ -45,71 +88,23 @@
                 <div class="new-product-section">
 
 
-                    <div class="new-items">
-                        <a href="rehimalayan.html">
-                            <div>
-                                <img src="product_img/foo.png" class="new-items-img" alt="Foo image">
-                                <h2 class="new-items-title">
-                                        Royal Enfield Himalayan
-                                </h2>
-                            </div>
-                        </a>
+                    <?php
+                        for($i =0; $i < 5; $i++) {
 
-                        <h3 class="new-items-price">VND 139,000,000</h3>
-                        
-                        <a href="rehimalayan.html">
-                            <div class="new-items-button">
-                                <p class="button-name">View product</p>
-                            </div>
-                        </a>
-
-                        <div class="items-details">
-                            <p>Store: Royal Enfield Vietnam</p>
-                        </div>
-
-
-                    </div>
-
-
+                    ?>
 
                     <div class="new-items">
 
-                        <a href="trtiger850sport.html">
-                            <img src="product_img/bar.png" class="new-items-img" alt="Bar image">
-                            <h2 class="new-items-title">
-                                Triumph Tiger 850 Sport
-                            </h2>
-                        </a>
-
-
-                        <h3 class="new-items-price">VND 359,900,000</h3>
-
-                        <a href="trtiger850sport.html">
-
-                            <div class="new-items-button">
-                                <p class="button-name">View product</p>
-                            </div>
-                            
-                        </a>
-
-                        <div class="items-details">
-                            <p>Store: Triump Motorcycles Vietnam</p>
-                        </div>
-
-                     </div>
-
-                    <div class="new-items">
-
-                        <a href="bmwr1250gsa.html">
+                        <a href="../../pictures/store_img/adidas.png">
 
                             <img src="product_img/foobar.png" class="new-items-img" alt="Foobar image">
                             <h2 class="new-items-title">
-                                 BMW R 1250 GS Adventure
+                                <?=$sorted_by_date_products[$i]['name']?>
                             </h2>
 
                         </a>
 
-                        <h3 class="new-items-price">VND 699,000,000</h3>
+                        <h3 class="new-items-price">$ <?=$sorted_by_date_products[$i]['price']?></h3>
 
                         <a href="bmwr1250gsa.html">
 
@@ -122,29 +117,47 @@
                         </a>
 
                         <div class="items-details">
-                            <p>Store: BMW Motorrad Vietnam</p>
+                            <p>Store: <?=$stores[$sorted_by_date_products[$i]['store_id']] ['name'] ?></p>
+                        </div>
+                        <div class="">
+                            <p>Created Time: <?=$sorted_by_date_products[$i]['created_time']?></p>
                         </div>
                         
                     </div>
-                </div>    
+                    <?php
+                         }
+
+                    ?>
+                </div>   
+
+                
+                
+                
+
+
                  
                 <div class="sub_title">
                     <h1>Featured Products</h1>
                 </div>
 
                 <div class="new-product-section">
+                    <?php
+                        foreach($featured_products as $product) {
+
+                    ?>
+
                     <div class="new-items">
 
-                        <a href="bmwr1250gsa.html">
+                        <a href="../../pictures/store_img/adidas.png">
 
                             <img src="product_img/foobar.png" class="new-items-img" alt="Foobar image">
                             <h2 class="new-items-title">
-                                 BMW R 1250 GS Adventure
+                                <?=$product['name']?>
                             </h2>
 
                         </a>
 
-                        <h3 class="new-items-price">VND 699,000,000</h3>
+                        <h3 class="new-items-price">$ <?=$product['price']?></h3>
 
                         <a href="bmwr1250gsa.html">
 
@@ -157,35 +170,16 @@
                         </a>
 
                         <div class="items-details">
-                            <p>Store: BMW Motorrad Vietnam</p>
+                            <p>Store: <?=$stores[$product['store_id']] ['name'] ?></p>
                         </div>
                         
                     </div>
-                    
-                    <div class="new-items">
-                        <a href="rehimalayan.html">
-                            <div>
-                                <img src="product_img/foo.png" class="new-items-img" alt="Foo image">
-                                <h2 class="new-items-title">
-                                        Royal Enfield Himalayan
-                                </h2>
-                            </div>
-                        </a>
+                    <?php
+                         }
 
-                        <h3 class="new-items-price">VND 139,000,000</h3>
-                        
-                        <a href="rehimalayan.html">
-                            <div class="new-items-button">
-                                <p class="button-name">View product</p>
-                            </div>
-                        </a>
+                    ?>
 
-                        <div class="items-details">
-                            <p>Store: Royal Enfield Vietnam</p>
-                        </div>
-
-
-                    </div>
+                </div>
 
 
             </section>
