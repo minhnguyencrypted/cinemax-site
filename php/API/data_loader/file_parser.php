@@ -3,7 +3,7 @@
     const READ_MODE = 'r';
 
     function fgets_clean($file_obj) {
-        return preg_replace("/[\n]$/","",fgets($file_obj));
+        return preg_replace("/\r\n?|\n$/","",fgets($file_obj));
     }
 
     function parse_line(string $line, array $categories = []) {
@@ -166,6 +166,9 @@
     /*
      * Test cases for read_all_file(), ignore these lines
     var_dump(read_all_file("tests/foo.csv"));
+   $foo = read_all_file("tests/stores.csv");
+   echo isset($foo[1]['featured']) . $foo[1]['featured'] . "\n";
+    var_dump(match_object_by_value($foo[1],'FALSE', 'featured'));
      *
      */
 
