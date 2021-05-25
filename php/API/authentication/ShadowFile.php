@@ -149,8 +149,8 @@
             return $parsed_credential;
         }
 
-        private static function fgets_clean($file_obj) : string {
-            return preg_replace("/[\n]$/","",fgets($file_obj));
+        function fgets_clean($file_obj) {
+            return preg_replace("/\r\n?|\n$/","",fgets($file_obj));
         }
 
         /*
