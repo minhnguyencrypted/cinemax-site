@@ -7,7 +7,7 @@
     define('CATEGORIES_DATA_FILE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/data/categories.csv');
 
     function fgets_clean($file_obj) {
-        return preg_replace("/\r\n?|\n$/","",fgets($file_obj));
+        return $file_obj !== false ? preg_replace("/\r\n?|\n$/","",fgets($file_obj)) : false;
     }
 
     function parse_line(string $line, array $categories = []) {
