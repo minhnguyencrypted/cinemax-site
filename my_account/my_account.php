@@ -1,4 +1,16 @@
-<!doctype html>
+<?php
+	session_start();
+	if (!isset($_SESSION['user_id'])) {
+		header("Location: login.php");
+	}
+
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/php/API/data_loader/file_parser.php');
+	$user_info = read_file_match_value(USERS_INFO_FILE_PATH,$_SESSION['user_id'],'user_id');
+	$user_info = is_array($user_info) ? $user_info[0] : [];
+	var_dump($user_info);
+?>
+
+<!DOCTYPE html>
 
 <html lang="en">
   <head>
@@ -38,22 +50,32 @@
                   </ul>
               </div>
           </header>
-      
+<?php
+	if (empty($user_info)) {
+		echo "<p>Error occurred: cannot retrieve your account info.";
+	} else {
+?>
+		<div class="container">
+			<div>
+				<ul>
+					<li id="my_account_first_name">Name: <?=$user_info['first_name'] . ' ' . $user_info['last_name']?></li>
+					<li id="my_account_email">
+						Email: <?=$user_info['email']?>
+					</li>
+					<li>
+						Phone number: <?=$user_info['phone']?>
+					</li>
+					<li>
+						Store owner: <?=$user_info['is_store_owner'] === 'TRUE' ? 'Yes' : 'No'?>
+					</li>
+				</ul>
+			</div>
+		</div>
+<?php
+	}
+?>
 
-    <div class="container">
-      <div>
-        <ul>
-          <li>Name : Neils Cohen</li>
-          <li>
-            Age : 45
-          </li>
-          <li id="my_account_email">
-            Email: neils2382@gmail.com
-          </li>
-          <li>Show other information ...</li>
-        </ul>
-      </div>
-    </div>
+
 
 <!--THINH'S COOKIES BANNER-->
 
@@ -109,7 +131,7 @@
 </body>
 
 
-<script type="text/javascript" src="../js/hien_nguyen_my_account.js"></script>
+<!--<script type="text/javascript" src="../js/hien_nguyen_my_account.js"></script>-->
 <script>
   
 const cookieBanner = document.querySelector(".cookie-container");

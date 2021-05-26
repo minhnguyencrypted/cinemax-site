@@ -5,6 +5,7 @@
     define('STORES_DATA_FILE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/data/stores.csv');
     define('PRODUCTS_DATA_FILE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/data/products.csv');
     define('CATEGORIES_DATA_FILE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/data/categories.csv');
+    define('USERS_INFO_FILE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/../mall_site_data/data/users.csv');
 
     function fgets_clean($file_obj) {
         return $file_obj !== false ? preg_replace("/\r\n?|\n$/","",fgets($file_obj)) : false;

@@ -164,7 +164,7 @@
 </div>
 
 <!--//footer-->
-<script type="text/javascript" src="../js/hien_nguyen.js"></script>
+<!--<script type="text/javascript" src="../js/hien_nguyen.js"></script>-->
 </body>
 
 <script>
