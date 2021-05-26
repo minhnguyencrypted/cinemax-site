@@ -1,5 +1,8 @@
 <?php
 	session_start();
+	if (isset($_SESSION['user_id'])) {
+		header("Location: my_account.php");
+	}
 	require_once($_SERVER['DOCUMENT_ROOT'] . '/php/API/authentication/ShadowFile.php');
 	require_once($_SERVER['DOCUMENT_ROOT'] . '/php/API/data_loader/file_parser.php');
     use authentication\ShadowFile;
@@ -35,9 +38,6 @@
 		session_regenerate_id();
 		$_SESSION['user_id'] = get_user_id($email);
 		header("Location: my_account.php");
-	}
-	if (isset($_POST['submit']) && $is_credential_valid === false) {
-		echo "<p>Invalid login credentials</p>";
 	}
 ?>
 
@@ -90,7 +90,7 @@
 						<label for="fname">Email :</label>
 					</div>
 					<div class="col-75">
-						<input type="text" id="email" name="email" placeholder="Your email..">
+						<input required type="text" id="email" name="email" placeholder="Your email..">
 					</div>
 				</div>
 
@@ -99,7 +99,7 @@
 						<label for="fname">Password :</label>
 					</div>
 					<div class="col-75">
-						<input id="password" name="password" type="password" placeholder="Your password..">
+						<input required id="password" name="password" type="password" placeholder="Your password..">
 					</div>
 					<a class="f_password" href='forgot_password.html'>Forgot your password?</a>
 				</div>
@@ -107,6 +107,11 @@
 				<div class="row form-control">
 					<button type="submit" name="submit" class='submit_button' id="login_submit_button">Submit</button>
 				</div>
+<?php
+	if (isset($_POST['submit']) && $is_credential_valid === false) {
+		echo "<p>Invalid login credentials, please try again.</p>";
+	}
+?>
 			</form>
 		</div>
 	</div>
