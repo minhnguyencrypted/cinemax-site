@@ -33,7 +33,7 @@
                     <li class="nav-list-item"><a href="#">Browse</a></li>
                     <li class="nav-list-item"><a href="../faq.html">FAQs</a></li>
                     <li class="nav-list-item"><a href="../contact.html">Contact</a></li>
-                    <li class="nav-list-item"><a href="login.html">Login</a></li>
+                    <li class="nav-list-item"><a href="login.php">Login</a></li>
                     <li class="nav-list-item"><a href="signup.html">Sign-up</a></li>
                   </ul>
               </div>

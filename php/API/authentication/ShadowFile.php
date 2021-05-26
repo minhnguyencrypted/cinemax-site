@@ -1,6 +1,8 @@
 <?php
     namespace authentication;
 
+    define('USERS_CREDENTIALS_FILE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/../mall_site_data/authentication/users');
+
     class ShadowFile {
         //Constants
         private const READ_MODE = 'r';
@@ -15,7 +17,7 @@
         //Constructor
         public function __construct(string $file_name) {
             //Set default containing directory
-            $this->default_containing_dir = $_SERVER['DOCUMENT_ROOT'] . '/../mall_site_data/';
+            $this->default_containing_dir = $_SERVER['DOCUMENT_ROOT'] . '/../mall_site_data/authentication/';
             //Set file name
             $this->file_name = $file_name;
 
@@ -36,7 +38,9 @@
         public function create(string $file_name) : bool {
             //Create directory
             if (!file_exists($this->default_containing_dir)) {
-                mkdir($this->default_containing_dir,0777,true);
+               if (mkdir($this->default_containing_dir,0777,true) === false) {
+                   return false;
+               }
             }
 
             //Create file
@@ -84,6 +88,7 @@
             while (!feof($file)) {
                 $current_credential = self::parse_line(self::fgets_clean($file));
                 if (is_array($current_credential) && $current_credential['username'] === $username) {
+                    fclose($file);
                     return $current_credential['hash'];
                 }
             }
@@ -152,17 +157,4 @@
         function fgets_clean($file_obj) {
             return preg_replace("/\r\n?|\n$/","",fgets($file_obj));
         }
-
-        /*
-        //Debug getters
-        public function get_file_name() : string{
-            return $this->file_name;
-        }
-        public function get_validity() : bool {
-            return $this->is_file_valid;
-        }
-        public function get_dir() : string {
-            return $this->default_containing_dir;
-        }
-        */
     }

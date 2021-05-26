@@ -1,3 +1,4 @@
 .idea/
 tests/
-/test.php
+tests.php
+test.php

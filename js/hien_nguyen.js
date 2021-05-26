@@ -14,7 +14,7 @@ var login_form = document.querySelector('#login_form');
 my_account_button.addEventListener('click', myAccountRedirect);
 login_form.addEventListener('submit', login_protocol);
 login_form.addEventListener('submit', () => {
-  window.location('my_account.html');
+  window.location('my_account.php');
 });
 
 
@@ -23,10 +23,10 @@ login_form.addEventListener('submit', () => {
 
 function myAccountRedirect() {
   if (login_status == false) {
-    my_account_button.href = 'myaccount/login.html';
+    my_account_button.href = 'my_account/login.php';
   }
   else {
-    my_account_button.href = 'myaccount/my_account.html';
+    my_account_button.href = 'my_account/my_account.php';
   }
 }
 

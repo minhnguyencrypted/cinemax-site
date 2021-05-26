@@ -1,4 +1,47 @@
-<!doctype html>
+<?php
+	session_start();
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/php/API/authentication/ShadowFile.php');
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/php/API/data_loader/file_parser.php');
+    use authentication\ShadowFile;
+
+    $log_in_credentials_file = new ShadowFile('users');
+
+	function get_user_id(string $email) {
+        //Try to receive account info
+        $account_info = read_file_match_value(USERS_INFO_FILE_PATH,$email,'email');
+        //If not found, return false;
+        if ($account_info === false) {
+        	return false;
+        }
+
+		//Validate user's login credential
+		$user_id = $account_info[0]['user_id'] ?? '';
+        if ($user_id === '') {
+        	return false;
+        }
+        return $user_id;
+	}
+
+	//Receive login credentials
+	$email = $_POST['email'] ?? '';
+	$plain_password = $_POST['password'] ?? '';
+
+	$log_in_credentials_file = new ShadowFile('users');
+	//Verify login credentials
+	$is_credential_valid = password_verify($plain_password, $log_in_credentials_file->get_hash(get_user_id($email)));
+
+	//Log user in
+	if ($is_credential_valid) {
+		session_regenerate_id();
+		$_SESSION['user_id'] = get_user_id($email);
+		header("Location: my_account.php");
+	}
+	if (isset($_POST['submit']) && $is_credential_valid === false) {
+		echo "<p>Invalid login credentials</p>";
+	}
+?>
+
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -25,46 +68,48 @@
             <!-- Navigation bar -->
             <div class="nav">
                 <ul class="nav-list">
-                    <li class="nav-list-item"><a href="../index.html">Home</a></li>
+                    <li class="nav-list-item"><a href="../index.php">Home</a></li>
                     <li class="nav-list-item"><a href="../aboutus.html">About Us</a></li>
                     <li class="nav-list-item"><a href="../fees.html">Fees</a></li>
                     <li class="nav-list-item"><a href="#" id="my_account_button">My Account</a></li>
-                    <li class="nav-list-item"><a href="#">Browse</a></li>
+                    <li class="nav-list-item"><a href="../browse.php">Browse</a></li>
                     <li class="nav-list-item"><a href="../faq.html">FAQs</a></li>
                     <li class="nav-list-item"><a href="../contact.html">Contact</a></li>
-                    <li class="nav-list-item"><a href="/my_account.html">Login</a></li>
-                    <li class="nav-list-item"><a href="/my_account/signup.htmlcount/signup.html">Sign-up</a></li>
+                    <li class="nav-list-item"><a href="my_account.php">Login</a></li>
+                    <li class="nav-list-item"><a href="signup.html">Sign-up</a></li>
                 </ul>
             </div>
         </header>
     
-  <div class='content'>
-    <h2 class='header'>Login</h2>
-    <div class="container">
-      <form action="#" class="form" id="login_form">
-        <div class="row form-control">
-          <div class="col-25">
-            <label for="fname">Email :</label>
-          </div>
-          <div class="col-75">
-            <input type="text" id="email" name="email" placeholder="Your email..">
-          </div>
-        </div> 
-        <div class="row form-control">
-          <div class="col-25">
-            <label for="fname">Password :</label>
-          </div>
-          <div class="col-75">
-            <input type="text" id="password" name="password" type="password" placeholder="Your password..">
-          </div>
-          <a class="f_password" href='forgot_password.html'>Forgot your password?</a>
-        </div>
-        <div class="row form-control">
-          <input type="submit" class='submit_button' id="login_submit_button" value="Submit">
-        </div>  
-      </form>
-    </div>
-  </div>
+	<div class='content'>
+		<h2 class='header'>Login</h2>
+		<div class="container">
+			<form action="<?=$_SERVER['PHP_SELF']?>" method="POST" class="form" id="login_form">
+				<div class="row form-control">
+					<div class="col-25">
+						<label for="fname">Email :</label>
+					</div>
+					<div class="col-75">
+						<input type="text" id="email" name="email" placeholder="Your email..">
+					</div>
+				</div>
+
+				<div class="row form-control">
+					<div class="col-25">
+						<label for="fname">Password :</label>
+					</div>
+					<div class="col-75">
+						<input id="password" name="password" type="password" placeholder="Your password..">
+					</div>
+					<a class="f_password" href='forgot_password.html'>Forgot your password?</a>
+				</div>
+
+				<div class="row form-control">
+					<button type="submit" name="submit" class='submit_button' id="login_submit_button">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
 
 <!--THINH'S COOKIES BANNER-->
 
