@@ -24,17 +24,14 @@
     }
 
     //get the sorted by time products
-    $sorted_by_date_products = sort_by_category($products, 'created_time', false);
-
-
-
-
+    $filtered_products = [];
+    foreach ($products as $product) {
+        if (match_object_by_value($product,$store_id,'store_id')) {
+            $filtered_products[] = $product;
+        }
+    }
+    $sorted_by_date_products = sort_by_category($filtered_products, 'created_time', false);
 ?>
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en-US">
@@ -97,7 +94,7 @@
 
                         <a href="../../pictures/store_img/adidas.png">
 
-                            <img src="product_img/foobar.png" class="new-items-img" alt="Foobar image">
+                            <img src="product_img/foobar.png" class="new-items-img" alt="<?= $sorted_by_date_products[$i]['name']?> image">
                             <h2 class="new-items-title">
                                 <?=$sorted_by_date_products[$i]['name']?>
                             </h2>

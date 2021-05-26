@@ -147,14 +147,16 @@
             foreach($featured_stores as $store) {
                 
         ?>
-
-        <div class="card">
-        <img src="pictures/product_img/foo.png" alt="Avatar" style="width:100%">
-        <div class="container">
-            <h4><b><?=$store['name']?></b></h4>
-            <p>Created since: <?=$store['created_time']?></p>
-        </div>
-        </div>
+        <a href='pages/stores/store_dt.php?id=<?= $store['id']?>'>
+            <div class="card" >
+            <img src="pictures/product_img/foo.png" alt="Avatar" style="width:100%">
+            <div class="container">
+                <h4><b><?=$store['name']?></b></h4>
+                <p>Created since: <?=$store['created_time']?></p>
+            </div>
+            </div>
+        </a>
+        
 
         <?php
             }
@@ -171,14 +173,16 @@
             for($i = 0; $i < 10; $i++) {
                 
         ?>
-
-        <div class="card">
-        <img src="pictures/product_img/foo.png" alt="Avatar" style="width:100%">
-        <div class="container">
-            <h4><b><?=$sorted_by_date_stores[$i]['name']?></b></h4>
-            <p><?=$sorted_by_date_stores[$i]['created_time']?></p>
-        </div>
-        </div>
+        <a href='pages/stores/store_dt.php?id=<?= $sorted_by_date_stores[$i]['id']?>'>
+            <div class="card">
+                <img src="pictures/product_img/foo.png" alt="Avatar" style="width:100%">
+                <div class="container">
+                    <h4><b><?=$sorted_by_date_stores[$i]['name']?></b></h4>
+                    <p><?=$sorted_by_date_stores[$i]['created_time']?></p>
+                </div>
+            </div>
+        </a>
+        
 
         <?php
             }
