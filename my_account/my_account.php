@@ -7,7 +7,11 @@
 	require_once($_SERVER['DOCUMENT_ROOT'] . '/php/API/data_loader/file_parser.php');
 	$user_info = read_file_match_value(USERS_INFO_FILE_PATH,$_SESSION['user_id'],'user_id');
 	$user_info = is_array($user_info) ? $user_info[0] : [];
-	var_dump($user_info);
+	//Retrieving store data
+	if (!empty($user_info) && $user_info['is_store_owner'] === 'TRUE') {
+		$store_info = read_file_match_value(USERS_STORES_INFO_FILE_PATH,$user_info['user_id'],'owner_id');
+        $store_info = is_array($store_info) ? $store_info[0] : [];
+	}
 ?>
 
 <!DOCTYPE html>
@@ -57,6 +61,7 @@
 ?>
 		<div class="container">
 			<div>
+				<h2>User Information</h2>
 				<ul>
 					<li id="my_account_first_name">Name: <?=$user_info['first_name'] . ' ' . $user_info['last_name']?></li>
 					<li id="my_account_email">
@@ -66,11 +71,50 @@
 						Phone number: <?=$user_info['phone']?>
 					</li>
 					<li>
+						Address: <?=$user_info['address']?>
+					</li>
+					<li>
+						City: <?=$user_info['city']?>
+					</li>
+					<li>
+						Zipcode: <?=$user_info['zip_code']?>
+					</li>
+					<li>
 						Store owner: <?=$user_info['is_store_owner'] === 'TRUE' ? 'Yes' : 'No'?>
 					</li>
 				</ul>
 			</div>
 		</div>
+<?php
+	if ($user_info['is_store_owner'] === 'TRUE') {
+?>
+		<div class="container">
+			<div>
+				<h2>Store Information</h2>
+<?php
+	if (empty($store_info)) {
+		echo "<p>Could not retrieve store information. Please try again.</p>";
+    } else {
+?>
+		<ul>
+			<li>
+				Business name: <?=$store_info['business_name']?>
+			</li>
+			<li>
+				Store name: <?=$store_info['store_name']?>
+			</li>
+			<li>
+				Category: <?=$store_info['category']?>
+			</li>
+		</ul>
+<?php
+    }
+?>
+			</div>
+		</div>
+<?php
+    }
+?>
 <?php
 	}
 ?>
