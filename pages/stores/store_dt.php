@@ -15,7 +15,7 @@
     //get the store id
     $store_id = $_GET['id'] ?? '';
     
-
+    //Get featured products
     $featured_products = [];
     foreach($products as $product) {
         if($product['store_id'] == $store_id && $product['featured_in_store'] == TRUE && count($featured_products) < 5) {
@@ -24,6 +24,7 @@
     }
 
     //get the sorted by time products
+    
     $filtered_products = [];
     foreach ($products as $product) {
         if (match_object_by_value($product,$store_id,'store_id')) {
@@ -31,6 +32,7 @@
         }
     }
     $sorted_by_date_products = sort_by_category($filtered_products, 'created_time', false);
+    
 ?>
 
 <!DOCTYPE html>
@@ -87,7 +89,6 @@
 
                     <?php
                         for($i =0; $i < 5; $i++) {
-
                     ?>
 
                     <div class="new-items">
@@ -114,7 +115,7 @@
                         </a>
 
                         <div class="items-details">
-                            <p>Store: <?=$stores[$sorted_by_date_products[$i]['store_id']] ['name'] ?></p>
+                            <p>Store: <?=$stores[$sorted_by_date_products[$i]['store_id']-1] ['name'] ?></p>
                         </div>
                         <div class="">
                             <p>Created Time: <?=$sorted_by_date_products[$i]['created_time']?></p>
@@ -167,7 +168,7 @@
                         </a>
 
                         <div class="items-details">
-                            <p>Store: <?=$stores[$product['store_id']] ['name'] ?></p>
+                            <p>Store: <?=$stores[$product['store_id'] - 1] ['name'] ?></p>
                         </div>
                         
                     </div>
