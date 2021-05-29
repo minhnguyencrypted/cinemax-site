@@ -79,7 +79,13 @@
 
 				</div>
 				<p class="pPrice">$<?=$product['price']?></p>
-				<div class="buy-button"><a href="#"><p class="button-name">Buy Now</p></a></div>
+				<div class="buy-button" >
+                    <?php if(!isset($_SESSION['user_id']) == true) { ?> 
+                        <a href="proceed to checkout"><p class="button-name">Buy Now</p></a>
+                    <?php } else { ?>
+                        <a href="proceed to register page"><p class="button-name">Buy Now</p></a>
+                    <?php } ?>
+                </div>
 				<div class="add-button" onclick="buttonAddProduct()"><p class="button-name">Add</p></div>
 			</div>
 			<div>
