@@ -68,10 +68,36 @@
     <head>
         <title>Browse stores</title>
 	    <meta charset="UTF-8">
+	    <link rel="stylesheet" href="index.css">
+	    <link rel="stylesheet" href="css/cookies_banner_style.css">
+	    <link href="css/products.css" rel="stylesheet">
+	    <link href="css/footer.css" rel="stylesheet">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 
 	<body>
-		<form action="<?=$_SERVER['PHP_SELF']?>" method="GET">
+	<header id="header_main">
+		<div class="logo">
+			<h1>Mall-site</h1>
+		</div>
+		<!-- Navigation bar -->
+		<div class="nav">
+			<ul class="nav-list">
+				<li class="nav-list-item"><a href="index.php">Home</a></li>
+				<li class="nav-list-item"><a href="aboutus.html">About Us</a></li>
+				<li class="nav-list-item"><a href="fees.html">Fees</a></li>
+				<li class="nav-list-item"><a href="my_account/my_account.php" id="my_account_button">My Account</a></li>
+				<li class="nav-list-item"><a href="#">Browse</a></li>
+				<li class="nav-list-item"><a href="faq.html">FAQs</a></li>
+				<li class="nav-list-item"><a href="contact.html">Contact</a></li>
+				<li class="nav-list-item"><a href="my_account/login.php">Login</a></li>
+				<li class="nav-list-item"><a href="my_account/signup.html">Sign-up</a></li>
+				<li class="nav-list-item"><a href="shopping_cart.html">Shopping Cart</a></li>
+
+			</ul>
+		</div>
+	</header>
+	<form action="<?=$_SERVER['PHP_SELF']?>" method="GET">
 			<label>
 				Browse stores by name:
 				<select name="name">
@@ -110,8 +136,39 @@
 	<h2>Total: <?=count($totally_filtered_stores)?> store(s)</h2>
 <?php
 	foreach ($totally_filtered_stores as $store) {
-        echo "<p>" . $store['name'] . "</p>";
+?>
+	<a href="pages/stores/store_dt.php<?='?id=' . $store['id']?>"><p><?=$store['name']?></p></a>
+<?php
 	}
 ?>
+	<div class="footer">
+		<ul>
+			<div class="footer_content">
+
+				<div class="footer_content_policies">
+					<li>
+						<p><a href="Thinh_policies.htmnl">Policies</a>
+						</p>
+					</li>
+
+					<br><br>
+				</div>
+
+				<div class="footer_content_faq">
+					<li>
+						<p><a href="Thinh_faq.html">FAQ</a>
+						</p>
+					</li>
+					<br></br>
+				</div>
+
+		</ul>
+		<div class="copyright">
+			<small>Copyright &copy; 2021, Nhat Dang Nguyen, Hien Cong Gia Nguyen, Minh Nhat Nguyen and Thinh Hung Huynh</small>
+
+		</div>
+
+
+	</div>
 	</body>
 </html>
