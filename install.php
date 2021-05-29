@@ -22,7 +22,8 @@
 	if ($shadow_file_status === true) {
 		$shadow_file_contents = $shadow->get_all_credentials();
 
-		$is_credential_valid = isset($_POST['submit']) && is_username_valid($_POST['username']);
+		$is_credential_valid = isset($_POST['submit']) && is_username_valid($_POST['username']) &&
+				$_POST['passwd'] === $_POST['retype_passwd'];
 
 		if ($shadow_file_contents === [] && $is_credential_valid) {
 			$shadow->set_credential($_POST['username'], password_hash($_POST['passwd'],PASSWORD_BCRYPT));
@@ -77,19 +78,23 @@
 	?>
 		<h2>Create your administrator account</h2>
 		<form action="<?=$_SERVER['PHP_SELF']?>" method="POST">
-			<label>
-		  Username: <input type="text" name="username" value="<?=$_POST['username']?>" required>
-		  </label>
-			<br><br>
-			<label>
-				Password: <input type="password" name="passwd" value="<?=$_POST['passwd']?>" required>
-			</label>
-			<br><br>
-			<button type="submit" name="submit">Submit</button>
+		<label>
+			Username: <input type="text" name="username" value="<?=$_POST['username']?>" required>
+		</label>
+		<br><br>
+		<label>
+			Password: <input type="password" name="passwd" value="<?=$_POST['passwd']?>" required>
+		</label>
+		<br><br>
+		<label>
+			Retype password: <input type="password" name="retype_passwd" value="<?=$_POST['passwd']?>" required>
+		</label>
+		<br><br>
+		<button type="submit" name="submit">Submit</button>
 	<?php
 				if (isset($_POST['submit']) && !$is_credential_valid) {
 	?>
-		<p>Your previously submitted username is invalid</p>
+		<p>Your previously submitted credentials are invalid or passwords don't match.</p>
 	<?php
                 }
 	?>
