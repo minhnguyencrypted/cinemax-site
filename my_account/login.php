@@ -72,7 +72,7 @@
                     <li class="nav-list-item"><a href="../aboutus.html">About Us</a></li>
                     <li class="nav-list-item"><a href="../fees.html">Fees</a></li>
                     <li class="nav-list-item"><a href="#" id="my_account_button">My Account</a></li>
-                    <li class="nav-list-item"><a href="../browse.php">Browse</a></li>
+                    <li class="nav-list-item"><a href="../browse_stores.php">Browse</a></li>
                     <li class="nav-list-item"><a href="../faq.html">FAQs</a></li>
                     <li class="nav-list-item"><a href="../contact.html">Contact</a></li>
                     <li class="nav-list-item"><a href="my_account.php">Login</a></li>

@@ -1,3 +1,23 @@
+<?php
+	//Retrieve products from file
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/php/API/data_loader/file_parser.php');
+	$sorted_products_by_date = sort_by_category(read_all_file(PRODUCTS_DATA_FILE_PATH),'created_time',false);
+
+	//Get current page number
+	if (is_numeric($_GET['page'])
+			&& (int)$_GET['page'] > 0
+			&& (int)$_GET['page'] <= count($sorted_products_by_date) / 2) {
+		$page = (int)$_GET['page'];
+	} else {
+		$page = 1;
+	}
+
+	//Get two products to display
+	$first_product = $sorted_products_by_date[$page * 2 - 2] ?? null;
+    $second_product = $sorted_products_by_date[$page * 2 - 1] ?? null;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +30,24 @@
     <title>BMW R 1250 GS Adventure</title>
     <link href="css/productpage.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<style>
+		.products_list {
+            white-space: nowrap;
+        }
+		.products_list > li {
+            display: inline-block;
+            height: 100%;
+		}
+		.pagination {
+            list-style: none;
+		}
+		.pagination > li {
+            display: inline-block;
+            width: 50%;
+            height: 100%;
+		}
+	</style>
 </head>
 
 <body>
@@ -33,46 +71,65 @@
             </ul>
         </div>
     </header>
-    <div class="pInfo-frame">
-        <div class="product-info">
-            <h2 class="pTitle">BMW R 1250 GS Adventure</h2>
-            <div class="product-description">
-                <p>
-                    A Boxer engine powered Adventure motorcycle<br>
-                    distributed by BMW Motorrad Vietnam<br> <br>
-                </p>
-                <ul>
-                    <li>Engine: 4-stroke, DOHC, 1258cc Twin Boxer with BMW ShiftCam technology</li>
-                    <li>Max Torque: 142.36Nm @ 6250RPM</li>
-                    <li>Max Power: 136HP @ 7750RPM</li>
-                    <li>Fuel capacity: 30 litres</li>
-                </ul>
-            </div>
-            <p class="pPrice">Price: VND 699,000,000</p>
-            <div class="buy-button"><p class="button-name">Buy Now</p></div>
-            <div class="add-button" onclick="buttonAddProduct()"><p class="button-name">Add</p></div>
-        </div>
-        <div>
-            <img src="../../pictures/product_img/foobar.png" alt="Foobar product picture" class="product-img">
-        </div>
-        <div class="recommended-products">
-            <h3 class="recommended-title">Recommended products</h3>
-            <div class="recommended-items">
-                <a href="trtiger850sport.html">
-                    <div class="item">
-                        <img src="../../pictures/product_img/bar.png" alt="Bar" style="object-fit: scale-down; height: 200px; width: auto;">
-                        <p class="item-name">Triumph Tiger 850 Sport</p>
-                    </div>
-                </a>
-                <a href="rehimalayan.html">
-                    <div class="item">
-                        <img src="../../pictures/product_img/foo.png" alt="Foo" style="object-fit: scale-down; height: 200px; width: auto;">
-                        <p class="item-name">Royal Enfield Himalayan</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
+    <h2>New Products</h2>
+	<ul class="products_list">
+<?php
+	if (!is_null($first_product)) {
+?>
+		<li>
+			<div>
+				<p><?=$first_product['name']?></p>
+				<p>$ <?=$first_product['price']?></p>
+			</div>
+		</li>
+<?php
+	}
+    if (!is_null($second_product)) {
+?>
+	    <li>
+		    <div>
+			    <p><?=$second_product['name']?></p>
+			    <p>$ <?=$second_product['price']?></p>
+		    </div>
+	    </li>
+<?php
+    }
+?>
+	</ul>
+	<br>
+    <ul class="products_list">
+<?php
+	//If current page is neither first page nor last page
+	if ($page > 1 && $page < count($sorted_products_by_date) / 2) {
+?>
+		<li>
+			<p><a href="<?=$_SERVER['PHP_SELF']?>?page=<?=$page - 1?>">Previous</a></p>
+		</li>
+		<li>
+			<p><a href="<?=$_SERVER['PHP_SELF']?>?page=<?=$page + 1?>">Next</a></p>
+		</li>
+<?php
+	} else {
+		//If current page is the first page
+		if ($page === 1) {
+?>
+		<li>
+			<p><a href="<?=$_SERVER['PHP_SELF']?>?page=<?=$page + 1?>">Next</a></p>
+		</li>
+<?php
+		} else {
+			//If current page is the last page
+?>
+		<li>
+			<p><a href="<?=$_SERVER['PHP_SELF']?>?page=<?=$page - 1?>">Previous</a></p>
+		</li>
+<?php
+        }
+	}
+?>
+    </ul>
+    <br>
+    <p>Page: <?=$page?>/<?=count($sorted_products_by_date) / 2?></p>
     <div class="footer">
         <ul>
             <div class="footer_content">

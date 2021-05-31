@@ -70,7 +70,7 @@
 <!-- Navigation bar -->
 <div class="nav">
     <ul class="nav-list">
-        <li class="nav-list-item"><a href="index.html">Home</a></li>
+        <li class="nav-list-item"><a href="index.php">Home</a></li>
         <li class="nav-list-item"><a href="aboutus.html">About Us</a></li>
         <li class="nav-list-item"><a href="fees.html">Fees</a></li>
         <li class="nav-list-item"><a href="my_account/my_account.php" id="my_account_button">My Account</a></li>
