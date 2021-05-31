@@ -83,6 +83,15 @@ constant is used in function `explode()` for splitting CSV lines.
     - Return values: Return a non-empty sorted array of given objects on succeed, otherwise, return `false`.
     - Undefined behaviours/errors: Errors may occur when some objects do not have `$sort_category` key and value, 
       function returns `false`.
+
+- `get_objects_with_key_value()`: Get all the objects that match the given value of specified key.
+    - Arguments:
+        - `$objects`: (array) The array of objects to be filtered.
+        - `$match_value`: (string) The string value of the value.
+        - `$match_key`: (string) The string value of the key.
+    - Return values: Returns a non-empty array if found any objects match the specified criteria, otherwise, returns
+      empty array. If passed arguments are empty array or strings, returns `false`.
+    - Undefined behaviours/Errors: No Undefined behaviours or Errors found yet.
  
 - `get_categories()`: Retrieve CSV file categories
     - Arguments:

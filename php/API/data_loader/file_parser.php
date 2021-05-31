@@ -78,6 +78,20 @@
      *
      */
 
+    function get_objects_with_key_value(array $objects, string $match_value, string $match_key) {
+        if (empty($objects) || $match_value === "" || $match_key === "") {
+            return false;
+        }
+
+        $matched_objects = [];
+        foreach ($objects as $object) {
+            if (isset($object[$match_key]) && $object[$match_key] === $match_value) {
+                $matched_objects[] = $object;
+            }
+        }
+        return $matched_objects;
+    }
+
     function match_object_by_value(array $object, string $match_value, string $match_category = "") : bool {
         //If match_category is blank, try to match every objects that has any value of $match_value
         //Otherwise, match specified category with the specified value
