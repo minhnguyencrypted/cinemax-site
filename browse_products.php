@@ -27,8 +27,8 @@
     <link rel="stylesheet" href="pages/products/css/header.css">
     <meta charset="UTF-8">
     <!-- Change the web page title -->
-    <title>BMW R 1250 GS Adventure</title>
-    <link href="css/productpage.css" rel="stylesheet">
+    <title>Browse Products</title>
+    <link href="css/products.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<style>
