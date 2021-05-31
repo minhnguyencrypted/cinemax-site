@@ -1,3 +1,12 @@
+<?php
+	session_start();
+	
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -106,7 +115,7 @@
 					<span>$ 100</span>
 				</p>
 			-->
-			<a href="#">Proceed to Checkout</a>
+			<a href="order_placement_.php">Proceed to Checkout</a>
 		</div>
 	</div>
 </div>

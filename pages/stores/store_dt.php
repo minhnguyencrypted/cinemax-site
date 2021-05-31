@@ -104,7 +104,7 @@
 
                         <h3 class="new-items-price">$ <?=$sorted_by_date_products[$i]['price']?></h3>
 
-                        <a href="bmwr1250gsa.html">
+                        <a href="../../pages/product_detailed/product_dt.php?id=<?= $sorted_by_date_products[$i]['id']?>">
 
                             <div class="new-items-button">
 
@@ -157,7 +157,7 @@
 
                         <h3 class="new-items-price">$ <?=$product['price']?></h3>
 
-                        <a href="bmwr1250gsa.html">
+                        <a href="../../pages/product_detailed/product_dt.php?id=<?= $product['id']?>">
 
                             <div class="new-items-button">
 

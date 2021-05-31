@@ -145,8 +145,8 @@
     </div>
 </body>
 
-<script src="js/CartItems.js"></script>
-<script src="js/webStorage.js"></script>
+<script src="../../js/CartItems.js"></script>
+<script src="../../js/webStorage.js"></script>
 <script>
     //As all items are stored in "items" array, a member of CartItems class (refer to js/CartItems.js)
     //Assign productIndex corresponding to such array's element

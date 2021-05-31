@@ -74,7 +74,7 @@
         <li class="nav-list-item"><a href="aboutus.html">About Us</a></li>
         <li class="nav-list-item"><a href="fees.html">Fees</a></li>
         <li class="nav-list-item"><a href="my_account/my_account.php" id="my_account_button">My Account</a></li>
-        <li class="nav-list-item"><a href="#">Browse</a></li>
+        <li class="nav-list-item"><a href="browse.html">Browse</a></li>
         <li class="nav-list-item"><a href="faq.html">FAQs</a></li>
         <li class="nav-list-item"><a href="contact.html">Contact</a></li>
         <li class="nav-list-item"><a href="my_account/login.php">Login</a></li>
@@ -98,7 +98,7 @@
     ?>
 
         <div class="new-items">
-            <a href="pages/products/rehimalayan.html">
+            <a href="pages/product_detailed/product_dt.php?id=<?= $product['id']?>">
                 <div>
                     <img src="pictures/product_img/foo.png" class="new-items-img" alt="Foo image">
                     <h2 class="new-items-title">
@@ -107,7 +107,7 @@
                 </div>
             </a>
             <h3 class="new-items-price">$ <?=$product['price']?></h3>
-            <a href="pages/products/rehimalayan.html">
+            <a href="pages/product_detailed/product_dt.php?id=<?= $product['id']?>">
                 <div class="new-items-button">
                     <p class="button-name">View product</p>
                 </div>
@@ -201,7 +201,7 @@
     ?>
 
         <div class="new-items">
-            <a href="pages/products/rehimalayan.html">
+            <a href="pages/product_detailed/product_dt.php?id=<?= $product['id']?>">
                 <div>
                     <img src="pictures/product_img/foo.png" class="new-items-img" alt="Foo image">
                     <h2 class="new-items-title">
@@ -212,7 +212,7 @@
                 </div>
             </a>
             <h3 class="new-items-price">$ <?=$sorted_by_date_products[$i]['price']?></h3>
-            <a href="pages/products/rehimalayan.html">
+            <a href="pages/product_detailed/product_dt.php?id=<?= $product['id']?>">
                 <div class="new-items-button">
                     <p class="button-name">View product</p>
                 </div>
