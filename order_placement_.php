@@ -115,9 +115,12 @@
                         <span>$ 100</span>
                     </p>
                 -->
-                <a href="#">Order</a>
-                <br>
-                <a href="#">Continue Shopping</a>
+                <?php if(!isset($_SESSION['user_id']) == true) { ?> 
+                    <!-- Add href to thank you page and products here -->
+                    <a href="proceed to checkout"><p class="button-name">Order</p></a>
+                <?php } else { ?>
+                    <a href="proceed to register page"><p class="button-name">Continue Shopping</p></a>
+                <?php } ?>
             </div>
         </div>
     </div>
