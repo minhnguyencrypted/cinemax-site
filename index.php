@@ -46,7 +46,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/cookies_banner_style.css">
     <link href="css/products.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">

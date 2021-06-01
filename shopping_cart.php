@@ -115,7 +115,7 @@
 					<span>$ 100</span>
 				</p>
 			-->
-			<a href="order_placement_.php">Proceed to Checkout</a>
+			<a href="order_placement.php">Proceed to Checkout</a>
 		</div>
 	</div>
 </div>
