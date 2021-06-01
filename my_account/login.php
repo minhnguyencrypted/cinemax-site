@@ -3,8 +3,9 @@
 	if (isset($_SESSION['user_id'])) {
 		header("Location: my_account.php");
 	}
+
 	require_once($_SERVER['DOCUMENT_ROOT'] . '/php/API/authentication/ShadowFile.php');
-	require_once($_SERVER['DOCUMENT_ROOT'] . '/php/API/data_loader/file_parser.php');
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/php/API/data/file_parser.php');
     use authentication\ShadowFile;
 
     $log_in_credentials_file = new ShadowFile('users');
@@ -37,7 +38,11 @@
 	if ($is_credential_valid) {
 		session_regenerate_id();
 		$_SESSION['user_id'] = get_user_id($email);
-		header("Location: my_account.php");
+		if (isset($_SESSION['src_page'])) {
+            header("Location: " . $_SESSION['src_page']);
+		} else {
+            header("Location: my_account.php");
+		}
 	}
 ?>
 
@@ -76,7 +81,7 @@
                     <li class="nav-list-item"><a href="../faq.html">FAQs</a></li>
                     <li class="nav-list-item"><a href="../contact.html">Contact</a></li>
                     <li class="nav-list-item"><a href="my_account.php">Login</a></li>
-                    <li class="nav-list-item"><a href="signup.html">Sign-up</a></li>
+                    <li class="nav-list-item"><a href="signup.php">Sign-up</a></li>
                 </ul>
             </div>
         </header>

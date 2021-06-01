@@ -1,5 +1,5 @@
 <?php
-    require_once('php/API/data_loader/file_parser.php');
+    require_once('php/API/data/file_parser.php');
 
     //Get data, sorted
     $sorted_stores = read_all_file(STORES_DATA_FILE_PATH);
@@ -91,7 +91,7 @@
 				<li class="nav-list-item"><a href="faq.html">FAQs</a></li>
 				<li class="nav-list-item"><a href="contact.html">Contact</a></li>
 				<li class="nav-list-item"><a href="my_account/login.php">Login</a></li>
-				<li class="nav-list-item"><a href="my_account/signup.html">Sign-up</a></li>
+				<li class="nav-list-item"><a href="my_account/signup.php">Sign-up</a></li>
 				<li class="nav-list-item"><a href="shopping_cart.html">Shopping Cart</a></li>
 
 			</ul>

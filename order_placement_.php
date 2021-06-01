@@ -1,34 +1,34 @@
-
-
+<?php
+	session_start();
+	if (!isset($_SESSION['user_id'])) {
+		$_SESSION['src_page'] = $_SERVER['PHP_SELF'];
+		header("Location: my_account/login.php");
+	}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
-
-
 <head>
-
+	<title>Order</title>
     <meta name="viewport" content="width=device-width, initial-scale= 1.0">
     <link rel="stylesheet" type="text/css" href="order_placement.css">
-    <link rel="stylesheet" type="text/css" href="/pages/products/css/footer.css">
-    <link rel="stylesheet" type="text/css" href="/pages/products/css/header.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <link rel="stylesheet" type="text/css" href="css/header.css">
     <script src="pages/products/js/itemsDom.js"></script>
 	<script src="pages/products/js/webStorage.js"></script>
 	<script src="pages/products/js/cartTotalDom.js"></script>
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-
 <body>
-
     <header id="header_main">
-
         <div class="logo">
             <h1>Mall-site</h1>
         </div>
             <!-- Navigation bar -->
         <div class="nav">
             <ul class="nav-list">
-                <li class="nav-list-item"><a href="index.html">Home</a></li>
+                <li class="nav-list-item"><a href="index.php">Home</a></li>
                 <li class="nav-list-item"><a href="aboutus.html">About Us</a></li>
                 <li class="nav-list-item"><a href="fees.html">Fees</a></li>
                 <li class="nav-list-item"><a href="my_account/my_account.php" id="my_account_button">My Account</a></li>
@@ -36,19 +36,43 @@
                 <li class="nav-list-item"><a href="faq.html">FAQs</a></li>
                 <li class="nav-list-item"><a href="contact.html">Contact</a></li>
                 <li class="nav-list-item"><a href="my_account/login.php">Login</a></li>
-                <li class="nav-list-item"><a href="my_account/signup.html">Sign-up</a></li>
-                <li class="nav-list-item"><a href="shopping_cart.html">Shopping Cart</a></li>
+                <li class="nav-list-item"><a href="my_account/signup.php">Sign-up</a></li>
+                <li class="nav-list-item"><a href="shopping_cart.php">Shopping Cart</a></li>
                 
             </ul>
-
-
         </div>
-
     </header>
-
 
     <div class="container" id="container">
         <h1>Order Placement</h1>
+<?php
+    $items_id = $_SESSION['items_id'] ?? [];
+    if (empty($items_id)) {
+    	echo "<p>Your ordered items list is blank</p>";
+    } else {
+?>
+	    <ul>
+
+<?php
+		$products = read_all_file(PRODUCTS_DATA_FILE_PATH);
+		$items = [];
+		foreach ($items_id as $item_id) {
+			$get_item = get_objects_with_key_value($products, $item_id, 'id');
+			if (!empty($get_item)) {
+				$items[] = $get_item[0];
+			}
+		}
+		foreach ($items as $item) {
+?>
+			<li>
+				<p><?=$item['name']?></p>
+				<p><?=$item['price']?></p>
+			</li>
+<?php
+		}
+    }
+?>
+	    </ul>
         <!--
         <div id="discountCodeField">
             <label>
@@ -59,14 +83,6 @@
             <p id="discountCodeCheckResult"></p>
         </div>
         -->
-        <script>
-            //If your cart is not empty and logged in, display the discount field
-            let cartItemsCount = JSON.parse(localStorage.getItem("totalItemCount"));
-            if (cartItemsCount) {
-                const discountCodeInputFieldParent = document.getElementById("container");
-                discountCodeInputFieldParent.appendChild(discountCodeFieldDomObjConstructor());
-            }
-        </script>
         <br>
         <div class="cart">
             <div class="items" id="itemList">
@@ -93,17 +109,6 @@
                 </script>
             </div>
             <div class="cart_total" id="cartTotal">
-                <script>
-                    let cartTotalDiv = document.getElementById("cartTotal");
-                    //Retrieve Total Price and number of items
-                    let totalPrice = localStorage.getItem("totalPrice") ?
-                            localStorage.getItem("totalPrice") : 0;
-                    let totalItemCount = localStorage.getItem("totalItemCount") ?
-                            localStorage.getItem("totalItemCount") : 0;
-                    //Append Total Price
-                    cartTotalDiv.appendChild(cartTotalPriceDomObjConstructor(reformatPrice(totalPrice)));
-                    cartTotalDiv.appendChild(cartNumberOfItemsDomObjConstructor(totalItemCount));
-                </script>
                 <!--
                     <p>
                         <span>Total Price</span>
@@ -118,9 +123,8 @@
                         <span>$ 100</span>
                     </p>
                 -->
-                <?php if(!isset($_SESSION['user_id']) == true) { ?> 
+                <?php if(isset($_SESSION['user_id'])) { ?>
                     <!-- Add href to thank you page and products here -->
-<html lang="en">
                     <a href="thanks.php"><p class="button-name">Order</p></a>
                 <?php } else { ?>
                     <a href="proceed to register page"><p class="button-name">Continue Shopping</p></a>

@@ -1,10 +1,11 @@
 <?php
 	session_start();
 	if (!isset($_SESSION['user_id'])) {
+		$_SESSION['src_page'] = $_SERVER['PHP_SELF'];
 		header("Location: login.php");
 	}
 
-	require_once($_SERVER['DOCUMENT_ROOT'] . '/php/API/data_loader/file_parser.php');
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/php/API/data/file_parser.php');
 	$user_info = read_file_match_value(USERS_INFO_FILE_PATH,$_SESSION['user_id'],'user_id');
 	$user_info = is_array($user_info) ? $user_info[0] : [];
 	//Retrieving store data
@@ -50,7 +51,7 @@
                     <li class="nav-list-item"><a href="../faq.html">FAQs</a></li>
                     <li class="nav-list-item"><a href="../contact.html">Contact</a></li>
                     <li class="nav-list-item"><a href="login.php">Login</a></li>
-                    <li class="nav-list-item"><a href="signup.html">Sign-up</a></li>
+                    <li class="nav-list-item"><a href="signup.php">Sign-up</a></li>
                   </ul>
               </div>
           </header>

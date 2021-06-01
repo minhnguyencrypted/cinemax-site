@@ -1,5 +1,5 @@
 # file_parser header file
-File name: [file_parser.php](../data_loader/file_parser.php)
+File name: [file_parser.php](../data/file_parser.php)
 
 The `file_parser` header provides utility functions for reading and filtering data from CSV file.  
 This header includes the functionality to retrieve the pre-defined fields written on the very top of the file, and

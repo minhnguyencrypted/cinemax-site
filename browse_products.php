@@ -1,6 +1,6 @@
 <?php
 	//Retrieve products from file
-	require_once($_SERVER['DOCUMENT_ROOT'] . '/php/API/data_loader/file_parser.php');
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/php/API/data/file_parser.php');
 	$sorted_products_by_date = sort_by_category(read_all_file(PRODUCTS_DATA_FILE_PATH),'created_time',false);
 
 	//Get current page number

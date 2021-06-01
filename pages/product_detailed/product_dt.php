@@ -1,16 +1,6 @@
 <?php
     session_start();
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/php/API/data_loader/file_parser.php');
-
-//    define('STORES_DATA_FILE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/data/stores.csv');
-//    define('PRODUCTS_DATA_FILE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/data/products.csv');
-//    define('CATEGORIES_DATA_FILE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/data/categories.csv');
-
-
-//    $products = read_all_file(PRODUCTS_DATA_FILE_PATH);
-//    $stores = read_all_file(STORES_DATA_FILE_PATH);
-//    $categories = read_all_file(CATEGORIES_DATA_FILE_PATH);
-
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/php/API/data/file_parser.php');
 
     //get the product id
     $product_id = $_GET['id'] ?? '';
@@ -64,20 +54,7 @@
 				<h2 class="pTitle">
                     <?=$product['name']?>
 				</h2>
-
-				<div class="product-description">
-					<p>
-						A Boxer engine powered Adventure motorcycle<br>
-						distributed by BMW Motorrad Vietnam<br> <br>
-					</p>
-					<ul>
-						<li>Engine: 4-stroke, DOHC, 1258cc Twin Boxer with BMW ShiftCam technology</li>
-						<li>Max Torque: 142.36Nm @ 6250RPM</li>
-						<li>Max Power: 136HP @ 7750RPM</li>
-						<li>Fuel capacity: 30 litres</li>
-					</ul>
-
-				</div>
+				<br>
 				<p class="pPrice">$<?=$product['price']?></p>
 				<div class="buy-button" >
                     <?php if(!isset($_SESSION['user_id']) == true) { ?> 

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/php/API/data_loader/file_parser.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/php/API/data/file_parser.php');
 
     // define the const
     define('STORES_DATA_FILE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/data/stores.csv');
@@ -40,13 +40,6 @@
 
     //get the sorted by time products
     $sorted_by_date_products = sort_by_category($products, 'created_time', false);
-
-   
-
-
-    
-    
-
 ?>
 
 
@@ -78,7 +71,7 @@
         <li class="nav-list-item"><a href="faq.html">FAQs</a></li>
         <li class="nav-list-item"><a href="contact.html">Contact</a></li>
         <li class="nav-list-item"><a href="my_account/login.php">Login</a></li>
-        <li class="nav-list-item"><a href="my_account/signup.html">Sign-up</a></li>
+        <li class="nav-list-item"><a href="my_account/signup.php">Sign-up</a></li>
         <li class="nav-list-item"><a href="shopping_cart.html">Shopping Cart</a></li>
 
     </ul>

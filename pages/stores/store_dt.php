@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/php/API/data_loader/file_parser.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/php/API/data/file_parser.php');
 
     define('STORES_DATA_FILE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/data/stores.csv');
     define('PRODUCTS_DATA_FILE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/data/products.csv');
