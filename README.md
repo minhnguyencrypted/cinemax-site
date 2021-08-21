@@ -1,7 +1,14 @@
+## Project no longer active  
+Proposed future upgrades and portings:
+* Port the back-end PHP code to Rust or Python
+* Transfer the current CSV-based data to SQL databases (or non-SQL)
+* Upgrade front-end looks
+* Who's interested in WASM btw?
+
 # The Mall website
 The Group no. 25's Mall website.  
 The World-biggest Online Mall for shoppers and sellers all around the world.  
-Vist our website here: [Foo Mall](https://minhnguyencrypted.github.io/mall-site/) 
+Vist our website here: [Foo Mall](https://minhnguyencrypted.github.io/mall-site/) (GitHub page is **disabled**, site no longer accessible)
 
 Note: this is not an actual business, this is a part of RMIT Web Programming course group project.
 
