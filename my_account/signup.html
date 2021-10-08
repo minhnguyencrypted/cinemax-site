@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Signup Page</title>
+	<meta name="description" content="The HTML5 Herald">
+	<meta name="author" content="SitePoint">
+	<link rel="stylesheet" type="text/css"
+	      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/css.css">
+	<link rel="stylesheet" href="css/Thinh_footer_style.css">
+	<link rel="stylesheet" href="css/header.css">
+
+</head>
+
+<body>
+<!-- Set Index page title here -->
+<header id="header_main">
+	<title>Foo Mall</title>
+	
+	<!-- Set page logo here -->
+	<div class="logo">
+		<h1>Mall-site</h1>
+	</div>
+	<!-- Navigation bar -->
+	<div class="nav">
+		<ul class="nav-list">
+			<li class="nav-list-item"><a href="../index.php">Home</a></li>
+			<li class="nav-list-item"><a href="../aboutus.html">About Us</a></li>
+			<li class="nav-list-item"><a href="../fees.html">Fees</a></li>
+			<li class="nav-list-item"><a href="#" id="my_account_button">My Account</a></li>
+			<li class="nav-list-item"><a href="#">Browse</a></li>
+			<li class="nav-list-item"><a href="../faq.html">FAQs</a></li>
+			<li class="nav-list-item"><a href="../contact.html">Contact</a></li>
+			<li class="nav-list-item"><a href="login.php">Login</a></li>
+			<li class="nav-list-item"><a href="<?=$_SERVER['PHP_SELF']?>">Sign-up</a></li>
+		</ul>
+	</div>
+</header>
+
+<div class='content'>
+	<h2 class='header'>Sign up your new account</h2>
+	<div class="container">
+		<p><strong>Main information :</strong></p>
+		<form method="POST" action="<?=$_SERVER['PHP_SELF']?>" class='form' id="signup_form">
+			<div class="row form-control">
+				<div class="col-25">
+					<label for="email">Email :</label>
+				</div>
+				<div class="col-75">
+					<input type="text" id="email" name="email" placeholder="Your email">
+				</div>
+			</div>
+
+			<div class="row form-control">
+				<div class="col-25">
+					<label for="password">Password :</label>
+				</div>
+				<div class="col-75">
+					<input type="text" id="password" name="password" placeholder="Your password..">
+				</div>
+			</div>
+
+			<div class="row form-control">
+				<div class="col-25">
+					<label for="retype_password">Retype Password :</label>
+				</div>
+				<div class="col-75">
+					<input type="text" id="retype_password" name="retype_password" placeholder="Please retype your password..">
+				</div>
+			</div>
+
+			<div class="row form-control">
+				<input type="submit" class='submit_button' value="Submit">
+			</div>
+	</div>
+	
+	</form>
+</div>
+</div>
+<!--THINH'S COOKIES BANNER-->
+
+<div id="cookie">
+	<div class="cookie-container">
+		<p>My website uses cookies necessary for its basic functioning. By continuing browsing, you consent to my use of
+			cookies and other technologies.</p>
+		
+		
+		<button class="cookie-button">
+			Okay
+		</button>
+		
+		<a href="https://gdpr-info.eu/">Learn more</a>
+	</div>
+</div>
+
+<!--//THINH'S COOKIES BANNER-->
+<div class="footer">
+	<ul>
+		<div class="footer_content">
+			
+			<div class="footer_content_policies">
+				<li>
+					<p><a href="Thinh_policies.htmnl">Policies</a>
+					</p>
+				</li>
+				
+				<br><br>
+			</div>
+			
+			<div class="footer_content_faq">
+				<li>
+					<p><a href="Thinh_faq.html">FAQ</a>
+					</p>
+				</li>
+				<br></br>
+			</div>
+	
+	</ul>
+	<div class="copyright">
+		<small>Copyright &copy; 2021, Nhat Dang Nguyen, Hien Cong Gia Nguyen, Minh Nhat Nguyen and Thinh Hung
+			Huynh</small>
+	
+	</div>
+
+
+</div>
+
+<!--//footer-->
+<!--<script type="text/javascript" src="../js/hien_nguyen_signup_validation.js"></script>-->
+
+<script type="text/javascript" src="../js/hien_nguyen_validation.js"></script>
+<script>
+    var signup_store_owner = document.querySelector('#signup_form #store_owner');
+    var signup_shopper = document.querySelector('#signup_form #shopper');
+    var signup_store_owner_section = document.querySelector('.store_owner_section');
+    signup_shopper.addEventListener('click', () => {
+        signup_store_owner_section.style.visibility = 'hidden';
+    });
+
+    signup_store_owner.addEventListener('click', () => {
+        signup_store_owner_section.style.visibility = 'visible';
+    });
+
+    const cookieBanner = document.querySelector(".cookie-container");
+    const acceptButton = document.querySelector(".cookie-button");
+
+
+    acceptButton.addEventListener("click", () => {
+        cookieBanner.classList.remove("active");
+        localStorage.setItem("cookieBannerDisplayed", "true");
+    });
+
+    setTimeout(() => {
+        if (!localStorage.getItem("cookieBannerDisplayed")) {
+            cookieBanner.classList.add("active");
+        }
+    }, 2000);
+
+
+</script>
+</body>
+</html>

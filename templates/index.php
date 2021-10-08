@@ -1,48 +1,3 @@
-<?php
-    session_start();
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/php/API/data/file_parser.php');
-
-    // define the const
-    define('STORES_DATA_FILE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/data/stores.csv');
-    define('PRODUCTS_DATA_FILE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/data/products.csv');
-    define('CATEGORIES_DATA_FILE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/data/categories.csv');
-
-
-    $products = read_all_file(PRODUCTS_DATA_FILE_PATH);
-    $stores = read_all_file(STORES_DATA_FILE_PATH);
-    $categories = read_all_file(CATEGORIES_DATA_FILE_PATH);
-
-
-    //get the featured products
-    $featured_products = [];
-    foreach ($products as $product) {
-        if (match_object_by_value($product,'TRUE','featured_in_mall')) {
-            if(count($featured_products) < 10) {
-                $featured_products[] = $product;
-            }
-            
-        }
-    }
-    //get the featured stores
-    
-    $featured_stores = [];
-    foreach ($stores as $store) {
-        if (match_object_by_value($store, 'TRUE', 'featured') === true) {
-            if(count($featured_stores) < 10) {
-                $featured_stores[] = $store;
-            }
-        }
-    }
-    
-
-    //get the sorted by time stores
-    $sorted_by_date_stores = sort_by_category($stores, 'created_time', false);
-
-    //get the sorted by time products
-    $sorted_by_date_products = sort_by_category($products, 'created_time', false);
-?>
-
-
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -84,11 +39,6 @@
         Featured Products
     </h1>
 
-    <?php
-
-    foreach($featured_products as $product) {
-
-    ?>
 
         <div class="new-items">
             <a href="pages/product_detailed/product_dt.php?id=<?= $product['id']?>">
@@ -124,12 +74,6 @@
    
 <!--THINH's STORE SECTION-->
     <div id="New_stores">
-
-        
-
-        
-
-
     </div>
 
     <div id="Featured_Stores">
