@@ -1,51 +1,40 @@
-## Project no longer active  
-Proposed future upgrades and portings:
-* Rewrite Back-end code in Python with Flask
-* Transfer the current CSV-based data to SQL databases (MariaDB)
-* Upgrade front-end looks (W3.CSS so far)
-* Who's interested in WASM btw?
-
 # The Mall website
 The Group no. 25's Mall website.  
 The World-biggest Online Mall for shoppers and sellers all around the world.  
 Vist our website here: [Foo Mall](https://minhnguyencrypted.github.io/mall-site/) (GitHub page is **disabled**, site no longer accessible)
 
-Note: this is not an actual business, this is a part of RMIT Web Programming course group project.
+Just kidding, this is just a university group project.
 
-## Getting the project
-On your computer, go to your desired location then execute this command:
+## What is this?
+This originally was group project in RMIT's Web Programming course.   
+We were tasked to write a basic shopping mall website, with HTML, CSS, Vanilla JS and PHP.
+We couldn't come up with any name for it, so we called it "Mall site".
 
-```
-git clone https://github.com/minhnguyencrypted/mall-site
-```
-If you cannot execute the command above, click on the green **Code** button above and choose **Download ZIP**.
+Upon the completion of the course, I decided to learn new languages (Rust and Python) to learn Back-end stuff.
 
-## Testing the site (outdated)
-To run tests, you should use **Web Server**, our suggestion is **Apache**, with PHP integration, for
-our future PHP implementations.
-Copy all files and directories of the project to your Web Server's **Document root location**.
+Then I decided to rewrite this project to add some upgrades and improvements, such as Log in system,
+integration with DBMS, better front-end looking, etc for practising. Eventually I chose to use Python, with Flask framework for back-end,
+MariaDB for database and W3.CSS for some basic front-end improvements (I'm suck @ front-end actually).
 
-With the Web Server running, on your web browser, go to `localhost` or `127.0.0.1` to see the site.
+## Why am I doing this?
+First, I have to admit we wrote a crappy website. The back-end wasn't well written since we had some troubles
+while writing it.
+The lack of proper data management resulted in more difficulties in implementing data handling. 
+Specifically, our data (products, shops, etc.) which add up to over thousands of items were stored in several CSV files.
+This made the data processing task even more complicated and prone to errors. 
+Code organisation and writing style were really bad, fixing bugs and adding more feature were a big challenge.
+Rewriting in a back-end framework and practice a good code convention can improve the codes and packages organisation
+and get rid of messy code, results in more ease in maintaining and upgrading.
 
-For HTML files, you can directly view them using your web browser, however, some PHP integrations won't work and  
-may cause errors.
+Second, the front-end sucks. HTML files, as well as CSS files and JS code were poorly written by everyone, including me.
+Why? My major excuse is I'm suck @ front-end. TBH, upon the rewriting, I have no ideas about how to improvement the front-end of the website.
+So, I decided to use W3.CSS and not touching JS.
 
-## Contributing to our project
-You are very welcomed to contribute to our project. See `CONTRIBUTING.md` file for our guidelines to contributions.  
-Make sure you follow the code style guidelines described in `*_STYLES.md` files. 
-
-If you find any issues, feel free to start an issue on the **Issues** section, please write as much
-detail as you know.  
-You may refer to the location of the code that causes the issue, if you found
-it.
-
-Looking forwards for your contributions.
-
-## Copyright and License
-Copyright (c) 2021 Group no. 25:
+## Written by
+Originally written by Group no. 25:
 * Nhat Dang Nguyen
 * Hien Cong Gia Nguyen
 * Minh Nhat Nguyen
 * Thinh Hung Huynh
 
-Licensed under MIT license, see [LICENSE](LICENSE) for more details.
+Rewritten and currently maintained by Minh Nguyen
