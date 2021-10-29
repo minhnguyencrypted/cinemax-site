@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            {% block css_styles %}{% endblock %}
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Mall | {% block title %}{% endblock %}</title>
+
+        <!-- W3.CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/w3.css') }}">
+        {% block css_links %}{% endblock %}
+    </head>
+
+    <body>
+        <div class="w3-container">
+            <h1>Name of the mall</h1>
+        </div>
+        <div class="w3-bar w3-black">
+            <a href="{{ url_for('main.index') }}" class="w3-bar-item w3-button w3-mobile">Home</a>
+            <a href="#" class="w3-bar-item w3-button w3-mobile">Browse</a>
+            <a href="#" class="w3-bar-item w3-button w3-mobile">Shopping cart</a>
+
+            <a href="{{ url_for('auth.login') }}" class="w3-bar-item w3-button w3-right">Login</a>
+            <a href="#" class="w3-bar-item w3-button w3-right">Sign Up</a>
+            <!--            <li class="nav-list-item"><a href="fees.html">Fees</a></li>-->
+    <!--            <li class="nav-list-item"><a href="browse.html">Browse</a></li>-->
+    <!--            <li class="nav-list-item"><a href="faq.html">FAQs</a></li>-->
+    <!--            <li class="nav-list-item"><a href="contact.html">Contact</a></li>-->
+    <!--            <li class="nav-list-item"><a href="my_account/login.php">Login</a></li>-->
+    <!--            <li class="nav-list-item"><a href="my_account/signup.php">Sign-up</a></li>-->
+    <!--            <li class="nav-list-item"><a href="shopping_cart.html">Shopping Cart</a></li>-->
+        </div>
+        {% block contents %}{% endblock %}
+    </body>
+</html>

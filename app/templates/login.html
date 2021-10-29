@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block title %}Log In{% endblock %}
+{% block contents %}
+    <div class="w3-container w3-third">
+        <h3>Log in to your account</h3>
+        <form method="POST" class="w3-container w3-card">
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.email.label(class_='w3-text-blue') }}{{ form.email(class_='w3-input w3-border w3-round') }}
+            <p>
+                {{ form.password.label(class_='w3-text-blue') }}{{ form.password(class_='w3-input w3-border w3-round') }}
+            <p>
+                {{ form.remember(class_='w3-check') }}{{ form.remember.label(class_='w3-text-blue w3-margin-left') }}
+            </p>
+            {{ form.submit(class_='w3-button w3-round w3-blue w3-margin-bottom') }}
+            {% for message in get_flashed_messages() %}
+            <p class="w3-right w3-text-red" style="display: inline">{{ message }}</p>
+            {% endfor %}
+        </form>
+    </div>
+{% endblock %}
