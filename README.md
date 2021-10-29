@@ -1,8 +1,8 @@
 ## Project no longer active  
 Proposed future upgrades and portings:
-* Port the back-end PHP code to Rust or Python
-* Transfer the current CSV-based data to SQL databases (or non-SQL)
-* Upgrade front-end looks
+* Rewrite Back-end code in Python with Flask
+* Transfer the current CSV-based data to SQL databases (MariaDB)
+* Upgrade front-end looks (W3.CSS so far)
 * Who's interested in WASM btw?
 
 # The Mall website
@@ -20,7 +20,7 @@ git clone https://github.com/minhnguyencrypted/mall-site
 ```
 If you cannot execute the command above, click on the green **Code** button above and choose **Download ZIP**.
 
-## Testing the site
+## Testing the site (outdated)
 To run tests, you should use **Web Server**, our suggestion is **Apache**, with PHP integration, for
 our future PHP implementations.
 Copy all files and directories of the project to your Web Server's **Document root location**.
@@ -48,5 +48,4 @@ Copyright (c) 2021 Group no. 25:
 * Minh Nhat Nguyen
 * Thinh Hung Huynh
 
-Licensed under MIT license, see [LICENSE](LICENSE) for more details.\
-For individual team members' contribution, see [MEMBERS_CONTRIBUTIONS](MEMBERS_CONTRIBUTIONS.md).
+Licensed under MIT license, see [LICENSE](LICENSE) for more details.
