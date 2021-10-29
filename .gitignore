@@ -1,5 +1,5 @@
 .idea/
-tests/
 tests.php
 test.php
 /venv/
+env.sh
