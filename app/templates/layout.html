@@ -2,6 +2,9 @@
 <html lang="en">
     <head>
         <style>
+            .mall_name {
+                text-decoration: none;
+            }
             {% block css_styles %}{% endblock %}
         </style>
         <meta charset="UTF-8">
@@ -15,15 +18,25 @@
 
     <body>
         <div class="w3-container">
-            <h1>Name of the mall</h1>
+            <h1><a href="{{ url_for('main.index') }}" class="mall_name">Mall site</a></h1>
         </div>
         <div class="w3-bar w3-black">
             <a href="{{ url_for('main.index') }}" class="w3-bar-item w3-button w3-mobile">Home</a>
             <a href="#" class="w3-bar-item w3-button w3-mobile">Browse</a>
             <a href="#" class="w3-bar-item w3-button w3-mobile">Shopping cart</a>
 
-            <a href="{{ url_for('auth.login') }}" class="w3-bar-item w3-button w3-right">Login</a>
-            <a href="#" class="w3-bar-item w3-button w3-right">Register</a>
+            {% if current_user.is_authenticated %}
+                <div class="w3-dropdown-hover w3-right">
+                    <a href="#" class="w3-button">Your account: {{ current_user.username }}</a>
+                    <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                        <a href="#" class="w3-bar-item w3-button w3-hover-red">Log out</a>
+                    </div>
+                </div>
+
+            {% else %}
+                <a href="{{ url_for('auth.login') }}" class="w3-bar-item w3-button w3-right">Login</a>
+                <a href="#" class="w3-bar-item w3-button w3-right">Register</a>
+            {% endif %}
             <!--            <li class="nav-list-item"><a href="fees.html">Fees</a></li>-->
     <!--            <li class="nav-list-item"><a href="browse.html">Browse</a></li>-->
     <!--            <li class="nav-list-item"><a href="faq.html">FAQs</a></li>-->
