@@ -16,6 +16,6 @@ def login():
             if next_ is None or not next_.startswith('/'):
                 next_ = url_for('main.index')
             return redirect(next_)
+        flash('Incorrect email or password')
 
-    flash('Invalid email or password')
     return render_template('login.html', form=form)

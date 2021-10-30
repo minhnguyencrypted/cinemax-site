@@ -7,8 +7,14 @@
             {{ form.hidden_tag() }}
             <p>
                 {{ form.email.label(class_='w3-text-blue') }}{{ form.email(class_='w3-input w3-border w3-round') }}
+                {% for error in form.email.errors %}
+                    <p class="w3-text-red">{{ error }}</p>
+                {% endfor %}
             <p>
                 {{ form.password.label(class_='w3-text-blue') }}{{ form.password(class_='w3-input w3-border w3-round') }}
+                {% for error in form.password.errors %}
+                    <p class="w3-text-red">{{ error }}</p>
+                {% endfor %}
             <p>
                 {{ form.remember(class_='w3-check') }}{{ form.remember.label(class_='w3-text-blue w3-margin-left') }}
             </p>
