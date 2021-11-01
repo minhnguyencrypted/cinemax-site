@@ -1,5 +1,5 @@
 from flask import render_template, redirect, url_for, flash, request
-from flask_login import login_user
+from flask_login import login_user, logout_user
 from app.forms import LoginForm
 from app.models import User
 from . import auth_bp
@@ -19,3 +19,9 @@ def login():
         flash('Incorrect email or password')
 
     return render_template('login.html', form=form)
+
+
+@auth_bp.route('/log-out')
+def logout():
+    logout_user()
+    return redirect(url_for('main.index'))
