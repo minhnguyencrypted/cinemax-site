@@ -1,27 +1,29 @@
 {% extends 'layout.html' %}
 {% block title %}Log In{% endblock %}
 {% block contents %}
-    <div class="w3-container w3-third">
-        <h3>Log in to your account</h3>
-        <form method="POST" class="w3-container w3-card">
-            {{ form.hidden_tag() }}
-            <p>
+    <div class="w3-display-container">
+        <div class="w3-display-topmiddle w3-display-container w3-half">
+            <h1 class="w3-padding-top-24">Log in to your account</h1>
+            <form method="POST" class="w3-half">
+                {{ form.hidden_tag() }}
+
                 {{ form.email.label(class_='w3-text-blue') }}{{ form.email(class_='w3-input w3-border w3-round') }}
                 {% for error in form.email.errors %}
                     <p class="w3-text-red">{{ error }}</p>
                 {% endfor %}
-            <p>
+
                 {{ form.password.label(class_='w3-text-blue') }}{{ form.password(class_='w3-input w3-border w3-round') }}
                 {% for error in form.password.errors %}
                     <p class="w3-text-red">{{ error }}</p>
                 {% endfor %}
-            <p>
+                <p>
                 {{ form.remember(class_='w3-check') }}{{ form.remember.label(class_='w3-text-blue w3-margin-left') }}
-            </p>
-            {{ form.submit(class_='w3-button w3-round w3-blue w3-margin-bottom') }}
-            {% for message in get_flashed_messages() %}
-                <p class="w3-right w3-text-red" style="display: inline">{{ message }}</p>
-            {% endfor %}
-        </form>
+                <p>
+                {{ form.submit(class_='w3-button w3-round w3-blue w3-margin-bottom') }}
+                {% for message in get_flashed_messages() %}
+                    <p class="w3-right w3-text-red" style="display: inline">{{ message }}</p>
+                {% endfor %}
+            </form>
+        </div>
     </div>
 {% endblock %}
