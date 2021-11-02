@@ -1,5 +1,3 @@
-import unittest
-from re import fullmatch
 from unittest import TestCase
 from app import create_app, db
 from app.forms import LoginForm, SignUpForm

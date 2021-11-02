@@ -3,6 +3,7 @@ from wtforms import StringField, PasswordField, SubmitField, BooleanField
 from wtforms.validators import DataRequired, Email, Length, EqualTo, Regexp, ValidationError
 from app.models import User
 
+
 class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[
@@ -22,7 +23,6 @@ class SignUpForm(FlaskForm):
     password = PasswordField('Password', [DataRequired(), Length(8, message='Password is too short')])
     confirm_password = PasswordField('Confirm password', [
         DataRequired(),
-        Length(8),
         EqualTo('password', message='Passwords don\'t match')
     ])
     submit = SubmitField('Sign Up')

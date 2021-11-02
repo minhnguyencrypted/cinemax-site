@@ -5,10 +5,14 @@ from app import create_app, db
 from app.models import User
 
 
-class ViewTestCase(TestCase):
+class LoginTestCase(TestCase):
     def setUp(self) -> None:
         self.app = create_app(TESTING=True, WTF_CSRF_ENABLED=False)
-        self.user = User(username='Tester', email='test@test.com', password='testtest')
+        self.user = User(
+            username='Tester',
+            email='test@test.com',
+            password='testtest'
+        )
         db.session.add(self.user)
         db.session.commit()
 

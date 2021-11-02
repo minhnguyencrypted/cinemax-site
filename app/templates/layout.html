@@ -35,7 +35,7 @@
 
             {% else %}
                 <a href="{{ url_for('auth.login') }}" class="w3-bar-item w3-button w3-right">Login</a>
-                <a href="#" class="w3-bar-item w3-button w3-right">Register</a>
+                <a href="{{ url_for('auth.signup') }}" class="w3-bar-item w3-button w3-right">Sign Up</a>
             {% endif %}
         </div>
         {% block contents %}{% endblock %}
