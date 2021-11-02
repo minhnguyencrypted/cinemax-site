@@ -9,13 +9,14 @@ migrate = Migrate(app, db)
 @app.shell_context_processor
 def shell_context():
     from app.models import User
-    from app.forms import LoginForm
+    from app.forms import LoginForm, SignUpForm
 
-    return {
-        'db': db,
-        'User': User,
-        'LoginForm': LoginForm
-    }
+    return dict(
+        db=db,
+        User=User,
+        LoginForm=LoginForm,
+        SignUpForm=SignUpForm
+    )
 
 
 @app.cli.command()
