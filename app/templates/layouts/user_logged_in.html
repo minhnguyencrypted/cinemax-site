@@ -1,0 +1,11 @@
+{% extends 'layouts/general.html' %}
+{% block title %}You're Logged in{% endblock %}
+{% block contents %}
+    <div class="w3-display-container">
+        <div class="w3-display-topmiddle w3-half w3-margin-top">
+            <h1>Hi, {{ name }}!</h1>
+            <p>It looks like you are logged in to your account</p>
+            {% block message %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}

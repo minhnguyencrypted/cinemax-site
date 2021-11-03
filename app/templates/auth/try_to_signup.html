@@ -1,0 +1,6 @@
+{% extends 'layouts/user_logged_in.html' %}
+{% block message %}
+    <p>Wanna sign up a new account?
+        Click <a href="{{ url_for('auth.logout', redirect='/sign-up') }}">here</a> to logout and we'll let you sign up.
+    </p>
+{% endblock %}
