@@ -3,6 +3,7 @@ from flask import url_for
 from flask_login import current_user
 from app import create_app, db
 from app.models import User
+from app.auth.views import validate_url
 
 
 class LoginTestCase(TestCase):
@@ -56,3 +57,15 @@ class LoginTestCase(TestCase):
             ))
             c.get('/log-out')
             self.assertFalse(current_user.is_authenticated)
+
+    def test_url_validator(self):
+        self.assertEqual(validate_url('/log-in'), '/log-in')
+        self.assertEqual(validate_url('google.com/log-in'), '/')
+        self.assertEqual(validate_url(None), '/')
+
+    def test_logout_redirect(self):
+        with self.app.test_client() as c:
+            r = c.get('/log-out?redirect=/log-in')
+            sv_name = self.app.config.get('SERVER_NAME') or 'localhost'
+            self.assertEqual(r.status_code, 302)
+            self.assertEqual(r.location, f'http://{sv_name}/log-in')
