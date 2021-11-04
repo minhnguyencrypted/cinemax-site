@@ -20,24 +20,34 @@
         <div class="w3-container">
             <h1><a href="{{ url_for('main.index') }}" class="mall_name">Mall site</a></h1>
         </div>
-        <div class="w3-bar w3-black">
+        <div class="w3-bar w3-dark-gray">
             <a href="{{ url_for('main.index') }}" class="w3-bar-item w3-button w3-mobile">Home</a>
             <a href="#" class="w3-bar-item w3-button w3-mobile">Browse</a>
             <a href="#" class="w3-bar-item w3-button w3-mobile">Shopping cart</a>
 
             {% if current_user.is_authenticated %}
                 <div class="w3-dropdown-hover w3-right">
-                    <a href="#" class="w3-button">Your account: {{ current_user.username }}</a>
-                    <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                        <a href="{{ url_for('auth.logout') }}" class="w3-bar-item w3-button w3-hover-red">Log out</a>
+                    <button class="w3-button">Your account: {{ current_user.username }}</button>
+                    <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-right">
+                        <a href="#" class="w3-bar-item w3-button w3-hover-red w3-mobile">Account settings</a>
+                        <a href="{{ url_for('auth.logout') }}" class="w3-bar-item w3-button w3-hover-red w3-mobile">Log out</a>
                     </div>
                 </div>
 
             {% else %}
-                <a href="{{ url_for('auth.login') }}" class="w3-bar-item w3-button w3-right">Login</a>
-                <a href="{{ url_for('auth.signup') }}" class="w3-bar-item w3-button w3-right">Sign Up</a>
+                <div class="w3-dropdown-hover w3-right">
+                    <button class="w3-button w3-hover-blue w3-blue">Log In or Sign Up</button>
+                    <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                        <a href="{{ url_for('auth.login') }}" class="w3-bar-item w3-button w3-right w3-mobile">Login</a>
+                        <a href="{{ url_for('auth.signup') }}" class="w3-bar-item w3-button w3-right w3-mobile">Sign Up</a>
+                    </div>
+                </div>
             {% endif %}
         </div>
-        {% block contents %}{% endblock %}
+        <div class="w3-display-container">
+            <div class="w3-display-topmiddle w3-half w3-margin-top">
+                {% block contents %}{% endblock %}
+            </div>
+        </div>
     </body>
 </html>
