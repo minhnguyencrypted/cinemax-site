@@ -17,11 +17,3 @@ def shell_context():
         LoginForm=LoginForm,
         SignUpForm=SignUpForm
     )
-
-
-@app.cli.command()
-def test():
-    from unittest import TestLoader, TextTestRunner
-
-    tests = TestLoader().discover('tests')
-    TextTestRunner(verbosity=2).run(tests)
