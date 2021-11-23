@@ -1,6 +1,6 @@
 import pytest
 from app import db
-from app.models import User
+from app.models.user_account import User
 from flask_login import current_user
 
 pytestmark = pytest.mark.filterwarnings('ignore::sqlalchemy.exc.SAWarning')
