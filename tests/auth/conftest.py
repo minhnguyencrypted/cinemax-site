@@ -4,11 +4,6 @@ from app.models.user_account import User
 
 
 @pytest.fixture
-def app():
-    return create_app(TESTING=True, WTF_CSRF_ENABLED=False)
-
-
-@pytest.fixture
 def user():
     return User(
         username='Tester',

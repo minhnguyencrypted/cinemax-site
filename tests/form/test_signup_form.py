@@ -1,6 +1,6 @@
 import pytest
 from app import create_app, db
-from app.models import User
+from app.models.user_account import User
 from app.forms import SignUpForm
 
 
